@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+	"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+<session-factory>
+	<property name="connection.driver_class">oracle.jdbc.driver.OracleDriver</property>
+	<property name="connection.url">jdbc:oracle:thin:@127.0.0.1:1521:xe</property>
+	<property name="connection.username">lulu</property>
+	<property name="connection.password">123</property>
+	<property name="dialect">org.hibernate.dialect.OracleDialect</property>
+	<!-- 根据映射文件自动创建表（第一次创建，以后是修改） -->
+	<property name="show_sql">true</property>
+	<property name="hbm2ddl.auto">update</property>
+	<!-- 配置映射文件 -->
+	<!--<mapping resource="entity/Administrator.hbm.xml"/>
+		<mapping resource="entity/ArrangeSchedual.hbm.xml"/>
+		<mapping resource="entity/Driver.hbm.xml"/>
+		<mapping resource="entity/Employee.hbm.xml"/>
+		<mapping resource="entity/Exchange.hbm.xml"/>
+
+	<mapping resource="entity/Executives.hbm.xml" />
+	<mapping resource="entity/Passenger.hbm.xml"/>
+		<mapping resource="entity/Route.hbm.xml"/>
+		<mapping resource="entity/ScheduledBus.hbm.xml"/>
+		<mapping resource="entity/Site.hbm.xml"/>-->
+
+</session-factory>
+</hibernate-configuration>

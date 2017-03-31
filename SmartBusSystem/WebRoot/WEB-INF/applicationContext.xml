@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+	
+	<bean id="candy" class="org.apache.commons.dbcp.BasicDataSource">
+		<property name="driverClassName"
+			value="oracle.jdbc.driver.OracleDriver">
+		</property>
+		<property name="url"
+			value="jdbc:oracle:thin:@111.0.224.247:1521:xe">
+		</property>
+		<property name="username" value="lulu"></property>
+		<property name="password" value="123"></property>
+	</bean> 
+	
+	<bean id="sessionFactory"
+		class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+		<property name="dataSource">
+			<ref bean="candy" />
+		</property>
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">
+					org.hibernate.dialect.OracleDialect
+				</prop>
+			</props>
+		</property>
+		<property name="mappingResources">
+			<list>
+				<!--<value>entity/Bargain.hbm.xml</value>
+				<value>entity/Book.hbm.xml</value>
+				<value>entity/Manager.hbm.xml</value>
+				<value>entity/Orders.hbm.xml</value>
+				<value>entity/Recommended.hbm.xml</value>
+				<value>entity/Sex.hbm.xml</value>
+				<value>entity/Type.hbm.xml</value>
+				<value>entity/User.hbm.xml</value>
+				<value>entity/Ordersbook.hbm.xml</value>-->
+				<value>entity/Driver.hbm.xml</value>
+				<value>entity/Executives.hbm.xml</value>
+				</list>
+		</property>
+	</bean>
+	
+	<bean id="personManage" class="dao.PersonManage" abstract="false"
+		lazy-init="default" autowire="default" dependency-check="default">
+		<property name="sessionFactory" >
+			<ref local="sessionFactory"/>
+		</property>
+	</bean>
+	
+	<bean id="loginAction" class="com.action.loginAction" scope="prototype">
+	     <property name="personManage">
+	         <ref bean="personManage" />
+	     </property>  
+	</bean>
+</beans>

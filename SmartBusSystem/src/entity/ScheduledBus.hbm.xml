@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+<hibernate-mapping>
+<class name="entity.ScheduledBus" table="ScheduledBus">
+	 		<id name="CarID">
+	 			<generator class="native"/>
+	 		</id>
+	 			<property name="Brand" length="30"/>	
+	 			<property name="Seats" length="30"/>	 	
+	 			<property name="DateOfRegistration"/>	 	
+	 			<property name="DateOfInsurance"/>	 	
+	 			<property name="DriverLicense" length="30"/>	 	
+	 			<property name="CarLicense" length="30"/>	 	
+	 			<property name="RouteID" length="30"/>	 	 		
+	 		 			 		
+	 </class>
+</hibernate-mapping>

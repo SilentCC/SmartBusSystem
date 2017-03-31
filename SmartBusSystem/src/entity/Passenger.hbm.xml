@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+<hibernate-mapping>
+
+ <class name="entity.Passenger" table="Passenger">
+	 		<id name="PassengerID">
+	 			<generator class="native"/>
+	 		</id>
+	 			<property name="RouteID" length="30"/>
+	 			<property name="SiteID" length="30"/>
+	 			<property name="CarID" length="30"/>
+	 			<property name="Location" length="30"/>
+	 			<property name="Time" length="30"/>
+	 			<property name="Pwd" length="30"/>	
+	 							
+	 		 			 		
+	 </class>
+</hibernate-mapping>
