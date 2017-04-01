@@ -13,7 +13,7 @@ border-radius: 5px;
 -moz-border-radius: 5px;
 }
 .bootstrap-frm h1 {
-font: 25px "Helvetica Neue", Helvetica, Arial, sans-serif;
+font: 25px "Î¢ÈíÑÅºÚ";
 padding: 0px 0px 10px 40px;
 display: block;
 border-bottom: 1px solid #DADADA;
@@ -38,10 +38,10 @@ color: #333;
 font-family: "Î¢ÈíÑÅºÚ";
 font-weight: bold;
 }
-.bootstrap-frm input[type="text"], .bootstrap-frm input[type="email"], .bootstrap-frm textarea, .bootstrap-frm select{
+.bootstrap-frm input[type="text"], .bootstrap-frm textarea, .bootstrap-frm select{
 border: 1px solid #CCC;
 color: #888;
-height: 22px;
+height: 29px;
 line-height:15px;
 margin-bottom: 16px;
 margin-right: 6px;
@@ -69,7 +69,7 @@ height: 35px;
 line-height:15px;
 }
 .bootstrap-frm textarea{
-height:30px;
+height:50px;
 padding: 5px 0px 0px 5px;
 width: 70%;
 }
@@ -83,6 +83,10 @@ border-radius: 4px;
 }
 .bootstrap-frm .button:hover {
 color: #333;
-background-color: #EBEBEB;
-border-color: #ADADAD;
+background-color: #3498db;
+border:1px;
+border-color: #3498db;
+}
+.blank{
+	height:160px;
 }
