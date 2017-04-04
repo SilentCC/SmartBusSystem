@@ -8,6 +8,15 @@ public class Passenger {
 	private String Location;//�ϳ�λ��
 	private String Time;//�ϳ�ʱ��ע
 	private String Pwd;
+	private String Name;
+	public String getName() {
+		return Name;
+	}
+
+	public void setName(String name) {
+		Name = name;
+	}
+
 	public String getPwd() {
 		return Pwd;
 	}
@@ -20,13 +29,14 @@ public class Passenger {
 	}
 
 	public Passenger(String RouteID,String SiteID,String CarID,String Location,
-	String Time,String Pwd){
+	String Time,String Pwd,String Name){
 	this.RouteID = RouteID;
 	this.SiteID = SiteID;
 	this.CarID = CarID;
 	this.Location = Location;
 	this.Time = Time; 
 	this.Pwd=Pwd;
+	this.Name=Name;
 	
 	}
 

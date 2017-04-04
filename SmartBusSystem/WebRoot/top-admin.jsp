@@ -38,6 +38,14 @@ body{
 }
 *{padding: 0px;margin: 0px;}
 </style>
+<script>
+	//AJAX函数，向后台发送请求
+	function jump(){
+		alert("ok");
+		$.post("queryPerson.action");
+		alert("ok");
+	}
+</script>
 
   </head>
   <body>
@@ -90,36 +98,35 @@ body{
 
 <div class="jumbotron" align=center>
   <h1>Hello, 管理员!</h1>
-  <p><a class="btn btn-primary btn-lg" href="#" role="button">了解更多</a></p>
+  <p><a class="btn btn-primary btn-lg"  role="button">了解更多</a></p>
 </div>
 
 <!--<div class="pane1" id="pane1"></div>
 <div class="pane2" id="pane2"></div>-->
-
 <div class="container">
 		<section id="grid" class="grid clearfix">
-				<a href="#" data-path-hover="m 180,34.57627 -180,0 L 0,0 180,0 z">
+				<a  data-path-hover="m 180,34.57627 -180,0 L 0,0 180,0 z">
 				<figure><img src="images/1.png" />
 						<svg viewBox="0 0 180 320" preserveAspectRatio="none"><path d="M 180,160 0,218 0,0 180,0 z"/></svg>
 						<figcaption>
 							<h2>行政人员信息管理</h2>
 							<p>你可以对行政人员的相关信息进行增删改查。</p>
-							<button>进入</button>
+							<button onclick="jump()">进入</button>
 						</figcaption>
 					</figure>
 				</a>
-				<a href="#" data-path-hover="m 180,34.57627 -180,0 L 0,0 180,0 z">
+				<a  data-path-hover="m 180,34.57627 -180,0 L 0,0 180,0 z">
 					<figure>
 						<img src="images/3.png" />
 						<svg viewBox="0 0 180 320" preserveAspectRatio="none"><path d="M 180,160 0,218 0,0 180,0 z"/></svg>
 						<figcaption>
 							<h2>普通员工信息管理</h2>
 							<p>你可以对普通员工的相关信息进行增删改查。</p>
-							<button>进入</button>
+							<button onclick="jump()">进入</button>
 						</figcaption>
 					</figure>
 				</a>
-				<a href="#" data-path-hover="m 180,34.57627 -180,0 L 0,0 180,0 z">
+				<a  data-path-hover="m 180,34.57627 -180,0 L 0,0 180,0 z">
 					<figure>
 						<img src="images/5.png" />
 						<svg viewBox="0 0 180 320" preserveAspectRatio="none"><path d="M 180,160 0,218 0,0 180,0 z"/></svg>
@@ -130,7 +137,7 @@ body{
 						</figcaption>
 					</figure>
 				</a>
-				<a href="#" data-path-hover="m 180,34.57627 -180,0 L 0,0 180,0 z">
+				<a  data-path-hover="m 180,34.57627 -180,0 L 0,0 180,0 z">
 					<figure>
 						<img src="images/7.png" />
 						<svg viewBox="0 0 180 320" preserveAspectRatio="none"><path d="M 180,160 0,218 0,0 180,0 z"/></svg>

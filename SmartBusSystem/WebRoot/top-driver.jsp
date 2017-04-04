@@ -89,7 +89,7 @@ body{
 </nav>
 
 <div class="jumbotron" align=center>
-  <h1>Hello, 司机***!</h1>
+  <h1>Hello,<%=session.getAttribute("name")%> 师傅!</h1>
   <p><a class="btn btn-primary btn-lg" href="#" role="button">了解更多</a></p>
 </div>
 

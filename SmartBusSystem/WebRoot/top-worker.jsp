@@ -91,13 +91,8 @@ body{
 
 <div class="jumbotron" align=center>
 	<script type=text/javascript defer>
-		function a(){
-		var Name=session.getAttribute("username");
-		$("#name").html("Hello! "+Name);
-		
-		}
 </script>
-  <h1 id="name" ></h1>
+  <h1 id="name" >Hello, <%=session.getAttribute("name")%>! </h1>
   <p><a class="btn btn-primary btn-lg" href="#" role="button">了解更多</a></p>
 </div>
 
