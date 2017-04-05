@@ -3,6 +3,7 @@
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
+<%@ page isELIgnored="false" %>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
@@ -12,6 +13,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <head>
   <script src="http://cdn.bootcss.com/jquery/3.0.0/jquery.min.js"></script>
 	<link href="http://cdn.bootcss.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="css/drop-down.css" />
+    <script src="js/jquery-1.11.0.min.js"></script>
+    <script src="js/jquery-ui.min.js"></script>
+    <script src="js/select-widget-min.js"></script>
 	<script src=js/bootstrap.min.js></script>
     <base href="<%=basePath%>">
     
@@ -136,6 +141,7 @@ a{
 	
 }
 
+
 </STYLE>
 <SCRIPT type="text/javascript">
 $(function(){
@@ -166,7 +172,25 @@ $(function(){
 		$("#right_hand").attr("style","right:-112px;top:-12px");
 	});
 });
+</SCRIPT> 
+
+<SCRIPT>
+	
+	$(document).ready(function(){		
+		$(".ui-select").selectWidget({
+			change       : function (changes) {
+				return changes;
+			},
+			effect       : "slide",
+			keyControl   : true,
+			speed        : 200,
+			scrollHeight : 250
+		});
+		
+	});		
+	
 </SCRIPT>
+
 <script>
 var val="行政人员";
 $(document).ready(function(){
@@ -176,6 +200,11 @@ $(document).ready(function(){
 	function jump2(){
 	 var name=$("#name").val();
    	 var pwd=$("#password").val();
+   	 var identy=$("#identity").val();
+   	 //alert(identy);
+   	 
+   	 //Session session.setAttribute("username",name);
+   	
    	 if(name==""||pwd=="")
    	 {
    	 		alert("用户名和密码不能为空，请重新输入");
@@ -183,9 +212,9 @@ $(document).ready(function(){
    	 		$("#password").val("");
    	 
    	 }
-   	 //alert(name);
-   	 //alert(pwd);
-		$.post("login",{"name":name,"password":pwd},function(data){
+   
+   	
+	$.post("login.action",{"name":name,"password":pwd,"identity":identy},function(data){
 		
   	// alert(data);
   	
@@ -193,14 +222,14 @@ $(document).ready(function(){
   	 // alert(d);                       
        if (d.login == "success") {  
        		
-       			if(val=="管理员")                   
+       			if(identy=="Admin")                   
                 	window.location.href = "top-admin.jsp";
-                if(val=="普通员工")                   
-                	window.location.href = "top-driver.jsp";  
-                if(val=="司机")                   
-                	window.location.href = "top-extutive.jsp";
-                if(val=="行政人员")                   
-                	window.location.href = "top-worker.jsp";                           
+                if(identy=="Passenger")                   
+                	window.location.href = "top-worker.jsp";  
+                if(identy=="Driver")                   
+                	window.location.href = "top-driver.jsp";
+                if(identy=="Execute")                   
+                	window.location.href = "top-extutive.jsp";                          
               }
        else{
        		alert("用户名和密码错误");
@@ -238,15 +267,17 @@ $(document).ready(function(){
   	  var d = eval("(" + data + ")"); 
   	  alert(d);                       
        if (d.login == "success") {  
-       		
-       			if(val=="管理员")                   
+       alert(ok);
+       		var t="${test}";
+       		alert(t);
+       			/*if(val=="管理员")                   
                 	window.location.href = "top-admin.jsp";
                 if(val=="普通员工")                   
                 	window.location.href = "top-driver.jsp";  
                 if(val=="司机")                   
                 	window.location.href = "top-extutive.jsp";
-                if(val=="行政人员")                   
-                	window.location.href = "top-worker.jsp";                           
+                if(val=="行政人员")                  
+                	window.location.href = "top-worker.jsp";    */                       
               }
        else{
        		alert("用户名和密码错误");
@@ -286,7 +317,7 @@ $(document).ready(function(){
     
     <div style="height: 780px;">
     <DIV class="top_div"></DIV>
-<DIV style="background: rgb(255, 255, 255); margin: -100px auto auto; border: 1px solid rgb(231, 231, 231); border-image: none; width: 400px; height: 260px;text-align:center" >
+<DIV style="background: rgb(255, 255, 255); margin: -100px auto auto; border: 1px solid rgb(231, 231, 231); border-image: none; width: 400px; height: 270px;text-align:center" >
 <DIV style="width: 165px; height: 96px; position: absolute;">
 <DIV class="tou"></DIV>
 <DIV class="initial_left_hand" id="left_hand"></DIV>
@@ -294,25 +325,28 @@ $(document).ready(function(){
 
 <P style="padding: 30px 0px 10px; position: relative;">
 <SPAN class="u_logo"></SPAN>   &nbsp;&nbsp;&nbsp;&nbsp;
-<INPUT class="ipt" id="name" type="text" placeholder="请输入ID或编号" value=""> 
+<INPUT class="ipt" type="text" id="name" placeholder="请输入ID或编号" value=""> 
     </P>
 <P style="position: relative;"><SPAN class="p_logo"></SPAN>&nbsp;&nbsp;&nbsp;&nbsp;
 <INPUT class="ipt" id="password" type="password" placeholder="请输入密码" value="">   
   </P>
-  <span class="glyphicon glyphicon-user"  style="text-align: left" aria-hidden="true"></span>&nbsp;&nbsp;
+  <div style="font-size: 8px;top: 498px; left: 630px;" align="center">
+  <P>
+	<span class="glyphicon glyphicon-user" style="line-height:10px"></span>
+		<select id="identity" name="drop" class="ui-select" >
+					<option value="Admin">管理员</option>
+					<option value="Execute">行政人员</option>
+					<option value="Passenger">普通员工</option>
+					<option value="Driver">司机</option>
+		</select>
+	</P>
+  </div>
   
-  <div class="btn-group">
-  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
-    行政人员 <span class="caret"></span>
-  </button>
-  
-</div>
 <DIV style="height: 50px; line-height: 50px; margin-top: 30px; border-top-color: rgb(231, 231, 231); border-top-width: 1px; border-top-style: solid;">
 <P style="margin: 0px 35px 20px 45px;"><SPAN style="float: left;">
 <A style="color: rgb(0, 139, 139);" href="#">忘记密码?</A></SPAN> 
            <SPAN style="float: right;">  
-              <input type="submit" value="登录" onclick="jump2()" style="background: rgb(0, 142, 173); padding: 0.001px 40px; border-radius: 4px; border: 1px solid rgb(26, 117, 152); border-image: none; color: rgb(255, 255, 255); font-weight: bold;" 
-href="#"/> 
+              <A type="submit" onclick="jump2()" style="background: rgb(0, 142, 173); padding: 10px 15px; border-radius: 4px; border: 1px solid rgb(26, 117, 152); border-image: none; color: rgb(255, 255, 255); font-weight: bold;">登录</A> 
            </SPAN>         </P></DIV>
 		   <div style="text-align:center;">
 
@@ -320,6 +354,8 @@ href="#"/>
 </DIV>
 </div>
 <div class="buttom">
+<input type="hidden" id="xx" value="${test}" name="test" />
+
 <center>
   <tr>
     <th style="font-size: 14px;text-align:center;">Copyrights Reserved 2016-2017 By 你是风儿我是沙有限公司<br/><br/>浙ICP备12345678号 <br></th>
