@@ -116,6 +116,7 @@ public class PersonManage {
 		//查询hql语句
 		String hql="from Executives";
 		List<Executives> ExecutivesList =session.createQuery(hql).list();
+		session.close();	
 		return ExecutivesList;
 	}
 	
@@ -128,6 +129,7 @@ public class PersonManage {
 		//查询hql语句
 		String hql="from Driver";
 		List<Driver> DriverList =session.createQuery(hql).list();
+		session.close();	
 		return DriverList;
 	}
 	
@@ -140,6 +142,7 @@ public class PersonManage {
 		//查询hql语句
 		String hql="from Passenger";
 		List<Passenger> PassengerList =session.createQuery(hql).list();
+		session.close();	
 		return PassengerList;
 	}
 	

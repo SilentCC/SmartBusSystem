@@ -13,11 +13,40 @@ import dao.PersonManage;
 import java.util.*;
 import entity.*;
 
+@SuppressWarnings("serial")
 public class ManagePerson extends ActionSupport{
 	
 	private PersonManage personManage;//Dao类
 	private String result;//返回前台的数据，Json格式
 	private String test;
+	//行政人员列表
+	private List<Executives> ExecutivesList=null;
+	//司机列表
+	private List<Driver> DriverList=null;
+	//乘客列表
+	private List<Passenger> PassengerList=null;
+	
+	
+	public List<Executives> getExecutivesList() {
+		return ExecutivesList;
+	}
+	public void setExecutivesList(List<Executives> executivesList) {
+		ExecutivesList = executivesList;
+	}
+	public List<Driver> getDriverList() {
+		return DriverList;
+	}
+	public void setDriverList(List<Driver> driverList) {
+		DriverList = driverList;
+	}
+	public List<Passenger> getPassengerList() {
+		return PassengerList;
+	}
+	public void setPassengerList(List<Passenger> passengerList) {
+		PassengerList = passengerList;
+	}
+
+	
 	
 	public String getTest() {
 		return test;
@@ -43,11 +72,18 @@ public class ManagePerson extends ActionSupport{
 	public String execute(){
 		//定义List 接受行政人员，司机，和乘客的所有信息
 		//行政人员
-		//List<Executives> ExecutivesList=personManage.QueryAllExecutives();
+		System.out.println("ok");
+		 ExecutivesList=personManage.QueryAllExecutives();
 		//乘客
-		//List<Passenger> PassengerList=personManage.QueryAllPassenger();
+		PassengerList=personManage.QueryAllPassenger();
 		//司机
-		//List<Driver> DiverList=personManage.QueryAllDriver();
+		DriverList=personManage.QueryAllDriver();
+		
+		int i;
+		for(i=0;i<ExecutivesList.size();i++)
+		{
+			System.out.println(ExecutivesList.get(i).getExecutiveName());
+		}
 		test="1234";
 		System.out.println(test);
 								

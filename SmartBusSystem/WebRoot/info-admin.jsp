@@ -29,6 +29,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	cellpadding:0;
 	cellspacing:0;	
 }
+
 </style>
 <script>
 	
@@ -38,6 +39,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   
   <body>
+ 
   <nav class="navbar navbar-default">
   <div class="container-fluid" >
     <!-- Brand and toggle get grouped for better mobile display -->
@@ -80,7 +82,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <ul class="pager">
   <li class="next"><a class="fff" href="#">批量编辑</a></li>
     <li class="next"><a class="fff" href="#">批量删除 <br></a></li>
-    <li class="next"><a class="fff" href="#">新增人员<br></a></li>
+    <li class="next"><a class="fff" href="register-extutive.jsp">新增人员<br></a></li>
   </ul>
 </nav>
 <div class="inner">
@@ -91,25 +93,16 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                     <th>ID</th>
                     <th>姓名</th>
                     <th>性别</th>
-                    <th>类别</th>
                     <th>电话</th>
                     <th>住址</th>
-                    <th>操作<br></th><th class="last">&nbsp;</th>
+                    <th>操作<br></th><th class="last">&nbsp;</th>                
                   </tr>
-                
-
-                  <tr class="odd">
-                    <td><input type="checkbox" class="checkbox" name="id" value="1" /></td><td>1</td><td>？</td><td>男</td><td>乘客</td><td>12345</td><td>12345</td><td class="last"><a href="#">编辑</a> | <a href="#">删除</a></td>
-                  </tr>
-                  <tr class="even">
-                    <td><input type="checkbox" class="checkbox" name="id" value="1" /></td><td>2</td><td>？</td><td>？</td><td>？</td><td>？</td><td>？</td><td class="last"><a href="#">编辑</a> | <a href="#">删除</a></td>
-                  </tr>
-                  <tr class="odd">
-                    <td><input type="checkbox" class="checkbox" name="id" value="1" /></td><td>3</td><td>？</td><td>？</td><td>？</td><td>？</td><td>？</td><td class="last"><a href="#">编辑</a> | <a href="#">删除</a></td>
-                  </tr>
-                  <tr class="even">
-                    <td><input type="checkbox" class="checkbox" name="id" value="1" /></td><td>4</td><td>？</td><td>？</td><td>？</td><td>？</td><td>？</td><td class="last"><a href="#">编辑</a> | <a href="#">删除</a></td>
-                  </tr>
+                    <c:forEach items="${ExecutivesList}" var="Item" varStatus="rowStatus" >  
+                    	 <tr class="odd">
+                    		<td><input type="checkbox" class="checkbox" name="id" value="1" /></td><td>${Item.executiveID}</td><td width="80px">${Item.executiveName}</td><td>${Item.sex}</td><td>${Item.phone}</td><td>${Item.address}</td><td class="last"><a href="#">编辑</a> | <a href="#">删除</a></td>
+                  		</tr>
+                  	
+  					</c:forEach>
                 </table>
           </form>
        </div>
@@ -120,7 +113,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <ul class="pager">
   <li class="next"><a class="fff" href="#">批量编辑</a></li>
     <li class="next"><a class="fff" href="#">批量删除 <br></a></li>
-    <li class="next"><a class="fff" href="#">新增人员<br></a></li>
+    <li class="next"><a class="fff" href="/register-extutive.jsp">新增人员<br></a></li>
   </ul>
 </nav>
 <div class="inner">
@@ -182,7 +175,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <script src="js/bootstrap.min.js" type="text/javascript"></script>
 
 <div class="buttom">
-<input  id="xx" value="${test}" name="test" />
 <center>
   <tr>
     <th style="font-size: 14px;text-align:center;">Copyrights Reserved 2016-2017 By 你是风儿我是沙有限公司<br/><br/>浙ICP备12345678号 <br></th>

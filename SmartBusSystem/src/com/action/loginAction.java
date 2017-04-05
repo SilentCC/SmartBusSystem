@@ -11,6 +11,7 @@ import entity.Employee;
 import entity.Driver;
 import dao.PersonManage;
 
+@SuppressWarnings("serial")
 public class loginAction extends ActionSupport {
 	
 	private PersonManage personManage;//Dao类

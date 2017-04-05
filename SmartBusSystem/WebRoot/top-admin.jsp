@@ -111,7 +111,9 @@ body{
 						<figcaption>
 							<h2>行政人员信息管理</h2>
 							<p>你可以对行政人员的相关信息进行增删改查。</p>
-							<button onclick="jump()">进入</button>
+							<form action="queryPerson" method="post">
+								<button type="submit">进入</button>
+							</form>
 						</figcaption>
 					</figure>
 				</a>
