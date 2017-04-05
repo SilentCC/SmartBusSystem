@@ -9,7 +9,7 @@
 			value="oracle.jdbc.driver.OracleDriver">
 		</property>
 		<property name="url"
-			value="jdbc:oracle:thin:@111.0.225.251:1521:xe">
+			value="jdbc:oracle:thin:@localhost:1521:xe">
 		</property>
 		<property name="username" value="lulu"></property>
 		<property name="password" value="123"></property>
@@ -29,15 +29,14 @@
 		</property>
 		<property name="mappingResources">
 			<list>
-				<!--<value>entity/Bargain.hbm.xml</value>
-				<value>entity/Book.hbm.xml</value>
-				<value>entity/Manager.hbm.xml</value>
-				<value>entity/Orders.hbm.xml</value>
-				<value>entity/Recommended.hbm.xml</value>
-				<value>entity/Sex.hbm.xml</value>
-				<value>entity/Type.hbm.xml</value>
-				<value>entity/User.hbm.xml</value>
-				<value>entity/Ordersbook.hbm.xml</value>-->
+				<value>entity/Admini.hbm.xml</value>
+				<value>entity/ArrangeSchedual.hbm.xml</value>
+				<value>entity/Swap.hbm.xml</value>
+				<value>entity/Site.hbm.xml</value>
+				<value>entity/ScheduledBus.hbm.xml</value>
+				<value>entity/Route.hbm.xml</value>
+				<value>entity/Passenger.hbm.xml</value>
+				<value>entity/Employee.hbm.xml</value>
 				<value>entity/Driver.hbm.xml</value>
 				<value>entity/Executives.hbm.xml</value>
 				</list>
@@ -55,5 +54,10 @@
 	     <property name="personManage">
 	         <ref bean="personManage" />
 	     </property>  
+	</bean>
+	<bean id="ManagePerson" class="com.action.ManagePerson" scope="prototype">
+		<property name="personManage">
+			<ref bean="personManage"></ref>
+		</property>		
 	</bean>
 </beans>

@@ -6,7 +6,8 @@
 	 		<id name="ExecutiveID">
 	 			<generator class="native"/>
 	 		</id>
-	 			<property name="pwd" length="30"/>	 		
+	 			<property name="pwd" length="30"/>	 
+	 			<property name="ExecutiveName" length="30"/>	 		
 	 		 			 		
 	 </class>
 </hibernate-mapping>

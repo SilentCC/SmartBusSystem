@@ -11,7 +11,8 @@
 	 			<property name="CarID" length="30"/>
 	 			<property name="Location" length="30"/>
 	 			<property name="Time" length="30"/>
-	 			<property name="Pwd" length="30"/>	
+	 			<property name="Pwd" length="30"/>
+	 			<property name="Name" length="30"/>	
 	 							
 	 		 			 		
 	 </class>

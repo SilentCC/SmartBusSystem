@@ -1,6 +1,8 @@
 package com.action;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import org.apache.struts2.ServletActionContext;
 
 import com.opensymphony.xwork2.ActionSupport;
@@ -11,12 +13,12 @@ import dao.PersonManage;
 
 public class loginAction extends ActionSupport {
 	
-	private Executives executives;//员工ID
 	private PersonManage personManage;//Dao类
 	private String name;//姓名
 	private String password;//密码
 	private String identity;//身份
 	
+
 	public String getIdentity() {
 		return identity;
 	}
@@ -53,11 +55,10 @@ public class loginAction extends ActionSupport {
 	public String execute()
 	{
 	
-		//HttpServletRequest request=ServletActionContext.getRequest();
+		
 		//name=request.getParameter("name");
 		//password=request.getParameter("password");
-		
-		System.out.println("name:"+name+"password:"+password+"id:"+identity);
+
 		boolean ans=false;
 		if(identity.charAt(0)=='A')
 			ans=personManage.checkAdmini(name, password);

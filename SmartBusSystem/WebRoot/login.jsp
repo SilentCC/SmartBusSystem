@@ -3,6 +3,7 @@
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
+<%@ page isELIgnored="false" %>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
@@ -201,9 +202,9 @@ $(document).ready(function(){
    	 var pwd=$("#password").val();
    	 var identy=$("#identity").val();
    	 //alert(identy);
-   	  alert("ok");
+   	 
    	 //Session session.setAttribute("username",name);
-   	  alert("ok");
+   	
    	 if(name==""||pwd=="")
    	 {
    	 		alert("用户名和密码不能为空，请重新输入");
@@ -211,10 +212,9 @@ $(document).ready(function(){
    	 		$("#password").val("");
    	 
    	 }
-   	 alert("ok");
-   	 //alert(name);
-   	 //alert(pwd);
-	$.post("login",{"name":name,"password":pwd,"identity":identy},function(data){
+   
+   	
+	$.post("login.action",{"name":name,"password":pwd,"identity":identy},function(data){
 		
   	// alert(data);
   	
@@ -222,14 +222,14 @@ $(document).ready(function(){
   	 // alert(d);                       
        if (d.login == "success") {  
        		
-       			if(val=="管理员")                   
+       			if(identy=="Admin")                   
                 	window.location.href = "top-admin.jsp";
-                if(val=="普通员工")                   
-                	window.location.href = "top-driver.jsp";  
-                if(val=="司机")                   
-                	window.location.href = "top-extutive.jsp";
-                if(val=="行政人员")                   
-                	window.location.href = "top-worker.jsp";                           
+                if(identy=="Passenger")                   
+                	window.location.href = "top-worker.jsp";  
+                if(identy=="Driver")                   
+                	window.location.href = "top-driver.jsp";
+                if(identy=="Execute")                   
+                	window.location.href = "top-extutive.jsp";                          
               }
        else{
        		alert("用户名和密码错误");
@@ -267,15 +267,17 @@ $(document).ready(function(){
   	  var d = eval("(" + data + ")"); 
   	  alert(d);                       
        if (d.login == "success") {  
-       		
-       			if(val=="管理员")                   
+       alert(ok);
+       		var t="${test}";
+       		alert(t);
+       			/*if(val=="管理员")                   
                 	window.location.href = "top-admin.jsp";
                 if(val=="普通员工")                   
                 	window.location.href = "top-driver.jsp";  
                 if(val=="司机")                   
                 	window.location.href = "top-extutive.jsp";
-                if(val=="行政人员")                   
-                	window.location.href = "top-worker.jsp";                           
+                if(val=="行政人员")                  
+                	window.location.href = "top-worker.jsp";    */                       
               }
        else{
        		alert("用户名和密码错误");
@@ -329,19 +331,15 @@ $(document).ready(function(){
 <INPUT class="ipt" id="password" type="password" placeholder="请输入密码" value="">   
   </P>
   <div style="font-size: 8px;top: 498px; left: 630px;" align="center">
-  <div style="position:absolute;top: 507px;left: 502px;"><span class="glyphicon glyphicon-user" style="text-align: left" aria-hidden="true"></span>&nbsp;&nbsp;</div>
-  <form action="" method="get">
-		<table style="top: 40px; left: 34px; width: 90px; height: 16px;">
-		<td style="border: 1px;color: #FFFFFF;font-size: 8px">
-					<select id="identity" name="drop" class="ui-select">
-						<option value="Admin">管理员</option>
-						<option value="Execute">行政人员</option>
-						<option value="Passenger">普通员工</option>
-						<option value="Driver">司机</option>
-					</select>
-					</td>
-		</table>
-	</form>
+  <P>
+	<span class="glyphicon glyphicon-user" style="line-height:10px"></span>
+		<select id="identity" name="drop" class="ui-select" >
+					<option value="Admin">管理员</option>
+					<option value="Execute">行政人员</option>
+					<option value="Passenger">普通员工</option>
+					<option value="Driver">司机</option>
+		</select>
+	</P>
   </div>
   
 <DIV style="height: 50px; line-height: 50px; margin-top: 30px; border-top-color: rgb(231, 231, 231); border-top-width: 1px; border-top-style: solid;">
@@ -356,6 +354,8 @@ $(document).ready(function(){
 </DIV>
 </div>
 <div class="buttom">
+<input type="hidden" id="xx" value="${test}" name="test" />
+
 <center>
   <tr>
     <th style="font-size: 14px;text-align:center;">Copyrights Reserved 2016-2017 By 你是风儿我是沙有限公司<br/><br/>浙ICP备12345678号 <br></th>

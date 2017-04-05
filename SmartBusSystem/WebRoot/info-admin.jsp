@@ -3,6 +3,8 @@
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>  
+
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
@@ -28,6 +30,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	cellspacing:0;	
 }
 </style>
+<script>
+	
+	
+</script>
+
   </head>
   
   <body>
@@ -89,6 +96,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                     <th>住址</th>
                     <th>操作<br></th><th class="last">&nbsp;</th>
                   </tr>
+                
+
                   <tr class="odd">
                     <td><input type="checkbox" class="checkbox" name="id" value="1" /></td><td>1</td><td>？</td><td>男</td><td>乘客</td><td>12345</td><td>12345</td><td class="last"><a href="#">编辑</a> | <a href="#">删除</a></td>
                   </tr>
@@ -173,6 +182,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <script src="js/bootstrap.min.js" type="text/javascript"></script>
 
 <div class="buttom">
+<input  id="xx" value="${test}" name="test" />
 <center>
   <tr>
     <th style="font-size: 14px;text-align:center;">Copyrights Reserved 2016-2017 By 你是风儿我是沙有限公司<br/><br/>浙ICP备12345678号 <br></th>
