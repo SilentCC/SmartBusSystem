@@ -20,7 +20,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 <link rel="stylesheet" type="text/css" href="css/style1.css">
-
+<script src="http://cdn.bootcss.com/jquery/3.0.0/jquery.min.js"></script>
 <style type="text/css">
 .buttom{
 	width: 100%;
@@ -31,14 +31,46 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 }
 
 </style>
-<script>
+<script type="text/javascript">
+	function fun(){
 	
+	obj=document.getElementsByName("id");
+	check_val="";
+	for(k in obj){
+		if(obj[k].checked){
+		//alert(obj[k].value);
+		//alert(check_val);
+		check_val+=obj[k].value;
+		check_val+="?";
+		
+		}
+	}
 	
+	alert(check_val);
+	
+	document.getElementById("idList").value=check_val;
+	document.getElementById("jump").click();
+	
+		
+	}
+	
+	function fun2(){
+	document.getElementById("identity").value="Executives";
+	}
+	
+	function fun3(){
+	document.getElementById("identity").value="Executives";
+	}
 </script>
 
   </head>
   
   <body>
+  <form action="deletePerson" method="post" >
+  	<input type="hidden" name="idList" id="idList"/>
+  	<input type="hidden" name="identity" id="identity" value="Executives"/>
+  	<input type="submit" name="jump" id="jump" style="display:none"/>
+  </form>
  
   <nav class="navbar navbar-default">
   <div class="container-fluid" >
@@ -71,8 +103,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<div class="tab" role="tabpanel">
 					<!-- Nav tabs -->
 					<ul class="nav nav-tabs" role="tablist">
-						<li role="presentation" class="active"><a href="#Section1" aria-controls="home" role="tab" data-toggle="tab">行政人员个人信息</a></li>
-						<li role="presentation"><a href="#Section2" aria-controls="profile" role="tab" data-toggle="tab">普通员工个人信息</a></li>
+						<li role="presentation" class="active"><a href="#Section1" onclick="fun2()" aria-controls="home" role="tab" data-toggle="tab">行政人员个人信息</a></li>
+						<li role="presentation"><a href="#Section2" onclick="fun3()"  aria-controls="profile" role="tab" data-toggle="tab">普通员工个人信息</a></li>
 					</ul>
 					<!-- Tab panes -->
 					<div class="tab-content tabs">
@@ -81,8 +113,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							<nav aria-label="...">
   <ul class="pager">
   <li class="next"><a class="fff" href="#">批量编辑</a></li>
-    <li class="next"><a class="fff" href="#">批量删除 <br></a></li>
-    <li class="next"><a class="fff" href="register-extutive.jsp">新增人员<br></a></li>
+    <li class="next"><a class="fff"  onclick="fun()">批量删除 <br></a></li>
+    <li class="next"><a class="fff" href="register.jsp">新增人员<br></a></li>
   </ul>
 </nav>
 <div class="inner">
@@ -99,7 +131,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                   </tr>
                     <c:forEach items="${ExecutivesList}" var="Item" varStatus="rowStatus" >  
                     	 <tr class="odd">
-                    		<td><input type="checkbox" class="checkbox" name="id" value="1" /></td><td>${Item.executiveID}</td><td width="80px">${Item.executiveName}</td><td>${Item.sex}</td><td>${Item.phone}</td><td>${Item.address}</td><td class="last"><a href="#">编辑</a> | <a href="#">删除</a></td>
+                    		<td><input type="checkbox" class="checkbox" name="id" value="${Item.executiveID}" /></td><td>${Item.executiveID}</td><td width="80px">${Item.executiveName}</td><td>${Item.sex}</td><td>${Item.phone}</td><td>${Item.address}</td><td class="last"><a href="#">编辑</a> | <a href="#">删除</a></td>
                   		</tr>
                   	
   					</c:forEach>

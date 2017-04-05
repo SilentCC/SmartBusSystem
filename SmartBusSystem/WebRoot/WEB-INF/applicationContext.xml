@@ -60,4 +60,9 @@
 			<ref bean="personManage"></ref>
 		</property>		
 	</bean>
+	<bean id="DeletePerson" class="com.action.DeletePerson" scope="prototype">
+		<property name="personManage">
+			<ref bean="personManage"></ref>
+		</property>	
+	</bean>
 </beans>

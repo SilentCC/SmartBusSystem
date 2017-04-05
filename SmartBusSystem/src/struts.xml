@@ -8,21 +8,28 @@
     <constant name="struts.enable.DynamicMethodInvocation" value="true" />
     <constant name="struts.devMode" value="true" />
       <package name="default" namespace="/" extends="struts-default,json-default">
+      	
+      	<!-- 登录控制 -->
       	<action name="login" class="loginAction">
         
         		<result name="success" type="json">
         			<param name="root">result</param>
 				</result>
-				
-				
-        </action>
+       </action>
+       
+        <!-- 查询人员信息控制 -->
         <action name="queryPerson" class="ManagePerson">
         			<result name="success">/info-admin.jsp
         			</result>
         </action>
 			
-        <!-- 重定向action -->
-     
+        <!-- 删除人员信息控制 -->
+         <action name="deletePerson" class="DeletePerson">
+        			<result type="redirectAction">
+        				<param name="actionName">queryPerson</param>
+					</result>
+        </action>
+   
       </package>
       
      

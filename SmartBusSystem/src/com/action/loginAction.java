@@ -69,7 +69,7 @@ public class loginAction extends ActionSupport {
 			ans=personManage.checkExecutives(name, password);
 		else if(identity.charAt(0)=='D')
 		{
-			System.out.println("ok");
+			
 			ans=personManage.checkDriver(name, password);
 		}
 	     if(ans==true)

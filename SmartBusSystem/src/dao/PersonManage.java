@@ -141,10 +141,88 @@ public class PersonManage {
 		session=sessionFactory.openSession();
 		//查询hql语句
 		String hql="from Passenger";
-		List<Passenger> PassengerList =session.createQuery(hql).list();
+		//定义数据List
+		List<Passenger> PassengerList=null;
+		try{
+			PassengerList =session.createQuery(hql).list();
+		}
+		catch(Exception e){
+			e.printStackTrace();
+		}
 		session.close();	
 		return PassengerList;
 	}
+	
+	//删除行政人员的记录
+	
+	public boolean DeleteExecutives(String ExecutivesID){
+		//建立数据库连接
+		Session session = sessionFactory.openSession();
+		//定义Transaction事务 执行
+		Transaction tx = null;
+		//是否删除成功
+		boolean ans  = false;
+		try{
+			tx = session.beginTransaction();
+			session.delete(session.get("entity.Executives", ExecutivesID));
+			ans = true;
+			tx.commit();
+		}catch(RuntimeException re){
+			re.printStackTrace();
+			tx.rollback();
+			ans=false;
+		}
+		session.close();
+		return ans ;
+	}
+	
+	//删除司机的记录
+	
+	public boolean DeleteDriver(String DriverID){
+		//建立数据库连接
+		Session session = sessionFactory.openSession();
+		//定义Transaction事务 执行
+		Transaction tx = null;
+		//是否删除成功
+		boolean ans  = false;
+		try{
+			tx = session.beginTransaction();
+			session.delete(session.get("entity.Driver", DriverID));
+			ans = true;
+			tx.commit();
+		}catch(RuntimeException re){
+			re.printStackTrace();
+			tx.rollback();
+			ans=false;
+		}
+		session.close();
+		return ans ;
+	}
+	
+	//删除乘客的记录
+	
+	public boolean DeletePassenger(String PassengerID){
+			//建立数据库连接
+			Session session = sessionFactory.openSession();
+			//定义Transaction事务 执行
+			Transaction tx = null;
+			//是否删除成功
+			boolean ans  = false;
+			try{
+				tx = session.beginTransaction();
+				session.delete(session.get("entity.Passenger", PassengerID));
+				ans = true;
+				tx.commit();
+			}catch(RuntimeException re){
+				re.printStackTrace();
+				tx.rollback();
+				ans=false;
+			}
+			session.close();
+			return ans ;
+		}
+	
+	
 	
 			
 
