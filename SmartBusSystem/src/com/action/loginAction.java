@@ -72,7 +72,7 @@ public class loginAction extends ActionSupport {
 			
 			ans=personManage.checkDriver(name, password);
 		}
-	     if(ans==true)
+	    if(ans==true)
 			result = "{\"login\":\"success\"}";    
 		else
 			result = "{\"login\":\"fail\"}";    

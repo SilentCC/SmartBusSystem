@@ -45,6 +45,7 @@ public class PersonManage {
 				//设置session的属性，方便前台页面显示姓名
 				session2=ServletActionContext.getRequest().getSession();
 				session2.setAttribute("name", ExecutivesList.get(0).getExecutiveName());
+				session2.setAttribute("identity","Executives");
 			}
 			session.close();					
 			return flag;
@@ -63,6 +64,7 @@ public class PersonManage {
 			//设置session的属性，方便前台页面显示姓名
 			session2=ServletActionContext.getRequest().getSession();
 			session2.setAttribute("name", PassengerList.get(0).getName());
+			session2.setAttribute("identity","Passenger");
 		}
 		session.close();					
 		return flag;
@@ -83,6 +85,7 @@ public class PersonManage {
 			//设置session的属性，方便前台页面显示姓名
 			session2=ServletActionContext.getRequest().getSession();
 			session2.setAttribute("name", DriverList.get(0).getDriverName());
+			session2.setAttribute("identity","Driver");
 			
 		}
 		session.close();					
@@ -103,6 +106,7 @@ public class PersonManage {
 			//设置session的属性，方便前台页面显示姓名
 			session2=ServletActionContext.getRequest().getSession();
 			session2.setAttribute("name", AdminiList.get(0).getAdminID());
+			session2.setAttribute("identity","Admin");
 		}
 		session.close();					
 		return flag;

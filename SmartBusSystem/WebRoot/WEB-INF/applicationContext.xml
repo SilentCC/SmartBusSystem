@@ -117,4 +117,8 @@
 			<ref bean="busManage"></ref>
 		</property>
 	</bean>
+	
+	<bean id="UserExit" class="com.action.UserExitAction" scope="prototype">
+
+	</bean>
 </beans>

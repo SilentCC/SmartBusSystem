@@ -97,7 +97,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         <button type="submit" class="btn btn-default">提交</button>
     </form>
       <ul class="nav navbar-nav navbar-right">
-      <li><a>Hello,***</a></li>
+       <li><a>Hello, <%=session.getAttribute("name")%>!</a></li>
       <li><a href="#">退出登录</a></li>
         <li><a href="#">联系我们</a></li>
       </ul>   

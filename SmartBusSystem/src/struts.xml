@@ -42,6 +42,11 @@
         				<param name="actionName">queryBusSystem</param>
         			</result>
         </action>
+        
+        <!-- 退出登录控制 -->
+        <action name="userExit" class="UserExit">
+        		<result name="success">/login.jsp</result>
+        </action>
    
       </package>
       

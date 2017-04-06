@@ -81,7 +81,7 @@ body{
         </div>
         &nbsp&nbsp&nbsp&nbsp<button type="submit" class="btn btn-default">提交</button>
       </form>
-      
+      	<li><a href="userExit">退出登录</a></li>
         <li><a href="#">联系我们</a></li>
   
       </ul>
