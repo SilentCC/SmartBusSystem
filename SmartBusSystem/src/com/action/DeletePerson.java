@@ -44,25 +44,48 @@ public class DeletePerson extends ActionSupport{
 	public String execute(){
 		
 		boolean ans=true;
-		
+		//定义List存储ID
+		List<String> name=new ArrayList<String>();
 		//正则表达式，分解idList
-		System.out.println(identity);
 		int l=idList.length();
-		System.out.println(idList);
-		System.out.println(l);
+		//临时字符串
+		String na="";
+		for(int i=0;i<l;i++)
+		{
+			if(idList.charAt(i)=='?'){
+				name.add(na);
+				na="";
+			}
+			else{
+				na+=idList.charAt(i);
+			}
+		}
+		if(na!="")
+			name.add(na);
+		
 		//判断身份条件
-		if(identity=="Executives"){
+		if(identity.equals("Executives")){
 			//遍历ID列表，一个一个删除
+			for(String s:name){
+				
+				personManage.DeleteExecutives(s);
+			}
 			
 			
 		}
-		else if(identity=="Driver"){
+		else if(identity.equals("Driver")){
 			//遍历ID列表，一个一个删除
+			for(String s:name){
+				personManage.DeleteDriver(s);
+			}
 			
 			
 		}
-		else if(identity=="Passenger"){
+		else if(identity.equals("Passenger")){
 			//遍历ID列表，一个一个删除
+			for(String s:name){
+				personManage.DeletePassenger(s);
+			}
 			
 			
 		}

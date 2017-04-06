@@ -71,13 +71,20 @@ public class ManagePerson extends ActionSupport{
 	//执行函数
 	public String execute(){
 		//定义List 接受行政人员，司机，和乘客的所有信息
-		//行政人员
 		
-		 ExecutivesList=personManage.QueryAllExecutives();
-		//乘客
-		PassengerList=personManage.QueryAllPassenger();
-		//司机
-		DriverList=personManage.QueryAllDriver();	
+		try{
+			//行政人员
+		
+			ExecutivesList=personManage.QueryAllExecutives();
+			//乘客
+			PassengerList=personManage.QueryAllPassenger();
+			//司机
+			DriverList=personManage.QueryAllDriver();
+		}
+		catch(Exception e){
+			
+			e.printStackTrace();
+		}
 								
 		return SUCCESS;
 	

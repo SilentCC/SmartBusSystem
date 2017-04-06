@@ -38,15 +38,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	check_val="";
 	for(k in obj){
 		if(obj[k].checked){
-		//alert(obj[k].value);
-		//alert(check_val);
-		check_val+=obj[k].value;
-		check_val+="?";
+		check_val=check_val+obj[k].value.trim();
+		check_val=check_val+"?";
 		
 		}
 	}
 	
-	alert(check_val);
+	
 	
 	document.getElementById("idList").value=check_val;
 	document.getElementById("jump").click();
@@ -61,6 +59,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	function fun3(){
 	document.getElementById("identity").value="Executives";
 	}
+	
+	function fun4(obj){
+	
+	document.getElementById("idList").value=obj;
+	document.getElementById("jump").click();
+	
+	
+	}
 </script>
 
   </head>
@@ -71,7 +77,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   	<input type="hidden" name="identity" id="identity" value="Executives"/>
   	<input type="submit" name="jump" id="jump" style="display:none"/>
   </form>
- 
+
   <nav class="navbar navbar-default">
   <div class="container-fluid" >
     <!-- Brand and toggle get grouped for better mobile display -->
@@ -131,7 +137,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                   </tr>
                     <c:forEach items="${ExecutivesList}" var="Item" varStatus="rowStatus" >  
                     	 <tr class="odd">
-                    		<td><input type="checkbox" class="checkbox" name="id" value="${Item.executiveID}" /></td><td>${Item.executiveID}</td><td width="80px">${Item.executiveName}</td><td>${Item.sex}</td><td>${Item.phone}</td><td>${Item.address}</td><td class="last"><a href="#">编辑</a> | <a href="#">删除</a></td>
+                    		<td><input type="checkbox" class="checkbox" name="id" value="${Item.executiveID}"/></td><td>${Item.executiveID}</td><td width="80px">${Item.executiveName}</td><td>${Item.sex}</td><td>${Item.phone}</td><td>${Item.address}</td><td class="last"><a href="#">编辑</a> | <a  onclick="fun4('${Item.executiveID}')">删除</a></td>
                   		</tr>
                   	
   					</c:forEach>

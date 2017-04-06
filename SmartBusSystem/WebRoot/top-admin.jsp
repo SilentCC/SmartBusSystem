@@ -124,7 +124,9 @@ body{
 						<figcaption>
 							<h2>普通员工信息管理</h2>
 							<p>你可以对普通员工的相关信息进行增删改查。</p>
-							<button onclick="jump()">进入</button>
+							<form action="queryPerson" method="post">
+								<button onclick="jump()">进入</button>
+							</form>
 						</figcaption>
 					</figure>
 				</a>

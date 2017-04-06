@@ -29,6 +29,19 @@
         				<param name="actionName">queryPerson</param>
 					</result>
         </action>
+        
+        <!-- 查询班车系统 -->
+        <action name="queryBusSystem" class="ManageBusSystem">
+        			<result name="success">/info-extutive.jsp
+        			</result>
+        </action>
+        
+        <!-- 删除车辆信息控制 -->
+        <action name="deleteBus" class="DeleteBus">
+        			<result type="redirectAction">
+        				<param name="actionName">queryBusSystem</param>
+        			</result>
+        </action>
    
       </package>
       

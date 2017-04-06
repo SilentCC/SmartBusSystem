@@ -3,6 +3,7 @@
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>  
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
@@ -28,8 +29,50 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	cellspacing:0;	
 }
 </style>
+
+<script type="text/javascript">
+	function fun(){
+	
+	obj=document.getElementsByName("id");
+	check_val="";
+	for(k in obj){
+		if(obj[k].checked){
+		check_val=check_val+obj[k].value.trim();
+		check_val=check_val+"?";
+		
+		}
+	}
+	
+	alert(check_val);
+	
+	document.getElementById("idList").value=check_val;
+	document.getElementById("jump").click();
+	
+		
+	}
+	
+	function fun2(){
+	document.getElementById("identity").value="Executives";
+	}
+	
+	function fun3(){
+	document.getElementById("identity").value="Executives";
+	}
+	
+	function fun4(obj){
+	
+	document.getElementById("idList").value=obj;
+	document.getElementById("jump").click();
+	
+	
+	}
+</script>
+
   </head>
-  
+   <form action="deleteBus" method="post" >
+  	<input type="hidden" name="idList" id="idList"/>
+  	<input type="submit" name="jump" id="jump" style="display:none"/>
+  </form>
   <body>
   <nav class="navbar navbar-default">
   <div class="container-fluid" >
@@ -72,7 +115,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							<nav aria-label="...">
   <ul class="pager">
   <li class="next"><a class="fff" href="#">批量编辑</a></li>
-    <li class="next"><a class="fff" href="#">批量删除 <br></a></li>
+    <li class="next"><a class="fff" onclick="fun()">批量删除 <br></a></li>
     <li class="next"><a class="fff" href="#">新增车辆<br></a></li>
   </ul>
 </nav>
@@ -82,26 +125,22 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                   <tr>
                   <th></th>
                     <th>ID</th>
-                    <th>品牌</th>
-                    <th>座位数</th>
-                    <th>注册时间</th>
-                    <th>保险到期</th>
-                    <th>驾驶证</th>
-                    <th>行驶证</th>
-                    <th>操作<br></th><th class="last">&nbsp;</th>
-                  </tr>
-                  <tr class="odd">
-                    <td><input type="checkbox" class="checkbox" name="id" value="1" /></td><td>1</td><td>宇通</td><td>32</td><td>2016-10-16</td><td>2026-10-16</td><td>持有</td><td>持有</td><td class="last"><a href="#">编辑</a> | <a href="#">删除</a></td>
-                  </tr>
-                  <tr class="even">
-                    <td><input type="checkbox" class="checkbox" name="id" value="1" /></td><td>2</td><td>？</td><td>？</td><td>？</td><td>？</td><td>？</td><td>？</td><td class="last"><a href="#">编辑</a> | <a href="#">删除</a></td>
-                  </tr>
-                  <tr class="odd">
-                    <td><input type="checkbox" class="checkbox" name="id" value="1" /></td><td>3</td><td>？</td><td>？</td><td>？</td><td>？</td><td>？</td><td>？</td><td class="last"><a href="#">编辑</a> | <a href="#">删除</a></td>
-                  </tr>
-                  <tr class="even">
-                    <td><input type="checkbox" class="checkbox" name="id" value="1" /></td><td>4</td><td>？</td><td>？</td><td>？</td><td>？</td><td>？</td><td>？</td><td class="last"><a href="#">编辑</a> | <a href="#">删除</a></td>
-                  </tr>
+                    <th width="150px">品牌</th>
+                    <th width="150px">座位数</th>
+                    <th width="150px">注册时间</th>
+                    <th width="150px">保险到期</th>
+                    <th width="150px">驾驶证</th>
+                    <th width="150px">行驶证</th>
+                    <th width="150px">行驶路线</th>
+                    <th width="200px">操作<br></th><th class="last">&nbsp;</th>
+                    <c:forEach items="${ScheduledBusList}" var="Item" varStatus="rowStatus" >  
+                    	 <tr class="odd">
+                    		<td><input type="checkbox" class="checkbox" name="id" value="${Item.carID}"/></td><td>${Item.carID}</td><td width="80px">${Item.brand}</td><td>${Item.seats}</td><td>${Item.dateOfRegistration}</td><td>${Item.dateOfInsurance}</td>
+                    		<td>${Item.driverLicense}</td><td>${Item.carLicense}</td><td>${Item.routeID}</td><td class="last"><a href="#">编辑</a> | <a  onclick="fun4('${Item.carID}')">删除</a></td>
+                  		</tr>
+                  	
+  					</c:forEach>
+        
                 </table>
           </form>
        </div>
@@ -131,18 +170,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                     <th>间隔</th>
                     <th>操作<br></th><th class="last">&nbsp;</th>
                   </tr>
-                   <tr class="odd">
-                    <td><input type="checkbox" class="checkbox" name="id" value="1" /></td><td>1</td><td>0001</td><td>C1</td><td>D001</td><td>1-20</td><td>一</td><td>7:00</<td><td>8:30</<td><td>15min</<td><td class="last"><a href="#">编辑</a> | <a href="#">删除</a></td>
-                  </tr>
-                  <tr class="even">
-                    <td><input type="checkbox" class="checkbox" name="id" value="1" /></td><td>2</td><td>？</td><td>？</td><td>？</td><td>？</td><td>？</td><td>？</td><td>？</td><td>？</td><td class="last"><a href="#">编辑</a> | <a href="#">删除</a></td>
-                  </tr>
-                  <tr class="odd">
-                    <td><input type="checkbox" class="checkbox" name="id" value="1" /></td><td>3</td><td>？</td><td>？</td><td>？</td><td>？</td><td>？</td><td>？</td><td>？</td><td>？</td><td class="last"><a href="#">编辑</a> | <a href="#">删除</a></td>
-                  </tr>
-                  <tr class="even">
-                    <td><input type="checkbox" class="checkbox" name="id" value="1" /></td><td>4</td><td>？</td><td>？</td><td>？</td><td>？</td><td>？</td><td>？</td><td>？</td><td>？</td><td class="last"><a href="#">编辑</a> | <a href="#">删除</a></td>
-                  </tr>
+                    <c:forEach items="${ArangeSchedualList}" var="Item" varStatus="rowStatus" >  
+                    	 <tr class="odd">
+                    		<td><input type="checkbox" class="checkbox" name="id" value="${Item.dutyRosterID}"/></td><td>${Item.dutyRosterID}</td><td width="80px">${Item.carID}</td><td>${Item.routeID}</td><td>${Item.driverID}</td><td>${Item.driverName}</td>
+                    		<td>${Item.week}</td><td>${Item.dayOfWeek}</td><td>${Item.startTime}</td><td>${Item.endTime}</td><td class="last"><a href="#">编辑</a> | <a  onclick="fun4('${Item.dutyRosterID}')">删除</a></td>
+                  		</tr>
+                  	
+  					</c:forEach>
+                
                 </table>
           </form>
        </div>

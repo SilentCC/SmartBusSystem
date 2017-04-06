@@ -104,7 +104,9 @@ body{
 						<figcaption>
 							<h2>车辆信息管理</h2>
 							<p>你可以对车辆的相关信息进行增删改查。</p>
+							<form action="queryBusSystem" method="post">
 							<button>进入</button>
+							</form>
 						</figcaption>
 					</figure>
 				</a>
@@ -115,7 +117,9 @@ body{
 						<figcaption>
 							<h2>司机排班信息管理</h2>
 							<p>你可以对司机的排班情况进行增删改查。</p>
+							<form action="queryBusSystem" method="post">
 							<button>进入</button>
+							</form>
 						</figcaption>
 					</figure>
 				</a>
@@ -126,7 +130,9 @@ body{
 						<figcaption>
 							<h2>线路信息管理</h2>
 							<p>你可以对线路进行增删查改。</p>
+							<form action="queryBusSystem" method="post">
 							<button>进入</button>
+							</form>
 						</figcaption>
 					</figure>
 				</a>
@@ -137,7 +143,9 @@ body{
 						<figcaption>
 							<h2>站点信息管理</h2>
 							<p>你可以对站点进行增删查改。</p>
+							<form action="queryBusSystem" method="post">
 							<button>进入</button>
+							</form>
 						</figcaption>
 					</figure>
 				</a>

@@ -50,6 +50,34 @@
 		</property>
 	</bean>
 	
+	<bean id="busManage" class="dao.BusManage" abstract="false"
+		lazy-init="default" autowire="default" dependency-check="default">
+		<property name="sessionFactory" >
+			<ref local="sessionFactory"/>
+		</property>
+	</bean>
+	
+	<bean id="routeManage" class="dao.RouteManage" abstract="false"
+		lazy-init="default" autowire="default" dependency-check="default">
+		<property name="sessionFactory" >
+			<ref local="sessionFactory"/>
+		</property>
+	</bean>
+	
+	<bean id="schedualManage" class="dao.SchedualManage" abstract="false"
+		lazy-init="default" autowire="default" dependency-check="default">
+		<property name="sessionFactory" >
+			<ref local="sessionFactory"/>
+		</property>
+	</bean>
+	
+	<bean id="siteManage" class="dao.SiteManage" abstract="false"
+		lazy-init="default" autowire="default" dependency-check="default">
+		<property name="sessionFactory" >
+			<ref local="sessionFactory"/>
+		</property>
+	</bean>
+	
 	<bean id="loginAction" class="com.action.loginAction" scope="prototype">
 	     <property name="personManage">
 	         <ref bean="personManage" />
@@ -64,5 +92,29 @@
 		<property name="personManage">
 			<ref bean="personManage"></ref>
 		</property>	
+	</bean>
+	<bean id="ManageBusSystem" class="com.action.ManageBusSystem" scope="prototype">
+		<property name="busManage">
+			<ref bean="busManage"></ref>
+		</property>	
+		
+		<property name="routeManage">
+			<ref bean="routeManage"></ref>
+		</property>	
+		
+		<property name="schedualManage">
+			<ref bean="schedualManage"></ref>
+		</property>
+
+		<property name="siteManage">
+			<ref bean="siteManage"></ref>
+		</property>	
+		
+	</bean>
+	
+	<bean id="DeleteBus" class="com.action.DeleteBus" scope="prototype">
+		<property name="busManage">
+			<ref bean="busManage"></ref>
+		</property>
 	</bean>
 </beans>
