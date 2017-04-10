@@ -207,4 +207,88 @@ public class PersonManage {
 			//关闭数据库
 			session.close();
 	}
+	
+	//增加员工记录
+	public int AddEmployee(Employee employee){
+		//连接数据库
+		Session session = sessionFactory.openSession();
+		//定义事物
+		Transaction tx= null;
+		int i = 0;
+		try{
+			tx=session.beginTransaction();
+			session.save(employee);
+			i = 1;
+			tx.commit();
+		}catch(RuntimeException re){
+			tx.rollback();
+			throw re;
+		}
+		session.close();
+		return i;
+	}
+	
+	//增加乘客信息
+	
+	public int AddPassenger(Passenger passenger){
+		//连接数据库
+		Session session = sessionFactory.openSession();
+		//定义事物
+		Transaction tx= null;
+		int i = 0;
+		try{
+			tx=session.beginTransaction();
+			session.save(passenger);
+			i = 1;
+			tx.commit();
+		}catch(RuntimeException re){
+			tx.rollback();
+			throw re;
+		}
+		session.close();
+		return i;
+	}
+	
+	//增加行政人员信息
+	
+	public int AddExecutives(Executives executives){
+			//连接数据库
+			Session session = sessionFactory.openSession();
+			//定义事物
+			Transaction tx= null;
+			int i = 0;
+			try{
+				tx=session.beginTransaction();
+				session.save(executives);
+				i = 1;
+				tx.commit();
+			}catch(RuntimeException re){
+				tx.rollback();
+				throw re;
+			}
+			session.close();
+			return i;
+		}
+	
+	//增加司机人员信息
+		
+	public int AddDriver(Driver driver){
+			//连接数据库
+			Session session = sessionFactory.openSession();
+			//定义事物
+			Transaction tx= null;
+			int i = 0;
+			try{
+				tx=session.beginTransaction();
+				session.save(driver);
+				i = 1;
+				tx.commit();
+			}catch(RuntimeException re){
+				tx.rollback();
+				throw re;
+			}
+			session.close();
+			return i;
+		}
+		
 }

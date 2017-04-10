@@ -21,6 +21,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 <link rel="stylesheet" type="text/css" href="css/style1.css">
 <script src="http://cdn.bootcss.com/jquery/3.0.0/jquery.min.js"></script>
+<script type="text/javascript" src="/js/jquery.page.js"></script>
 <style type="text/css">
 .buttom{
 	width: 100%;
@@ -32,6 +33,20 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 </style>
 <script type="text/javascript">
+
+$(".tcdPageCode").createPage({
+
+        pageCount:10,  //总页数
+
+        current:1,   //当前页
+
+        backFn:function(p){
+            //单击回调方法，p是当前页码
+
+        }
+
+    });
+    
 	function fun(){
 	
 	obj=document.getElementsByName("id");
@@ -57,6 +72,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	}
 	
 	function fun3(){
+	document.getElementById("identity").value="Executives";
+	}
+	function fun5(){
 	document.getElementById("identity").value="Executives";
 	}
 	
@@ -111,6 +129,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<ul class="nav nav-tabs" role="tablist">
 						<li role="presentation" class="active"><a href="#Section1" onclick="fun2()" aria-controls="home" role="tab" data-toggle="tab">行政人员个人信息</a></li>
 						<li role="presentation"><a href="#Section2" onclick="fun3()"  aria-controls="profile" role="tab" data-toggle="tab">普通员工个人信息</a></li>
+						<li role="presentation"><a href="#Section3" onclick="fun5()"  aria-controls="profile" role="tab" data-toggle="tab">司机个人信息</a></li>
 					</ul>
 					<!-- Tab panes -->
 					<div class="tab-content tabs">
@@ -138,8 +157,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                     <c:forEach items="${ExecutivesList}" var="Item" varStatus="rowStatus" >  
                     	 <tr class="odd">
                     		<td><input type="checkbox" class="checkbox" name="id" value="${Item.executiveID}"/></td><td>${Item.executiveID}</td><td width="80px">${Item.executiveName}</td><td>${Item.sex}</td><td>${Item.phone}</td><td>${Item.address}</td><td class="last"><a href="#">编辑</a> | <a  onclick="fun4('${Item.executiveID}')">删除</a></td>
-                  		</tr>
-                  	
+                  		</tr>	
   					</c:forEach>
                 </table>
           </form>
@@ -151,7 +169,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <ul class="pager">
   <li class="next"><a class="fff" href="#">批量编辑</a></li>
     <li class="next"><a class="fff" href="#">批量删除 <br></a></li>
-    <li class="next"><a class="fff" href="/register-extutive.jsp">新增人员<br></a></li>
+    <li class="next"><a class="fff" href="register-extutive2.jsp">新增人员<br></a></li>
   </ul>
 </nav>
 <div class="inner">
@@ -183,34 +201,61 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
           </form>
        </div>
 						</div>
+						
+		<div role="tabpanel" class="tab-pane fade" id="Section3">
+							<h2 class="title" style="text-align:center">司机个人信息表</h2>
+							<nav aria-label="...">
+  <ul class="pager">
+  <li class="next"><a class="fff" href="#">批量编辑</a></li>
+    <li class="next"><a class="fff" href="#">批量删除 <br></a></li>
+    <li class="next"><a class="fff" href="/register-extutive.jsp">新增人员<br></a></li>
+  </ul>
+</nav>
+<div class="inner">
+              <form action="#" class="form">
+                <table class="table">
+                  <tr>
+                    <th>ID</th>
+                    <th>姓名</th>
+                    <th>性别</th>
+                    <th>电话</th>
+                    <th>操作<br></th><th class="last">&nbsp;</th>
+                  </tr>
+                </table>
+          </form>
+       </div>
+						</div>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
+<div class="tcdPageCode">
 	<nav aria-label="Page navigation" style="text-align:center">
   <ul class="pagination">
     <li>
-      <a href="#" aria-label="Previous">
+      <a href="javascript:;" aria-label="Previous">
         <span aria-hidden="true">&laquo;</span>
       </a>
     </li>
-    <li><a href="#">1</a></li>
-    <li><a href="#">2</a></li>
-    <li><a href="#">3</a></li>
-    <li><a href="#">4</a></li>
-    <li><a href="#">5</a></li>
+    <li><a href="javascript:;">1</a></li>
+    <li><a href="javascript:;">2</a></li>
+    <li><a href="javascript:;">3</a></li>
+    <li><a href="javascript:;">4</a></li>
+    <li><a href="javascript:;">5</a></li>
     <li>
-      <a href="#" aria-label="Next">
+      <a href="javascript:;" aria-label="Next">
         <span aria-hidden="true">&raquo;</span>
       </a>
     </li>
   </ul>
 </nav>
 </div>
+</div>
 
 <script src="js/jquery-2.1.1.min.js" type="text/javascript"></script>
 <script src="js/bootstrap.min.js" type="text/javascript"></script>
+<script type="text/javascript" src="/js/jquery.page.js"></script>
 
 <div class="buttom">
 <center>

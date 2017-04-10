@@ -103,30 +103,12 @@ dl,dt,dd,ul,li{
         <li><a href="#">联系我们</a></li>
       </ul>   
 </nav>
-<div style="height: 900px;">
+<div style="height: 770px;">
+<h2 style="text-align:center"><bold>地图信息查看</bold></h2>
+<div style="height:30px;"></div>
     <div id="allmap" class="map"></div>
-<div style="height:30px"></div>
-  <div id="r-result" style="text-align:center">
-    <input type="text" autocomplete="on" id="enterArray" style="width:400px;height:40px;line-height:40px;padding:2px;font-size:16px;" />&nbsp;&nbsp;
-  <button id="submit" style="height:30px;">提交</button>&nbsp;&nbsp;
-  <input type="button" style="height:30px;" value="批量地址解析" onclick="bdGEO()" />
-  
-  </div>
-  <div style="height:20px"></div>
-  <div id="driving_way" align="center">
-		<select style="height:30px;">
-			<option value="0">最少时间</option>
-			<option value="1">最短距离</option>
-			<option value="2">避开高速</option>
-		</select>&nbsp;&nbsp;&nbsp;&nbsp;
-		<input type="button" id="result2" style="height:28px;" value="查询"/>
-</div>
-<div style="height:20px"></div>
-<div align="center">
-  <div id="result" align="left"></div>
-  </div>
-  </div>
-        <div class="buttom">
+    </div>
+    <div class="buttom">
 <center>
   <tr>
     <th style="font-size: 14px;text-align:center;">Copyrights Reserved 2016-2017 By 你是风儿我是沙有限公司<br/><br/>浙ICP备12345678号 <br></th>

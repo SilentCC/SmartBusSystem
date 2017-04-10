@@ -107,6 +107,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<ul class="nav nav-tabs" role="tablist">
 						<li role="presentation" class="active"><a href="#Section1" aria-controls="home" role="tab" data-toggle="tab">车辆信息管理</a></li>
 						<li role="presentation"><a href="#Section2" aria-controls="profile" role="tab" data-toggle="tab">司机排班信息管理</a></li>
+						<li role="presentation"><a href="#Section3" aria-controls="profile" role="tab" data-toggle="tab">线路信息管理</a></li>
+						<li role="presentation"><a href="#Section4" aria-controls="profile" role="tab" data-toggle="tab">站点信息管理</a></li>
 					</ul>
 					<!-- Tab panes -->
 					<div class="tab-content tabs">
@@ -168,6 +170,75 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                     <th>起始时间</th>
                     <th>结束时间</th>
                     <th>间隔</th>
+                    <th>操作<br></th><th class="last">&nbsp;</th>
+                  </tr>
+                    <c:forEach items="${ArangeSchedualList}" var="Item" varStatus="rowStatus" >  
+                    	 <tr class="odd">
+                    		<td><input type="checkbox" class="checkbox" name="id" value="${Item.dutyRosterID}"/></td><td>${Item.dutyRosterID}</td><td width="80px">${Item.carID}</td><td>${Item.routeID}</td><td>${Item.driverID}</td><td>${Item.driverName}</td>
+                    		<td>${Item.week}</td><td>${Item.dayOfWeek}</td><td>${Item.startTime}</td><td>${Item.endTime}</td><td class="last"><a href="#">编辑</a> | <a  onclick="fun4('${Item.dutyRosterID}')">删除</a></td>
+                  		</tr>
+                  	
+  					</c:forEach>
+                
+                </table>
+          </form>
+       </div>
+						</div>
+						
+		<div role="tabpanel" class="tab-pane fade" id="Section3">
+							<h2 class="title" style="text-align:center">线路信息表</h2>
+							<nav aria-label="...">
+  <ul class="pager">
+<li class="next"><a class="fff" href="#">批量编辑</a></li>
+    <li class="next"><a class="fff" href="#">批量删除 <br></a></li>
+    <li class="next"><a class="fff" href="register-car.jsp">新增排班<br></a></li>
+  </ul>
+</nav>
+<div class="inner">
+              <form action="#" class="form">
+                <table class="table">
+                  <tr>
+                    <th></th>
+                    <th>线路编号</th>
+                    <th>线路名称</th>
+                    <th>起始站点</th>
+                    <th>最终站点</th>
+                    <th>乘客人数</th>
+                    <th>操作<br></th><th class="last">&nbsp;</th>
+                  </tr>
+                    <c:forEach items="${ArangeSchedualList}" var="Item" varStatus="rowStatus" >  
+                    	 <tr class="odd">
+                    		<td><input type="checkbox" class="checkbox" name="id" value="${Item.dutyRosterID}"/></td><td>${Item.dutyRosterID}</td><td width="80px">${Item.carID}</td><td>${Item.routeID}</td><td>${Item.driverID}</td><td>${Item.driverName}</td>
+                    		<td>${Item.week}</td><td>${Item.dayOfWeek}</td><td>${Item.startTime}</td><td>${Item.endTime}</td><td class="last"><a href="#">编辑</a> | <a  onclick="fun4('${Item.dutyRosterID}')">删除</a></td>
+                  		</tr>
+                  	
+  					</c:forEach>
+                
+                </table>
+          </form>
+       </div>
+						</div>
+						
+	   <div role="tabpanel" class="tab-pane fade" id="Section4">
+							<h2 class="title" style="text-align:center">站点信息表</h2>
+							<nav aria-label="...">
+  <ul class="pager">
+<li class="next"><a class="fff" href="#">批量编辑</a></li>
+    <li class="next"><a class="fff" href="#">批量删除 <br></a></li>
+    <li class="next"><a class="fff" href="register-car.jsp">新增排班<br></a></li>
+  </ul>
+</nav>
+<div class="inner">
+              <form action="#" class="form">
+                <table class="table">
+                  <tr>
+                    <th></th>
+                    <th>站点编号</th>
+                    <th>线路编号</th>
+                    <th>站点名称</th>
+                    <th>到达时间</th>
+                    <th>站点次序</th>
+                    <th>乘客人数</th>
                     <th>操作<br></th><th class="last">&nbsp;</th>
                   </tr>
                     <c:forEach items="${ArangeSchedualList}" var="Item" varStatus="rowStatus" >  

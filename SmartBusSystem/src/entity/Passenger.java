@@ -1,14 +1,31 @@
 package entity;
 
 public class Passenger {
-	private String PassengerID;//�˳�Ա����ID(����)
-	private String RouteID;//��·���
-	private String SiteID;//վ����
-	private String CarID;//�������
-	private String Location;//�ϳ�λ��
-	private String Time;//�ϳ�ʱ��ע
+	
+	private String PassengerID;
+	private String Location;
 	private String Pwd;
 	private String Name;
+	private String Phone;
+	private String Sex;
+	
+	
+	public String getSex() {
+		return Sex;
+	}
+
+	public void setSex(String sex) {
+		Sex = sex;
+	}
+
+	public String getPhone() {
+		return Phone;
+	}
+
+	public void setPhone(String phone) {
+		Phone = phone;
+	}
+
 	public String getName() {
 		return Name;
 	}
@@ -28,15 +45,15 @@ public class Passenger {
 	public Passenger(){
 	}
 
-	public Passenger(String RouteID,String SiteID,String CarID,String Location,
-	String Time,String Pwd,String Name){
-	this.RouteID = RouteID;
-	this.SiteID = SiteID;
-	this.CarID = CarID;
+	public Passenger(String PassengerID,String Location,String Pwd,String Name,String Sex,String Phone){
+	
+	
+	this.PassengerID=PassengerID;
 	this.Location = Location;
-	this.Time = Time; 
 	this.Pwd=Pwd;
 	this.Name=Name;
+	this.Sex=Sex;
+	this.Phone=Phone;
 	
 	}
 
@@ -48,30 +65,6 @@ public class Passenger {
 	PassengerID = passengerID;
 	}
 
-	public String getRouteID() {
-	return RouteID;
-	}
-
-	public void setRouteID(String routeID) {
-	RouteID = routeID;
-	}
-
-	public String getSiteID() {
-	return SiteID;
-	}
-
-	public void setSiteID(String siteID) {
-	SiteID = siteID;
-	}
-
-	public String getCarID() {
-	return CarID;
-	}
-
-	public void setCarID(String carID) {
-	CarID = carID;
-	}
-
 	public String getLocation() {
 	return Location;
 	}
@@ -79,14 +72,5 @@ public class Passenger {
 	public void setLocation(String location) {
 	Location = location;
 	}
-
-	public String getTime() {
-	return Time;
-	}
-
-	public void setTime(String time) {
-	Time = time;
-	}
-
 
 }

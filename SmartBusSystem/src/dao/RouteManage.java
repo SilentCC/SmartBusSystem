@@ -48,6 +48,26 @@ public class RouteManage {
 				session.close();	
 				return RouteList;
 			}
+			//新增线路信息
+			
+			public int AddRoute(Route route){
+				//连接数据库
+				Session session = sessionFactory.openSession();
+				//定义事物
+				Transaction tx= null;
+				int i = 0;
+				try{
+					tx=session.beginTransaction();
+					session.save(route);
+					i = 1;
+					tx.commit();
+				}catch(RuntimeException re){
+					tx.rollback();
+					throw re;
+				}
+				session.close();
+				return i;
+			}
 
 
 }

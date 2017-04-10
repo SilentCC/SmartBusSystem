@@ -64,5 +64,25 @@ public class BusManage {
 		session.close();
 	}
 	
+	//增加车辆的记录
+	public int AddBus(ScheduledBus bus){
+		//连接数据库
+		Session session = sessionFactory.openSession();
+		//定义事物
+		Transaction tx= null;
+		int i = 0;
+		try{
+			tx=session.beginTransaction();
+			session.save(bus);
+			i = 1;
+			tx.commit();
+		}catch(RuntimeException re){
+			tx.rollback();
+			throw re;
+		}
+		session.close();
+		return i;
+	}
+	
 
 }

@@ -66,16 +66,17 @@ public class ScheduledBus {
 	public ScheduledBus(){}
 	
 	public ScheduledBus(String CarID,String Brand,String Seats,Date DateOfRegistration,Date DateOfInsurance,
-			String DriverLicense,String RouteID){
+			String DriverLicense,String CarLicense,String RouteID){
+		
 		this.CarID=CarID;
 		this.Brand=Brand;
 		this.Seats=Seats;
 		this.DateOfInsurance=DateOfInsurance;
 		this.DateOfRegistration=DateOfRegistration;
 		this.DriverLicense=DriverLicense;
+		this.CarLicense=CarLicense;
 		this.RouteID=RouteID;
 	
-		
 	}
 	
 	
