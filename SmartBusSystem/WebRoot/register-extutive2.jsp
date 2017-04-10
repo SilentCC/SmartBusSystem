@@ -32,6 +32,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 <link rel="stylesheet" type="text/css" href="css/style1.css">
 <link rel="stylesheet" type="text/css" href="css/styleregister.css">
+
+<script>
+	function jump(){
+	alert("ok");
+	}
+</script>
   </head>
   
   <body>
@@ -60,20 +66,22 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
       </ul>   
 </nav>
   <h1>新增行政人员信息</h1>
+  
 	<div class="content2" style="height:63%">
-		<form>
-			<input type="text" name="extutiveid" value="行政人员ID" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'ExtutiveID';}">
-			<input type="text" name="name" value="姓名" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Name';}">
-			<input list="sex" type="text" name="性别" value="性别" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Sex';}">
+		<form action="addExecutive" method="post">
+			<input type="text" name="executiveID" value="行政人员ID" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '行政人员ID';}">
+			<input type="text" name="executiveName" value="姓名" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '姓名';}">
+			<input list="sex" type="text" name="sex" value="性别" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '性别';}">
             <datalist id="sex">
-            <option value="Male"></option>
-            <option value="Female"></option>
+            <option value="男"></option>
+            <option value="女"></option>
             </datalist>     
-			<input type="tel" name="usrtel" value="电话" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'PHONE';}">
-			<input type="email" name="email" value="住址" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Address';}">
-			<input type="password" name="psw" value="初始密码" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Password';}">
-			<input type="submit" class="register" value="新增">
+			<input type="text" name="phone" value="电话" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '电话';}">
+			<input type="text" name="address" value="住址" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '地址';}">
+			<input type="password" name="pwd" value="初始密码" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '密码';}">
+			<input type="submit"  class="register" value="新增">
 		</form>
+		
 	</div>
 	<div class="clear" style="height:66%"></div>
 <div style="width:100%">

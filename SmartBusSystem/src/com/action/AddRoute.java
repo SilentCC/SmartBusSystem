@@ -12,6 +12,8 @@ import entity.Employee;
 import entity.Driver;
 import dao.*;
 
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.*;
 
 import entity.*;
@@ -76,12 +78,31 @@ public class AddRoute extends ActionSupport{
 		this.routeManage = routeManage;
 	}
 	
-	public String execute(){
+	public String execute() throws IOException{
 		
 		Route route;
 		route=new Route(routeID,routeName,startPlace,endPlace,passengeNum);
 		
-		if(routeManage.AddRoute(route)==1)
+		//向前台
+		HttpServletResponse response=ServletActionContext.getResponse();
+		//设置弹出的格式
+		response.setContentType("text/html;charset=UTF-8");
+        response.setCharacterEncoding("UTF-8");
+        //防止弹出的信息出现乱码
+        PrintWriter out = response.getWriter();
+	
+		//根据数据库返回结果，弹出相应的界面
+        
+        //如果已经存在ExecutivesID
+        if(routeManage.QueryRoute(routeID)==true){
+        	
+        	out.print("<script>alert('添加失败！')</script>");
+			out.flush();
+			out.close();
+			
+			return ERROR;
+        }
+        else if(routeManage.AddRoute(route)==1)
 			return SUCCESS;
 		else
 			return ERROR;

@@ -15,6 +15,7 @@ import dao.*;
 import java.util.*;
 
 import entity.*;
+import java.io.*;
 
 public class AddExecutives extends ActionSupport{
 	
@@ -85,15 +86,47 @@ public class AddExecutives extends ActionSupport{
 		this.personManage = personManage;
 	}
 	
-	public String execute(){
+	public String execute() throws IOException{
 		
+		System.out.println("yy");
+		//增加行政人员
 		Executives executives;
-		executives= new Executives(executiveID,pwd,executiveName,sex,phone,address);
+		System.out.println(executiveID);
+		System.out.println(pwd);
+		System.out.println(executiveName);
 		
-		if(personManage.AddExecutives(executives)==1)
-			return SUCCESS;
-		else
+		executives= new Executives(executiveID,pwd,executiveName,sex,phone,address);
+		System.out.println(executives.getExecutiveID());
+		
+		//向前台
+		HttpServletResponse response=ServletActionContext.getResponse();
+		//设置弹出的格式
+		response.setContentType("text/html;charset=UTF-8");
+        response.setCharacterEncoding("UTF-8");
+        //防止弹出的信息出现乱码
+        PrintWriter out = response.getWriter();
+	
+		//根据数据库返回结果，弹出相应的界面
+        
+        //如果已经存在ExecutivesID
+        if(personManage.QueryExecutives(executiveID)==true){
+        	
+        	out.print("<script>alert('添加失败！')</script>");
+			out.flush();
+			out.close();
+			
 			return ERROR;
+        	
+        }
+        else if(personManage.AddExecutives(executives)==1){
+         
+			return SUCCESS;
+			
+		}
+		else{
+		
+			return ERROR;
+		}
 	}
 
 }

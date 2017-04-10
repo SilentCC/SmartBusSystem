@@ -68,6 +68,23 @@ public class RouteManage {
 				session.close();
 				return i;
 			}
+			
+			//查询路线是否存在
+			public boolean QueryRoute(String RouteID){
+				
+				boolean flag = false;
+				Session session=null;
+				session = sessionFactory.openSession();
+				String hql = "from Route as route where route.RouteID = '" +RouteID+ "'";
+				List<Driver> DriverList = session.createQuery(hql).list();
+				//transaction.commit();
+				if(DriverList.size()>0){
+					flag = true;			
+				}
+				session.close();					
+				return flag;
+				
+			}
 
 
 }

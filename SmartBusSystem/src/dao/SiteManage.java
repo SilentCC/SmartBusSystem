@@ -65,5 +65,22 @@ public class SiteManage {
 		session.close();
 		return i;
 	}
+	
+	//查询司机是否存在
+			public boolean QuerySite(String SiteID){
+				
+				boolean flag = false;
+				Session session=null;
+				session = sessionFactory.openSession();
+				String hql = "from Site as site where site.SiteID = '" +SiteID+ "'";
+				List<Driver> DriverList = session.createQuery(hql).list();
+				//transaction.commit();
+				if(DriverList.size()>0){
+					flag = true;			
+				}
+				session.close();					
+				return flag;
+				
+			}
 
 }

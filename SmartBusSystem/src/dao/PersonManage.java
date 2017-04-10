@@ -76,7 +76,6 @@ public class PersonManage {
 		boolean flag = false;
 		Session session=null;
 		session = sessionFactory.openSession();
-		System.out.println(DriverID+"  "+pwd);
 		String hql = "from Driver as driver where driver.DriverID = '" +DriverID+ "' and driver.Pwd = '"+pwd+"'";
 		List<Driver> DriverList = session.createQuery(hql).list();
 		//transaction.commit();
@@ -277,6 +276,7 @@ public class PersonManage {
 			Session session = sessionFactory.openSession();
 			//定义事物
 			Transaction tx= null;
+			System.out.println("yyy");
 			int i = 0;
 			try{
 				tx=session.beginTransaction();
@@ -289,6 +289,54 @@ public class PersonManage {
 			}
 			session.close();
 			return i;
+		}
+	
+	//查询行政人员id是否存在
+		public boolean QueryExecutives(String ExecutiveID){		
+				boolean flag = false;
+				Session session=null;
+				session = sessionFactory.openSession();
+				String hql = "from Executives as executive where executive.ExecutiveID = '" +ExecutiveID+ "'";
+				List<Executives> ExecutivesList = session.createQuery(hql).list();
+				//transaction.commit();
+				if(ExecutivesList.size()>0){
+					flag = true;
+				}
+				session.close();					
+				return flag;
+			}
+		
+		//查询乘客ID是否存
+		public boolean QueryPassenger(String PassengerID){
+			
+			boolean flag = false;
+			Session session=null;
+			session = sessionFactory.openSession();
+			String hql = "from Passenger as passenger where passenger.PassengerID = '" +PassengerID+ "'";
+			List<Passenger> PassengerList = session.createQuery(hql).list();
+			//transaction.commit();
+			if(PassengerList.size()>0){
+				flag = true;
+			}
+			session.close();					
+			return flag;
+			
+		}
+		//查询司机是否存在
+		public boolean QueryDriver(String DriverID){
+			
+			boolean flag = false;
+			Session session=null;
+			session = sessionFactory.openSession();
+			String hql = "from Driver as driver where driver.DriverID = '" +DriverID+ "'";
+			List<Driver> DriverList = session.createQuery(hql).list();
+			//transaction.commit();
+			if(DriverList.size()>0){
+				flag = true;			
+			}
+			session.close();					
+			return flag;
+			
 		}
 		
 }

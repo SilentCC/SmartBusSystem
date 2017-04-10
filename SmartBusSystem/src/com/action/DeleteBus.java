@@ -42,7 +42,6 @@ public class DeleteBus extends ActionSupport {
 	
 	public String execute(){
 		
-		System.out.println("ok");
 		//定义List存储ID
 		List<String> name=new ArrayList<String>();
 		//正则表达式，分解idList

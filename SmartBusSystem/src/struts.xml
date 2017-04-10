@@ -47,6 +47,13 @@
         <action name="userExit" class="UserExit">
         		<result name="success">/login.jsp</result>
         </action>
+        
+        <!-- 新增行政人员控制 -->
+        <action name="addExecutive" class="AddExecutive">
+        		<result type="redirectAction">
+        			<param name="actionName">queryPerson</param>
+        		</result>
+        </action>
    
       </package>
       

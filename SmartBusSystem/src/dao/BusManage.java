@@ -84,5 +84,22 @@ public class BusManage {
 		return i;
 	}
 	
+	//查询BusID是否存在
+			public boolean QueryBus(String BusID){
+				
+				boolean flag = false;
+				Session session=null;
+				session = sessionFactory.openSession();
+				String hql = "from ScheduledBus as bus where bus.CarID = '" +BusID+ "'";
+				List<Driver> DriverList = session.createQuery(hql).list();
+				//transaction.commit();
+				if(DriverList.size()>0){
+					flag = true;			
+				}
+				session.close();					
+				return flag;
+				
+			}
+	
 
 }

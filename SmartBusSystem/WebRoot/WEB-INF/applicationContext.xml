@@ -121,4 +121,10 @@
 	<bean id="UserExit" class="com.action.UserExitAction" scope="prototype">
 
 	</bean>
+	
+	<bean id="AddExecutive" class="com.action.AddExecutives" scope="prototype">
+		<property name="personManage">
+				<ref bean="personManage"></ref>
+		</property>
+	</bean>
 </beans>

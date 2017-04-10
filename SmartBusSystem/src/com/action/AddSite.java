@@ -12,6 +12,8 @@ import entity.Employee;
 import entity.Driver;
 import dao.*;
 
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.*;
 
 import entity.*;
@@ -85,11 +87,31 @@ public class AddSite extends ActionSupport{
 		this.siteManage = siteManage;
 	}
 	
-	public String execute(){
+	public String execute() throws IOException{
 		
 		Site site;
 		site=new Site(routeID,siteName,arrivalTime,sequence,passageNum);
-		if(siteManage.AddSite(site)==1)
+		
+		//向前台
+				HttpServletResponse response=ServletActionContext.getResponse();
+				//设置弹出的格式
+				response.setContentType("text/html;charset=UTF-8");
+		        response.setCharacterEncoding("UTF-8");
+		        //防止弹出的信息出现乱码
+		        PrintWriter out = response.getWriter();
+			
+				//根据数据库返回结果，弹出相应的界面
+		        
+		        //如果已经存在ExecutivesID
+		if(siteManage.QuerySite(siteID)==true){
+			
+			out.print("<script>alert('添加失败！')</script>");
+			out.flush();
+			out.close();
+			
+			return ERROR;
+		}
+		else if(siteManage.AddSite(site)==1)
 			return SUCCESS;
 		else
 			return ERROR;

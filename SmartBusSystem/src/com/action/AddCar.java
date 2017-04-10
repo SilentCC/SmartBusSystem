@@ -14,6 +14,9 @@ import dao.*;
 import java.util.*;
 
 import entity.*;
+
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.sql.Date;
 
 public class AddCar extends ActionSupport{
@@ -108,11 +111,33 @@ public class AddCar extends ActionSupport{
 	}
 
 	
-	public String execute(){
+	public String execute() throws IOException{
 		
 		ScheduledBus car;
 		car=new ScheduledBus(carID,brand,seats,dateOfRegistration,dateOfInsurance,driverLicense,carLicense,routeID);
-		if(busManage.AddBus(car)==1)
+		
+
+		//向前台
+		HttpServletResponse response=ServletActionContext.getResponse();
+		//设置弹出的格式
+		response.setContentType("text/html;charset=UTF-8");
+        response.setCharacterEncoding("UTF-8");
+        //防止弹出的信息出现乱码
+        PrintWriter out = response.getWriter();
+	
+		//根据数据库返回结果，弹出相应的界面
+      //如果已经存在ExecutivesID
+        if(busManage.QueryBus(carID)==true){
+        	
+        	out.print("<script>alert('添加失败！')</script>");
+			out.flush();
+			out.close();
+			
+			return ERROR;
+        }
+        	
+        
+        else if(busManage.AddBus(car)==1)
 			return SUCCESS;
 		else
 			return ERROR;
