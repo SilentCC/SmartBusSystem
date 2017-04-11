@@ -68,6 +68,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	}
 	function fun6(obj){
 	
+	
 	document.getElementById("idList").value=obj;
 	document.getElementById("jump").click();
 	
@@ -76,10 +77,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 </script>
 
   </head>
-   <form action="deleteBus" method="post" >
+   <form action="deleteBusSystem" method="post" >
   	<input type="hidden" name="idList" id="idList"/>
   	<input type="hidden" name="identity" id="identity" value="Bus"/>
-  	<input type="submit" name="jump" id="jumpBus" style="display:none"/>
+  	<input type="submit" name="jump" id="jump" style="display:none"/>
   </form>
   
   <body>
@@ -163,7 +164,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							<nav aria-label="...">
   <ul class="pager">
 <li class="next"><a class="fff" href="#">批量编辑</a></li>
-    <li class="next"><a class="fff" href="#">批量删除 <br></a></li>
+    <li class="next"><a class="fff" onclick="fun()">批量删除 <br></a></li>
     <li class="next"><a class="fff" href="register-car.jsp">新增排班<br></a></li>
   </ul>
 </nav>
@@ -201,7 +202,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							<nav aria-label="...">
   <ul class="pager">
 <li class="next"><a class="fff" href="#">批量编辑</a></li>
-    <li class="next"><a class="fff" href="#">批量删除 <br></a></li>
+    <li class="next"><a class="fff" onclick="fun()">批量删除 <br></a></li>
     <li class="next"><a class="fff" href="register-car.jsp">新增线路<br></a></li>
   </ul>
 </nav>
@@ -235,7 +236,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							<nav aria-label="...">
   <ul class="pager">
 <li class="next"><a class="fff" href="#">批量编辑</a></li>
-    <li class="next"><a class="fff" href="#">批量删除 <br></a></li>
+    <li class="next"><a class="fff" onclick="fun()">批量删除 <br></a></li>
     <li class="next"><a class="fff" href="register-car.jsp">新增站点<br></a></li>
   </ul>
 </nav>

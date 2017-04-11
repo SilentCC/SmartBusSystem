@@ -76,7 +76,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             <option value="男"></option>
             <option value="女"></option>
             </datalist>     
-			<input type="text" name="phone" value="电话" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '电话';}">
+			<input type="tel" name="phone" value="电话" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '电话';}">
 			<input type="text" name="address" value="住址" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '地址';}">
 			<input type="password" name="pwd" value="初始密码" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '密码';}">
 			<input type="submit"  class="register" value="新增">

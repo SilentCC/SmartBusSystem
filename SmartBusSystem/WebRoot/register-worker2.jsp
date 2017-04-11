@@ -60,7 +60,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
       </ul>   
 </nav>
   <h1>新增普通员工信息</h1>
-	<div class="content2" style="height:63%">
+	<div class="content2" style="height:73%">
 		<form action="addPassenger" method="post">
 			<input type="text" name="passengerID" value="普通员工ID" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '普通员工ID';}">
 			<input type="text" name="name" value="姓名" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '姓名';}">
@@ -69,6 +69,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             <option value="Male"></option>
             <option value="Female"></option>
             </datalist>
+            <input type="text" name="department" value="所属部门" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '所属部门';}">
 			<input type="text" name="phone" value="电话" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '电话';}">
 			<input type="text" name="location" value="住址" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '住址';}">
 			<input type="password" name="pwd" value="初始密码" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '初始密码';}">

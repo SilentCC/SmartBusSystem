@@ -27,7 +27,20 @@ public class AddPassenger extends ActionSupport{
 	private String name;
 	private String pwd;
 	private String sex;
+	private String department;
 	
+	public String getDepartment() {
+		return department;
+	}
+
+
+
+	public void setDepartment(String department) {
+		this.department = department;
+	}
+
+
+
 	public String getSex() {
 		return sex;
 	}
@@ -109,7 +122,7 @@ public class AddPassenger extends ActionSupport{
 	public String execute() throws IOException{
 		
 		Passenger passenger;
-		passenger=new Passenger(passengerID,location,pwd,name,sex,phone);
+		passenger=new Passenger(passengerID,location,department,pwd,name,sex,phone);
 		
 		//向前台
 		HttpServletResponse response=ServletActionContext.getResponse();

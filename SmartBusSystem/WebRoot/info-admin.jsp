@@ -168,13 +168,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                     <th>ID</th>
                     <th>姓名</th>
                     <th>性别</th>
+                    <th>所属部门</th>
                     <th>电话</th>
                     <th>住址</th>
                     <th>操作<br></th><th class="last">&nbsp;</th>
                   </tr>
                  <c:forEach items="${PassengerList}" var="Item" varStatus="rowStatus" >  
                     	 <tr class="odd">
-                    		<td><input type="checkbox" class="checkbox" name="id" value="${Item.passengerID}"/></td><td>${Item.passengerID}</td><td width="80px">${Item.name}</td><td>${Item.sex}</td><td>${Item.location}</td><td class="last"><a href="#">编辑</a> | <a  onclick="fun4('${Item.passengerID}')">删除</a></td>
+                    		<td><input type="checkbox" class="checkbox" name="id" value="${Item.passengerID}"/></td><td>${Item.passengerID}</td><td width="80px">${Item.name}</td><td>${Item.sex}</td><td>${Item.department}</td><td>${Item.location}</td><td class="last"><a href="#">编辑</a> | <a  onclick="fun4('${Item.passengerID}')">删除</a></td>
                   		</tr>	
   					</c:forEach>
                 </table>

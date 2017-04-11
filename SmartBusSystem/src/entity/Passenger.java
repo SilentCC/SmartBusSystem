@@ -4,6 +4,15 @@ public class Passenger {
 	
 	private String PassengerID;
 	private String Location;
+	private String Department;
+	public String getDepartment() {
+		return Department;
+	}
+
+	public void setDepartment(String department) {
+		Department = department;
+	}
+
 	private String Pwd;
 	private String Name;
 	private String Phone;
@@ -45,11 +54,12 @@ public class Passenger {
 	public Passenger(){
 	}
 
-	public Passenger(String PassengerID,String Location,String Pwd,String Name,String Sex,String Phone){
+	public Passenger(String PassengerID,String Location,String Department,String Pwd,String Name,String Sex,String Phone){
 	
 	
 	this.PassengerID=PassengerID;
 	this.Location = Location;
+	this.Department=Department;
 	this.Pwd=Pwd;
 	this.Name=Name;
 	this.Sex=Sex;
