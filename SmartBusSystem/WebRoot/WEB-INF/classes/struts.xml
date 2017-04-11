@@ -36,8 +36,8 @@
         			</result>
         </action>
         
-        <!-- 删除车辆信息控制 -->
-        <action name="deleteBus" class="DeleteBus">
+        <!-- 删除车辆线路信息等控制 -->
+        <action name="deleteBusSystem" class="DeleteBusSystem">
         			<result type="redirectAction">
         				<param name="actionName">queryBusSystem</param>
         			</result>
@@ -50,9 +50,28 @@
         
         <!-- 新增行政人员控制 -->
         <action name="addExecutive" class="AddExecutive">
-        		<result type="redirectAction">
+        		<result type="redirectAction" name="success">
         			<param name="actionName">queryPerson</param>
         		</result>
+        		<result name="error">/register-extutive2.jsp
+        		</result>
+        </action>
+        
+        <!-- 新增司机控制 -->
+        <action name="addDriver" class="AddDriver">
+        		<result type="redirectAction" name="success">
+        			<param name="actionName">queryPerson</param>
+        		</result>
+        		<result name="error">/register-driver2.jsp
+        		</result>
+        </action>
+        
+        <!-- 新增乘客控制 -->
+        <action name="addPassenger" class="AddPassenger">
+        		<result type="redirectAction" name="success">
+        			<param name="actionName">queryPerson</param>
+        		</result>
+        		<result name="error">/register-worker2.jsp</result>
         </action>
    
       </package>

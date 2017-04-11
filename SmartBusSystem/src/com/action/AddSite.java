@@ -107,7 +107,7 @@ public class AddSite extends ActionSupport{
 			
 			out.print("<script>alert('添加失败！')</script>");
 			out.flush();
-			out.close();
+			
 			
 			return ERROR;
 		}

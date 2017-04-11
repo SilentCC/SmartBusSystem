@@ -80,6 +80,7 @@ public class ManagePerson extends ActionSupport{
 			PassengerList=personManage.QueryAllPassenger();
 			//司机
 			DriverList=personManage.QueryAllDriver();
+		
 		}
 		catch(Exception e){
 			

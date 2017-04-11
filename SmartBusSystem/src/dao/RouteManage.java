@@ -48,6 +48,25 @@ public class RouteManage {
 				session.close();	
 				return RouteList;
 			}
+			
+			
+
+			//删除路线的记录
+			
+			public void DeleteRoute(String RouteID){
+				//建立数据库连接
+				Session session = sessionFactory.openSession();
+				//定义事务
+				Transaction trans=session.beginTransaction();
+				//删除hql语句
+				String hql="delete from Route r where r.RouteID='"+RouteID+"'";
+				Query queryupdate=session.createQuery(hql);
+				int ret=queryupdate.executeUpdate();
+				trans.commit();
+				//关闭数据库
+				session.close();
+			}
+			
 			//新增线路信息
 			
 			public int AddRoute(Route route){

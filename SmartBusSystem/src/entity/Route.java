@@ -6,7 +6,7 @@ public class Route {
 	   private String RouteName;//��·���
 	   private String StartPlace;//���
 	   private String EndPlace;//�յ�
-	   private String PassageNum;//�˿�����ע
+	      private String PassageNum;//�˿�����ע
 
 	   public Route(){
 	   }

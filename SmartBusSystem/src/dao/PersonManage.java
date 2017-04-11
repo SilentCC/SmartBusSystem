@@ -182,7 +182,7 @@ public class PersonManage {
 		//定义事务
 		Transaction trans=session.beginTransaction();
 		//删除hql语句
-		String hql="delete from Driver d where d.DiverID='"+DriverID+"'";
+		String hql="delete from Driver d where d.DriverID='"+DriverID+"'";
 		Query queryupdate=session.createQuery(hql);
 		int ret=queryupdate.executeUpdate();
 		trans.commit();

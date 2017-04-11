@@ -9,7 +9,7 @@
 			value="oracle.jdbc.driver.OracleDriver">
 		</property>
 		<property name="url"
-			value="jdbc:oracle:thin:@111.0.230.214:1521:xe">
+			value="jdbc:oracle:thin:@111.0.224.199:1521:xe">
 		</property>
 		<property name="username" value="lulu"></property>
 		<property name="password" value="123"></property>
@@ -112,10 +112,22 @@
 		
 	</bean>
 	
-	<bean id="DeleteBus" class="com.action.DeleteBus" scope="prototype">
+	<bean id="DeleteBusSystem" class="com.action.DeleteBusSystem" scope="prototype">
+	
 		<property name="busManage">
 			<ref bean="busManage"></ref>
 		</property>
+		<property name="routeManage">
+			<ref bean="routeManage"></ref>
+		</property>	
+		
+		<property name="schedualManage">
+			<ref bean="schedualManage"></ref>
+		</property>
+
+		<property name="siteManage">
+			<ref bean="siteManage"></ref>
+		</property>	
 	</bean>
 	
 	<bean id="UserExit" class="com.action.UserExitAction" scope="prototype">
@@ -123,6 +135,18 @@
 	</bean>
 	
 	<bean id="AddExecutive" class="com.action.AddExecutives" scope="prototype">
+		<property name="personManage">
+				<ref bean="personManage"></ref>
+		</property>
+	</bean>
+	
+	<bean id="AddDriver" class="com.action.AddDriver" scope="prototype">
+		<property name="personManage">
+				<ref bean="personManage"></ref>
+		</property>
+	</bean>
+	
+	<bean id="AddPassenger" class="com.action.AddPassenger" scope="prototype">
 		<property name="personManage">
 				<ref bean="personManage"></ref>
 		</property>

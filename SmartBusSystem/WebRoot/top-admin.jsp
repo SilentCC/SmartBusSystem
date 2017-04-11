@@ -41,9 +41,9 @@ body{
 <script>
 	//AJAX函数，向后台发送请求
 	function jump(){
-		alert("ok");
+	
 		$.post("queryPerson.action");
-		alert("ok");
+	
 	}
 </script>
 
@@ -86,10 +86,12 @@ body{
         <div class="form-group">
           <input type="text" class="form-control" placeholder="Search">
         </div>
-        &nbsp&nbsp&nbsp&nbsp<button type="submit" class="btn btn-default">提交</button>
+        &nbsp&nbsp&nbsp&nbsp<button type="submit" href="Tijiao.jsp" class="btn btn-default">提交</button>
       </form>
       
-        <li><a href="#">联系我们</a></li>
+      	<li><a href="userExit">退出登录</a></li>
+      
+        <li><a href="Lianxi.jsp">联系我们</a></li>
   
       </ul>
     </div><!-- /.navbar-collapse -->

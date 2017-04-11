@@ -61,16 +61,16 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 </nav>
   <h1>新增司机信息</h1>
 	<div class="content2" style="height:58%">
-		<form>
-			<input type="text" name="driverid" value="司机ID" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'UserID';}">
-			<input type="text" name="name" value="姓名" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Name';}">
-			<input list="sex" type="text" name="性别" value="性别" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Sex';}">
+		<form action="addDriver" method="post">
+			<input type="text" name="driverID" value="司机ID" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '司机ID';}">
+			<input type="text" name="driverName" value="姓名" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '姓名';}">
+			<input list="sex" type="text" name="sex" value="性别" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '性别';}">
             <datalist id="sex">
             <option value="Male"></option>
             <option value="Female"></option>
             </datalist>
-			<input type="tel" name="usrtel" value="电话" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Phone';}">
-			<input type="password" name="psw" value="初始密码" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Password';}">
+			<input type="text" name="phone" value="电话" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '电话';}">
+			<input type="password" name="pwd" value="初始密码" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '初始密码';}">
 			<input type="submit" class="register" value="新增">
 		</form>
 	</div>

@@ -46,5 +46,22 @@ public class SchedualManage {
 			session.close();	
 			return ArrangeSchedualList;
 		}
+		
+
+		//删除排班的记录
+		
+		public void DeleteSchedual(String DutyRosterID){
+			//建立数据库连接
+			Session session = sessionFactory.openSession();
+			//定义事务
+			Transaction trans=session.beginTransaction();
+			//删除hql语句
+			String hql="delete from ArrangeSchedual s where s.DutyRosterID='"+DutyRosterID+"'";
+			Query queryupdate=session.createQuery(hql);
+			int ret=queryupdate.executeUpdate();
+			trans.commit();
+			//关闭数据库
+			session.close();
+		}
 
 }

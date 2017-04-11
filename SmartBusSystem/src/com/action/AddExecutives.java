@@ -111,9 +111,10 @@ public class AddExecutives extends ActionSupport{
         //如果已经存在ExecutivesID
         if(personManage.QueryExecutives(executiveID)==true){
         	
-        	out.print("<script>alert('添加失败！')</script>");
+        	out.print("<script>alert('添加失败！行政人员ID已存在')</script>");
+            
 			out.flush();
-			out.close();
+			
 			
 			return ERROR;
         	

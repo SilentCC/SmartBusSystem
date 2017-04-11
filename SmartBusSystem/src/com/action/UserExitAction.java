@@ -17,7 +17,7 @@ public class UserExitAction extends ActionSupport {
 		HttpServletRequest request = ServletActionContext.getRequest();
 		HttpSession session = request.getSession();
 		if(session.getAttribute("identity")==null||session.getAttribute("name")==null)
-			return ERROR;
+			return SUCCESS;
 		else{
 			session.removeAttribute("identity");
 			session.removeAttribute("name");

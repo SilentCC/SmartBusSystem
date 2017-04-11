@@ -46,6 +46,22 @@ public class SiteManage {
 		session.close();	
 		return SiteList;
 	}
+	//删除站点的记录
+	
+			public void DeleteSite(String SiteID){
+				//建立数据库连接
+				Session session = sessionFactory.openSession();
+				//定义事务
+				Transaction trans=session.beginTransaction();
+				//删除hql语句
+				String hql="delete from Site s where s.SiteID='"+SiteID+"'";
+				Query queryupdate=session.createQuery(hql);
+				int ret=queryupdate.executeUpdate();
+				trans.commit();
+				//关闭数据库
+				session.close();
+			}
+	
 	//新增站点信息
 	public int AddSite(Site site){
 		//连接数据库

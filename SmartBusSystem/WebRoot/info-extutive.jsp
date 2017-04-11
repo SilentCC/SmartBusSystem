@@ -52,14 +52,21 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	}
 	
 	function fun2(){
-	document.getElementById("identity").value="Executives";
+	document.getElementById("identity").value="Bus";
 	}
 	
 	function fun3(){
-	document.getElementById("identity").value="Executives";
+	document.getElementById("identity").value="Schedual";
 	}
 	
-	function fun4(obj){
+	function fun4(){
+	document.getElementById("identity").value="Route";
+	}
+	
+	function fun5(){
+	document.getElementById("identity").value="Site";
+	}
+	function fun6(obj){
 	
 	document.getElementById("idList").value=obj;
 	document.getElementById("jump").click();
@@ -71,8 +78,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
    <form action="deleteBus" method="post" >
   	<input type="hidden" name="idList" id="idList"/>
-  	<input type="submit" name="jump" id="jump" style="display:none"/>
+  	<input type="hidden" name="identity" id="identity" value="Bus"/>
+  	<input type="submit" name="jump" id="jumpBus" style="display:none"/>
   </form>
+  
   <body>
   <nav class="navbar navbar-default">
   <div class="container-fluid" >
@@ -94,8 +103,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     </form>
       <ul class="nav navbar-nav navbar-right">
       <li><a>Hello, <%=session.getAttribute("name")%>!</a></li>
+      <li><a href="top-extutive.jsp">返回主页</a></li>
       <li><a href="userExit">退出登录</a></li>
-        <li><a href="#">联系我们</a></li>
+        <li><a href="Lianxi.jsp">联系我们</a></li>
       </ul>   
 </nav>
     <div class="demo" style="height: 750px;">
@@ -105,10 +115,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<div class="tab" role="tabpanel">
 					<!-- Nav tabs -->
 					<ul class="nav nav-tabs" role="tablist">
-						<li role="presentation" class="active"><a href="#Section1" aria-controls="home" role="tab" data-toggle="tab">车辆信息管理</a></li>
-						<li role="presentation"><a href="#Section2" aria-controls="profile" role="tab" data-toggle="tab">司机排班信息管理</a></li>
-						<li role="presentation"><a href="#Section3" aria-controls="profile" role="tab" data-toggle="tab">线路信息管理</a></li>
-						<li role="presentation"><a href="#Section4" aria-controls="profile" role="tab" data-toggle="tab">站点信息管理</a></li>
+						<li role="presentation" class="active"><a href="#Section1" onclick="fun2()" aria-controls="home" role="tab" data-toggle="tab">车辆信息管理</a></li>
+						<li role="presentation"><a href="#Section2" onclick="fun3()" aria-controls="profile" role="tab" data-toggle="tab">司机排班信息管理</a></li>
+						<li role="presentation"><a href="#Section3" onclick="fun4()" aria-controls="profile" role="tab" data-toggle="tab">线路信息管理</a></li>
+						<li role="presentation"><a href="#Section4" onclick="fun5()" aria-controls="profile" role="tab" data-toggle="tab">站点信息管理</a></li>
 					</ul>
 					<!-- Tab panes -->
 					<div class="tab-content tabs">
@@ -123,22 +133,23 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 </nav>
 <div class="inner">
               <form action="#" class="form">
-                <table class="table" width="786" height="106">
+                <table class="table" >
                   <tr>
-                  <th></th>
-                    <th>ID</th>
-                    <th width="150px">品牌</th>
-                    <th width="150px">座位数</th>
-                    <th width="150px">注册时间</th>
-                    <th width="150px">保险到期</th>
-                    <th width="150px">驾驶证</th>
-                    <th width="150px">行驶证</th>
-                    <th width="150px">行驶路线</th>
-                    <th width="200px">操作<br></th><th class="last">&nbsp;</th>
+   
+                   	<th class="first"><input type="checkbox" class="checkbox toggle" /></th>
+                    <th>车辆ID</th>
+                    <th>品牌</th>
+                    <th >座位数</th>
+                    <th >注册时间</th>
+                    <th >保险到期</th>
+                    <th >驾驶证</th>
+                    <th >行驶证</th>
+                    <th >行驶路线</th>
+                    <th >操作<br></th><th class="last">&nbsp;</th>
                     <c:forEach items="${ScheduledBusList}" var="Item" varStatus="rowStatus" >  
                     	 <tr class="odd">
-                    		<td><input type="checkbox" class="checkbox" name="id" value="${Item.carID}"/></td><td>${Item.carID}</td><td width="80px">${Item.brand}</td><td>${Item.seats}</td><td>${Item.dateOfRegistration}</td><td>${Item.dateOfInsurance}</td>
-                    		<td>${Item.driverLicense}</td><td>${Item.carLicense}</td><td>${Item.routeID}</td><td class="last"><a href="#">编辑</a> | <a  onclick="fun4('${Item.carID}')">删除</a></td>
+                    		<td><input type="checkbox" class="checkbox" name="id" value="${Item.carID}"/></td><td>${Item.carID}</td><td>${Item.brand}</td><td>${Item.seats}</td><td>${Item.dateOfRegistration}</td><td>${Item.dateOfInsurance}</td>
+                    		<td>${Item.driverLicense}</td><td>${Item.carLicense}</td><td>${Item.routeID}</td><td class="last"><a href="#">编辑</a> | <a  onclick="fun6('${Item.carID}')">删除</a></td>
                   		</tr>
                   	
   					</c:forEach>
@@ -160,7 +171,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
               <form action="#" class="form">
                 <table class="table">
                   <tr>
-                    <th></th>
+                     <th class="first"><input type="checkbox" class="checkbox toggle" /></th>
                     <th>排班编号</th>
                     <th>车辆ID</th>
                     <th>员工ID</th>
@@ -175,7 +186,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                     <c:forEach items="${ArangeSchedualList}" var="Item" varStatus="rowStatus" >  
                     	 <tr class="odd">
                     		<td><input type="checkbox" class="checkbox" name="id" value="${Item.dutyRosterID}"/></td><td>${Item.dutyRosterID}</td><td width="80px">${Item.carID}</td><td>${Item.routeID}</td><td>${Item.driverID}</td><td>${Item.driverName}</td>
-                    		<td>${Item.week}</td><td>${Item.dayOfWeek}</td><td>${Item.startTime}</td><td>${Item.endTime}</td><td class="last"><a href="#">编辑</a> | <a  onclick="fun4('${Item.dutyRosterID}')">删除</a></td>
+                    		<td>${Item.week}</td><td>${Item.dayOfWeek}</td><td>${Item.startTime}</td><td>${Item.endTime}</td><td class="last"><a href="#">编辑</a> | <a  onclick="fun6('${Item.dutyRosterID}')">删除</a></td>
                   		</tr>
                   	
   					</c:forEach>
@@ -191,14 +202,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <ul class="pager">
 <li class="next"><a class="fff" href="#">批量编辑</a></li>
     <li class="next"><a class="fff" href="#">批量删除 <br></a></li>
-    <li class="next"><a class="fff" href="register-car.jsp">新增排班<br></a></li>
+    <li class="next"><a class="fff" href="register-car.jsp">新增线路<br></a></li>
   </ul>
 </nav>
 <div class="inner">
               <form action="#" class="form">
                 <table class="table">
                   <tr>
-                    <th></th>
+                     <th class="first"><input type="checkbox" class="checkbox toggle" /></th>
                     <th>线路编号</th>
                     <th>线路名称</th>
                     <th>起始站点</th>
@@ -206,10 +217,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                     <th>乘客人数</th>
                     <th>操作<br></th><th class="last">&nbsp;</th>
                   </tr>
-                    <c:forEach items="${ArangeSchedualList}" var="Item" varStatus="rowStatus" >  
+                    <c:forEach items="${RouteList}" var="Item" varStatus="rowStatus" >  
                     	 <tr class="odd">
-                    		<td><input type="checkbox" class="checkbox" name="id" value="${Item.dutyRosterID}"/></td><td>${Item.dutyRosterID}</td><td width="80px">${Item.carID}</td><td>${Item.routeID}</td><td>${Item.driverID}</td><td>${Item.driverName}</td>
-                    		<td>${Item.week}</td><td>${Item.dayOfWeek}</td><td>${Item.startTime}</td><td>${Item.endTime}</td><td class="last"><a href="#">编辑</a> | <a  onclick="fun4('${Item.dutyRosterID}')">删除</a></td>
+                    		<td><input type="checkbox" class="checkbox" name="id" value="${Item.routeID}"/></td><td>${Item.routeID}</td><td width="80px">${Item.routeName}</td><td>${Item.startPlace}</td><td>${Item.endPlace}</td><td>${Item.passageNum}</td>
+                    		<td class="last"><a href="#">编辑</a> | <a  onclick="fun6('${Item.routeID}')">删除</a></td>
                   		</tr>
                   	
   					</c:forEach>
@@ -225,7 +236,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <ul class="pager">
 <li class="next"><a class="fff" href="#">批量编辑</a></li>
     <li class="next"><a class="fff" href="#">批量删除 <br></a></li>
-    <li class="next"><a class="fff" href="register-car.jsp">新增排班<br></a></li>
+    <li class="next"><a class="fff" href="register-car.jsp">新增站点<br></a></li>
   </ul>
 </nav>
 <div class="inner">
@@ -236,15 +247,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                     <th>站点编号</th>
                     <th>线路编号</th>
                     <th>站点名称</th>
-                    <th>到达时间</th>
                     <th>站点次序</th>
                     <th>乘客人数</th>
                     <th>操作<br></th><th class="last">&nbsp;</th>
                   </tr>
-                    <c:forEach items="${ArangeSchedualList}" var="Item" varStatus="rowStatus" >  
+                    <c:forEach items="${SiteList}" var="Item" varStatus="rowStatus" >  
                     	 <tr class="odd">
-                    		<td><input type="checkbox" class="checkbox" name="id" value="${Item.dutyRosterID}"/></td><td>${Item.dutyRosterID}</td><td width="80px">${Item.carID}</td><td>${Item.routeID}</td><td>${Item.driverID}</td><td>${Item.driverName}</td>
-                    		<td>${Item.week}</td><td>${Item.dayOfWeek}</td><td>${Item.startTime}</td><td>${Item.endTime}</td><td class="last"><a href="#">编辑</a> | <a  onclick="fun4('${Item.dutyRosterID}')">删除</a></td>
+                    		<td><input type="checkbox" class="checkbox" name="id" value="${Item.siteID}"/></td><td>${Item.siteID}</td><td width="80px">${Item.routeID}</td><td>${Item.siteName}</td><td>${Item.sequence}</td><td>${Item.passageNum}</td>
+                    		<td class="last"><a href="#">编辑</a> | <a  onclick="fun6('${Item.siteID}')">删除</a></td>
                   		</tr>
                   	
   					</c:forEach>

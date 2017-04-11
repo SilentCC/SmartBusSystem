@@ -59,6 +59,18 @@ public class AddPassenger extends ActionSupport{
 	private PersonManage personManage;
 	
 	
+	public PersonManage getPersonManage() {
+		return personManage;
+	}
+
+
+
+	public void setPersonManage(PersonManage personManage) {
+		this.personManage = personManage;
+	}
+
+
+
 	public String getPwd() {
 		return pwd;
 	}
@@ -110,19 +122,20 @@ public class AddPassenger extends ActionSupport{
 				//根据数据库返回结果，弹出相应的界面
 		        
 		        //如果已经存在ExecutivesID
+		        System.out.println("ok");
 		if(personManage.QueryPassenger(passengerID)==true){
 			
-			out.print("<script>alert('添加失败！')</script>");
+			out.print("<script>alert('添加失败！改乘客ID已经存在')</script>");
 			out.flush();
-			out.close();
+			
 			
 			return ERROR;
         	
 		}
 		else if(personManage.AddPassenger(passenger)==1)
-			return ERROR;
+			return SUCCESS;
 		else
-			return SUCCESS;	
+			return ERROR;	
 	}	
 
 }

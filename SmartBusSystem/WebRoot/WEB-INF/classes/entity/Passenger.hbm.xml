@@ -4,7 +4,7 @@
 
  <class name="entity.Passenger" table="Passenger">
 	 		<id name="PassengerID">
-	 			<generator class="native"/>
+	 			
 	 		</id>
 	 			<property name="Location" length="30"/>
 	 			<property name="Pwd" length="30"/>

@@ -84,13 +84,13 @@ public class AddDriver extends ActionSupport{
 		        PrintWriter out = response.getWriter();
 			
 				//根据数据库返回结果，弹出相应的界面
-		        
+		        System.out.println("ok");
 		        //如果已经存在ExecutivesID
 		        if(personManage.QueryDriver(driverID)==true){
 		        	
-		        	out.print("<script>alert('添加失败！')</script>");
+		        	out.print("<script>alert('添加失败！该司机ID已经存在')</script>");
 					out.flush();
-					out.close();
+					System.out.println("ok");
 					
 					return ERROR;
 		        }

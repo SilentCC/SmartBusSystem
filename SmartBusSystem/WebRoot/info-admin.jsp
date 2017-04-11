@@ -21,7 +21,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 <link rel="stylesheet" type="text/css" href="css/style1.css">
 <script src="http://cdn.bootcss.com/jquery/3.0.0/jquery.min.js"></script>
-<script type="text/javascript" src="/js/jquery.page.js"></script>
 <style type="text/css">
 .buttom{
 	width: 100%;
@@ -34,19 +33,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 </style>
 <script type="text/javascript">
 
-$(".tcdPageCode").createPage({
 
-        pageCount:10,  //总页数
-
-        current:1,   //当前页
-
-        backFn:function(p){
-            //单击回调方法，p是当前页码
-
-        }
-
-    });
-    
 	function fun(){
 	
 	obj=document.getElementsByName("id");
@@ -72,10 +59,10 @@ $(".tcdPageCode").createPage({
 	}
 	
 	function fun3(){
-	document.getElementById("identity").value="Executives";
+	document.getElementById("identity").value="Passenger";
 	}
 	function fun5(){
-	document.getElementById("identity").value="Executives";
+	document.getElementById("identity").value="Driver";
 	}
 	
 	function fun4(obj){
@@ -116,8 +103,9 @@ $(".tcdPageCode").createPage({
     </form>
       <ul class="nav navbar-nav navbar-right">
        <li><a>Hello, <%=session.getAttribute("name")%>!</a></li>
-      <li><a href="#">退出登录</a></li>
-        <li><a href="#">联系我们</a></li>
+       <li><a href="top-admin.jsp">返回主页</a></li>
+      	<li><a href="userExit">退出登录</a></li>
+        <li><a href="Lianxi.jsp">联系我们</a></li>
       </ul>   
 </nav>
     <div class="demo" style="height: 750px;">
@@ -128,8 +116,8 @@ $(".tcdPageCode").createPage({
 					<!-- Nav tabs -->
 					<ul class="nav nav-tabs" role="tablist">
 						<li role="presentation" class="active"><a href="#Section1" onclick="fun2()" aria-controls="home" role="tab" data-toggle="tab">行政人员个人信息</a></li>
-						<li role="presentation"><a href="#Section2" onclick="fun3()"  aria-controls="profile" role="tab" data-toggle="tab">普通员工个人信息</a></li>
-						<li role="presentation"><a href="#Section3" onclick="fun5()"  aria-controls="profile" role="tab" data-toggle="tab">司机个人信息</a></li>
+						<li role="presentation" ><a href="#Section2" onclick="fun3()"  aria-controls="profile" role="tab" data-toggle="tab">普通员工个人信息</a></li>
+						<li role="presentation" ><a href="#Section3" onclick="fun5()"  aria-controls="profile" role="tab" data-toggle="tab">司机个人信息</a></li>
 					</ul>
 					<!-- Tab panes -->
 					<div class="tab-content tabs">
@@ -168,35 +156,27 @@ $(".tcdPageCode").createPage({
 							<nav aria-label="...">
   <ul class="pager">
   <li class="next"><a class="fff" href="#">批量编辑</a></li>
-    <li class="next"><a class="fff" href="#">批量删除 <br></a></li>
-    <li class="next"><a class="fff" href="register-extutive2.jsp">新增人员<br></a></li>
+    <li class="next"><a class="fff" onclick="fun()">批量删除 <br></a></li>
+    <li class="next"><a class="fff" href="register-worker2.jsp">新增人员<br></a></li>
   </ul>
 </nav>
 <div class="inner">
               <form action="#" class="form">
                 <table class="table">
                   <tr>
+                  	<th class="first"><input type="checkbox" class="checkbox toggle" /></th>
                     <th>ID</th>
                     <th>姓名</th>
                     <th>性别</th>
-                    <th>所属部门</th>
-                    <th>类别</th>
                     <th>电话</th>
                     <th>住址</th>
                     <th>操作<br></th><th class="last">&nbsp;</th>
                   </tr>
-                  <tr class="odd">
-                    <td><input type="checkbox" class="checkbox" name="id" value="1" /></td><td>1</td><td>？</td><td>男</td><td>销售部</td><td>乘客</td><td>12345</td><td>12345</td><td class="last"><a href="#">编辑</a> | <a href="#">删除</a></td>
-                  </tr>
-                  <tr class="even">
-                    <td><input type="checkbox" class="checkbox" name="id" value="1" /></td><td>2</td><td>？</td><td>？</td><td>？</td><td>？</td><td>？</td><td>？</td><td class="last"><a href="#">编辑</a> | <a href="#">删除</a></td>
-                  </tr>
-                  <tr class="odd">
-                    <td><input type="checkbox" class="checkbox" name="id" value="1" /></td><td>3</td><td>？</td><td>？</td><td>？</td><td>？</td><td>？</td><td>？</td><td class="last"><a href="#">编辑</a> | <a href="#">删除</a></td>
-                  </tr>
-                  <tr class="even">
-                    <td><input type="checkbox" class="checkbox" name="id" value="1" /></td><td>4</td><td>？</td><td>？</td><td>？</td><td>？</td><td>？</td><td>？</td><td class="last"><a href="#">编辑</a> | <a href="#">删除</a></td>
-                  </tr>
+                 <c:forEach items="${PassengerList}" var="Item" varStatus="rowStatus" >  
+                    	 <tr class="odd">
+                    		<td><input type="checkbox" class="checkbox" name="id" value="${Item.passengerID}"/></td><td>${Item.passengerID}</td><td width="80px">${Item.name}</td><td>${Item.sex}</td><td>${Item.location}</td><td class="last"><a href="#">编辑</a> | <a  onclick="fun4('${Item.passengerID}')">删除</a></td>
+                  		</tr>	
+  					</c:forEach>
                 </table>
           </form>
        </div>
@@ -207,20 +187,27 @@ $(".tcdPageCode").createPage({
 							<nav aria-label="...">
   <ul class="pager">
   <li class="next"><a class="fff" href="#">批量编辑</a></li>
-    <li class="next"><a class="fff" href="#">批量删除 <br></a></li>
-    <li class="next"><a class="fff" href="/register-extutive.jsp">新增人员<br></a></li>
+    <li class="next"><a class="fff" onclick="fun()">批量删除 <br></a></li>
+    <li class="next"><a class="fff" href="register-driver2.jsp">新增人员<br></a></li>
   </ul>
 </nav>
 <div class="inner">
               <form action="#" class="form">
                 <table class="table">
                   <tr>
+                  	<th class="first"><input type="checkbox" class="checkbox toggle" /></th>
                     <th>ID</th>
                     <th>姓名</th>
                     <th>性别</th>
                     <th>电话</th>
                     <th>操作<br></th><th class="last">&nbsp;</th>
                   </tr>
+                  
+                  <c:forEach items="${DriverList}" var="Item" varStatus="rowStatus" >  
+                    	 <tr class="odd">
+                    		<td><input type="checkbox" class="checkbox" name="id" value="${Item.driverID}"/></td><td>${Item.driverID}</td><td width="80px">${Item.driverName}</td><td>${Item.sex}</td><td>${Item.phone}</td><td class="last"><a href="#">编辑</a> | <a  onclick="fun4('${Item.driverID}')">删除</a></td>
+                  		</tr>	
+  					</c:forEach>
                 </table>
           </form>
        </div>
