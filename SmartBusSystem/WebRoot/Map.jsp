@@ -74,7 +74,11 @@ dl,dt,dd,ul,li{
 
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-<script src="js/bootstrap.min.js" type="text/javascript"></script>
+
+
+
+<script src="js/bootstrap-select.min.js"></script>
+<link rel="stylesheet" href="css/bootstrap-select.min.css">
 
   </head>
   
@@ -107,19 +111,21 @@ dl,dt,dd,ul,li{
     <div id="allmap" class="map"></div>
 <div style="height:30px"></div>
   <div id="r-result" style="text-align:center">
-    <input type="text" autocomplete="on" id="enterArray" style="width:400px;height:40px;line-height:40px;padding:2px;font-size:16px;" />&nbsp;&nbsp;
-  <button id="submit" style="height:30px;">提交</button>&nbsp;&nbsp;
-  <input type="button" style="height:30px;" value="批量地址解析" onclick="bdGEO()" />
+
+    <input type="text" autocomplete="on" id="enterArray"  style="width:400px;height:40px;line-height:40px;padding:2px;font-size:16px" />&nbsp;&nbsp;
+  <button id="submit" class="btn btn-info" style="height:40px;">提交</button>&nbsp;&nbsp;
+  <input type="button" style="height:40px;"  class="btn btn-info" value="批量地址解析" onclick="bdGEO()" />
   
   </div>
-  <div style="height:20px"></div>
+  	
+  <div style="height:20px" ></div>
   <div id="driving_way" align="center">
-		<select style="height:30px;">
+		<select class="selectpicker" data-style="btn-info">
 			<option value="0">最少时间</option>
 			<option value="1">最短距离</option>
 			<option value="2">避开高速</option>
 		</select>&nbsp;&nbsp;&nbsp;&nbsp;
-		<input type="button" id="result2" style="height:28px;" value="查询"/>
+		<input type="button" id="result2"  class="btn btn-info"  style="height:38px;" value="查询"/>
 </div>
 <div style="height:20px"></div>
 <div align="center">

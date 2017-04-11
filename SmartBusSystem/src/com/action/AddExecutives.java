@@ -116,7 +116,7 @@ public class AddExecutives extends ActionSupport{
 			out.flush();
 			
 			
-			return ERROR;
+			return INPUT;
         	
         }
         else if(personManage.AddExecutives(executives)==1){

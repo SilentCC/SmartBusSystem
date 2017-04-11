@@ -100,7 +100,7 @@ public class AddRoute extends ActionSupport{
 			out.flush();
 			
 			
-			return ERROR;
+			return INPUT;
         }
         else if(routeManage.AddRoute(route)==1)
 			return SUCCESS;

@@ -109,7 +109,7 @@ public class AddSite extends ActionSupport{
 			out.flush();
 			
 			
-			return ERROR;
+			return INPUT;
 		}
 		else if(siteManage.AddSite(site)==1)
 			return SUCCESS;

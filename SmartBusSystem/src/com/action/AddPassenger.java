@@ -142,7 +142,7 @@ public class AddPassenger extends ActionSupport{
 			out.flush();
 			
 			
-			return ERROR;
+			return INPUT;
         	
 		}
 		else if(personManage.AddPassenger(passenger)==1)

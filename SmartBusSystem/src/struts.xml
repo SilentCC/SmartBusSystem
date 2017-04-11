@@ -9,6 +9,29 @@
     <constant name="struts.devMode" value="true" />
       <package name="default" namespace="/" extends="struts-default,json-default">
       	
+      
+      	<!-- 加载拦截器 -->
+      	<interceptors>
+			<interceptor name="adminLoginCheck" class="interceptor.AdminLoginCheck"></interceptor>
+		
+			<interceptor name="driverLoginCheck" class="interceptor.DriverLoginCheck"></interceptor>
+			
+			<interceptor name="executivesLoginCheck" class="interceptor.ExecutivesLoginCheck"></interceptor>
+			
+			<interceptor name="passengerLoginCheck" class="interceptor.PassengerLoginCheck"></interceptor>
+		
+		</interceptors>
+		
+		
+		
+		<!-- 设置全局error -->
+		<global-results>
+			<result name="error" type="redirect">/error.html </result>					
+		</global-results>
+		
+		
+		
+		
       	<!-- 登录控制 -->
       	<action name="login" class="loginAction">
         
@@ -17,24 +40,41 @@
 				</result>
        </action>
        
+       
+       
         <!-- 查询人员信息控制 -->
         <action name="queryPerson" class="ManagePerson">
-        			<result name="success">/info-admin.jsp
-        			</result>
+        	<!-- 自定义 拦截器 -->
+        	<interceptor-ref name="defaultStack"></interceptor-ref>
+			<interceptor-ref name="adminLoginCheck"></interceptor-ref>
+			<result name="login" type="redirect">/login.jsp </result>	    			
+        	<result name="success">/WEB-INF/info-admin.jsp
+        	</result>
         </action>
+			
+			
 			
         <!-- 删除人员信息控制 -->
          <action name="deletePerson" class="DeletePerson">
-        			<result type="redirectAction">
-        				<param name="actionName">queryPerson</param>
-					</result>
+         
+        	<result type="redirectAction">
+        			<param name="actionName">queryPerson</param>
+			</result>
         </action>
         
+        
+        
         <!-- 查询班车系统 -->
-        <action name="queryBusSystem" class="ManageBusSystem">
-        			<result name="success">/info-extutive.jsp
+        <action name="queryBusSystem" class="ManageBusSystem">     
+        	<!-- 自定义 拦截器 -->     	
+        	<interceptor-ref name="defaultStack"></interceptor-ref>
+			<interceptor-ref name="executivesLoginCheck"></interceptor-ref>
+			<result name="login" type="redirect">/login.jsp </result>	
+        			<result name="success">/WEB-INF/info-extutive.jsp
         			</result>
         </action>
+        
+        
         
         <!-- 删除车辆线路信息等控制 -->
         <action name="deleteBusSystem" class="DeleteBusSystem">
@@ -43,35 +83,102 @@
         			</result>
         </action>
         
+        
+        
         <!-- 退出登录控制 -->
         <action name="userExit" class="UserExit">
         		<result name="success">/login.jsp</result>
         </action>
+        
+        
+        
         
         <!-- 新增行政人员控制 -->
         <action name="addExecutive" class="AddExecutive">
         		<result type="redirectAction" name="success">
         			<param name="actionName">queryPerson</param>
         		</result>
-        		<result name="error">/register-extutive2.jsp
+        		<result name="input">/WEB-INF/register-extutive2.jsp
         		</result>
         </action>
+        
+        
+        
         
         <!-- 新增司机控制 -->
         <action name="addDriver" class="AddDriver">
         		<result type="redirectAction" name="success">
         			<param name="actionName">queryPerson</param>
         		</result>
-        		<result name="error">/register-driver2.jsp
+        		<result name="input">/WEB-INF/register-driver2.jsp
         		</result>
         </action>
+        
+        
+        
         
         <!-- 新增乘客控制 -->
         <action name="addPassenger" class="AddPassenger">
         		<result type="redirectAction" name="success">
         			<param name="actionName">queryPerson</param>
         		</result>
-        		<result name="error">/register-worker2.jsp</result>
+        		<result name="input">/WEB-INF/register-worker2.jsp</result>
+        </action>
+        
+        
+        
+        
+        <!-- 注册乘客控制 -->
+        <action name="registerPassenger">
+        	<!-- 自定义 拦截器 -->
+        	<interceptor-ref name="defaultStack"></interceptor-ref>
+			<interceptor-ref name="adminLoginCheck"></interceptor-ref>
+			<result name="login" type="redirect">/login.jsp </result>	
+        		<result>/WEB-INF/register-worker2.jsp</result>
+        </action>
+        
+        
+        
+        
+         <!-- 注册司机控制 -->
+        <action name="registerDriver">
+        	<!-- 自定义 拦截器 -->
+        	<interceptor-ref name="defaultStack"></interceptor-ref>
+			<interceptor-ref name="adminLoginCheck"></interceptor-ref>
+			<result name="login" type="redirect">/login.jsp </result>	
+        		<result>/WEB-INF/register-driver2.jsp</result>
+        </action>
+        
+        
+        
+        
+         <!-- 注册行政人员控制 -->
+        <action name="registerExecutive">
+        	<!-- 自定义 拦截器 -->
+        	<interceptor-ref name="defaultStack"></interceptor-ref>
+			<interceptor-ref name="adminLoginCheck"></interceptor-ref>
+			<result name="login" type="redirect">/login.jsp </result>	
+        		<result>/WEB-INF/register-extutive2.jsp</result>
+        </action>
+        
+        
+         <!-- 注册车辆控制 -->
+        <action name="registerBus">    
+        	<!-- 自定义 拦截器 -->       	
+        	<interceptor-ref name="defaultStack"></interceptor-ref>
+			<interceptor-ref name="executivesLoginCheck"></interceptor-ref>
+        
+        		<result>/WEB-INF/register-car2.jsp</result>
+        </action>
+        
+        
+        
+         <!-- 注册排班控制 -->
+        <action name="registerSchedual">
+		   	<!-- 自定义 拦截器 -->
+	       	<interceptor-ref name="defaultStack"></interceptor-ref>
+			<interceptor-ref name="executivesLoginCheck"></interceptor-ref>
+        		<result>/WEB-INF/register-dutyRouster2.jsp</result>
         </action>
    
       </package>

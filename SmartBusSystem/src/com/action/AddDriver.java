@@ -92,7 +92,7 @@ public class AddDriver extends ActionSupport{
 					out.flush();
 					System.out.println("ok");
 					
-					return ERROR;
+					return INPUT;
 		        }
 		        else if(personManage.AddDriver(driver)==1)
 		        	return SUCCESS;

@@ -41,6 +41,13 @@ body{
 
   </head>
   <body>
+  
+    <% 
+  
+     String id=(String)session.getAttribute("identity");
+  	 	if(id==null||id!="Executives")
+  	 response.sendRedirect("login.jsp");
+  %>
   <nav class="navbar navbar-default">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->

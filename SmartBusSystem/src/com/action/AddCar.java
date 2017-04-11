@@ -133,7 +133,7 @@ public class AddCar extends ActionSupport{
 			out.flush();
 		
 			
-			return ERROR;
+			return INPUT;
         }
         	
         
