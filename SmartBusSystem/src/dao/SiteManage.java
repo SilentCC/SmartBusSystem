@@ -67,6 +67,7 @@ public class SiteManage {
 		//连接数据库
 		Session session = sessionFactory.openSession();
 		//定义事物
+		System.out.println("ok");
 		Transaction tx= null;
 		int i = 0;
 		try{
@@ -76,8 +77,10 @@ public class SiteManage {
 			tx.commit();
 		}catch(RuntimeException re){
 			tx.rollback();
+			System.out.println(re);
 			throw re;
 		}
+		
 		session.close();
 		return i;
 	}

@@ -22,11 +22,36 @@ public class AddSite extends ActionSupport{
 	
 	//站点信息
 	private String siteID;
-	private String routeID;
 	private String siteName;
-	private String sequence;
-	private String passageNum;
+	private double longitude;
+	private double latitude;
+	private String result;
 	
+	
+	public String getResult() {
+		return result;
+	}
+
+	public void setResult(String result) {
+		this.result = result;
+	}
+
+	public double getLongitude() {
+		return longitude;
+	}
+
+	public void setLongitude(double longitude) {
+		this.longitude = longitude;
+	}
+
+	public double getLatitude() {
+		return latitude;
+	}
+
+	public void setLatitude(double latitude) {
+		this.latitude = latitude;
+	}
+
 	//Dao类
 	private SiteManage siteManage;
 
@@ -38,13 +63,7 @@ public class AddSite extends ActionSupport{
 		this.siteID = siteID;
 	}
 
-	public String getRouteID() {
-		return routeID;
-	}
-
-	public void setRouteID(String routeID) {
-		this.routeID = routeID;
-	}
+	
 
 	public String getSiteName() {
 		return siteName;
@@ -54,22 +73,6 @@ public class AddSite extends ActionSupport{
 		this.siteName = siteName;
 	}
 
-
-	public String getSequence() {
-		return sequence;
-	}
-
-	public void setSequence(String sequence) {
-		this.sequence = sequence;
-	}
-
-	public String getPassageNum() {
-		return passageNum;
-	}
-
-	public void setPassageNum(String passageNum) {
-		this.passageNum = passageNum;
-	}
 
 	public SiteManage getSiteManage() {
 		return siteManage;
@@ -82,32 +85,29 @@ public class AddSite extends ActionSupport{
 	public String execute() throws IOException{
 		
 		Site site;
-		site=new Site(siteID,routeID,siteName,sequence,passageNum);
-		
-		//向前台
-				HttpServletResponse response=ServletActionContext.getResponse();
-				//设置弹出的格式
-				response.setContentType("text/html;charset=UTF-8");
-		        response.setCharacterEncoding("UTF-8");
-		        //防止弹出的信息出现乱码
-		        PrintWriter out = response.getWriter();
-			
-				//根据数据库返回结果，弹出相应的界面
-		        
-		        //如果已经存在ExecutivesID
+		site=new Site(siteID,"123",siteName,"123",longitude,latitude);
+		//Ajax向后台传送Json格式的数据；
+		//查看是否添加站点成功
+		System.out.println(siteID+" "+siteName+" "+longitude+" "+latitude);
 		if(siteManage.QuerySite(siteID)==true){
+			result = "{\"add\":\"fail\"}";  
 			
-			out.print("<script>alert('添加失败！')</script>");
-			out.flush();
-			
-			
-			return INPUT;
 		}
-		else if(siteManage.AddSite(site)==1)
-			return SUCCESS;
-		else
-			return ERROR;
+		
+		else if(siteManage.AddSite(site)==0){
 			
-	}
-
+			System.out.println("ok");
+			result = "{\"add\":\"fail\"}";  
+			
+		
+		}
+		else 
+		{
+			System.out.println("ok");
+			result = "{\"add\":\"success\"}";  
+		}
+		
+		return SUCCESS;
+	
+}
 }

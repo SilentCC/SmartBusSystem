@@ -143,6 +143,22 @@
         		<result name="input">/WEB-INF/register-dutyRouster2.jsp</result>
         </action>
         
+        <!-- 新增站点控制 -->
+        
+        <action name="addSite" class="AddSite">
+        		<result name="success" type="json">
+        			<param name="root">result</param>
+				</result>
+        </action>
+        
+        
+        <!-- 查询站点控制 -->
+        <action name="querySite" class="QuerySite">
+        		<result name="success" type="json">
+        			<param name="root">result</param>
+        		</result>
+        </action>
+        
         
         
         

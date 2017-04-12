@@ -163,4 +163,16 @@
 			<ref bean="schedualManage"></ref>
 		</property>
 	</bean>
+	
+	<bean id="AddSite" class="com.action.AddSite" scope="prototype">
+		<property name="siteManage">
+			<ref bean="siteManage"></ref>
+		</property>
+	</bean>
+	
+	<bean id="QuerySite" class="com.action.QuerySite" scope="prototype">
+		<property name="siteManage">
+			<ref bean="siteManage"></ref>
+		</property>
+	</bean>
 </beans>

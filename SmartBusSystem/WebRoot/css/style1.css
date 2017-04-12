@@ -13,6 +13,7 @@ a:hover,a:focus{color:#050505;text-decoration: none;}
 }
 
 .pic{
+	text-align:center;
 	float:left;
 	color:#3498db;
 	border: 1;
@@ -20,7 +21,7 @@ a:hover,a:focus{color:#050505;text-decoration: none;}
 	width: 300;
 	height: 420;
 	line-geight:420; 
-	background:#FFFFFF;
+	background-color: rgba(0, 0, 0, 0.61);
 	overflow:hidden;
 	visibility: hidden;
 	padding:30px 35px;
@@ -35,6 +36,7 @@ a:hover,a:focus{color:#050505;text-decoration: none;}
 	font-size:15px;
 	text-align:center;
     background: #3498db;
+    border-radius:10px;
     border: 1px solid #CCC;
     color:#FFFFFF;
     border-radius: 4px;

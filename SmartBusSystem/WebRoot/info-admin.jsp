@@ -20,6 +20,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 <link rel="stylesheet" type="text/css" href="css/style1.css">
+
 <script src="http://cdn.bootcss.com/jquery/3.0.0/jquery.min.js"></script>
 <style type="text/css">
 .buttom{
@@ -28,6 +29,15 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	border:0;
 	cellpadding:0;
 	cellspacing:0;	
+}
+.content2 {
+	
+    background-color: rgba(0, 0, 0, 0.21);
+ 
+
+    border-radius: 10px;
+  
+    
 }
 
 </style>
@@ -77,14 +87,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             var y=event.clientY;
             document.getElementById("pic").style.top=y-140;
             document.getElementById("pic").style.left=x-580;
-            document.getElementById("pic").style.visibility="visible";
+            document.getElementById("pic").style.visibility="visible"; 
             var formDiv="<form action='#'>";
-            formDiv+="ID:&nbsp&nbsp&nbsp&nbsp<input type='text' name='id'/><br><br>";
-            formDiv+="姓名:   <input type='text' name='name'/><br><br>";
-            formDiv+="性别:   <input type='text' name='sex'/><br><br>";
-            formDiv+="所属部门: <input type='text' style='width:151px' name='department'/><br><br>";
-            formDiv+="电话: <input type='text' name='tel'/><br><br>";
-            formDiv+="住址: <input type='text' name='address'/><br><br>";              
+            formDiv+="ID:&nbsp&nbsp&nbsp&nbsp<input type='text'  style='border-radius:10px;background-color:transparent;' name='id'/><br><br>";
+            formDiv+="姓名:   <input type='text'  style='border-radius:10px;background-color:transparent;' name='name'/><br><br>";
+            formDiv+="性别:   <input type='text'  style='border-radius:10px;background-color:transparent;' name='sex'/><br><br>";
+            formDiv+="所属部门: <input type='text' style='width:151px;border-radius:10px;background-color:transparent;' name='department'/><br><br>";
+            formDiv+="电话: <input type='text'   style='border-radius:10px;background-color:transparent;' name='tel'/><br><br>";
+            formDiv+="住址: <input type='text'  style='border-radius:10px;background-color:transparent;' name='address'/><br><br>";              
             formDiv+="<input  type='submit'  class='picbtn' value='提交' onclick='hide()' /></form>";     
             document.getElementById("pic").innerHTML=formDiv;
         }
