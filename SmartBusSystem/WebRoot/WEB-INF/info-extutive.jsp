@@ -43,7 +43,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		}
 	}
 	
-	alert(check_val);
+	
 	
 	document.getElementById("idList").value=check_val;
 	document.getElementById("jump").click();
@@ -129,7 +129,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <ul class="pager">
   <li class="next"><a class="fff" href="#">批量编辑</a></li>
     <li class="next"><a class="fff" onclick="fun()">批量删除 <br></a></li>
-    <li class="next"><a class="fff" href="#">新增车辆<br></a></li>
+    <li class="next"><a class="fff" href="registerBus">新增车辆<br></a></li>
   </ul>
 </nav>
 <div class="inner">
@@ -165,7 +165,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <ul class="pager">
 <li class="next"><a class="fff" href="#">批量编辑</a></li>
     <li class="next"><a class="fff" onclick="fun()">批量删除 <br></a></li>
-    <li class="next"><a class="fff" href="register-car.jsp">新增排班<br></a></li>
+    <li class="next"><a class="fff" href="registerSchedual">新增排班<br></a></li>
   </ul>
 </nav>
 <div class="inner">
@@ -237,7 +237,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <ul class="pager">
 <li class="next"><a class="fff" href="#">批量编辑</a></li>
     <li class="next"><a class="fff" onclick="fun()">批量删除 <br></a></li>
-    <li class="next"><a class="fff" href="register-car.jsp">新增站点<br></a></li>
+    <li class="next"><a class="fff" href="registerSite">新增站点<br></a></li>
   </ul>
 </nav>
 <div class="inner">

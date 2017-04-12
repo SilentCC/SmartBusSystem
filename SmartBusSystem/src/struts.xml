@@ -126,6 +126,24 @@
         </action>
         
         
+        <!-- 新增车辆控制 -->
+        <action name="addBus" class="AddBus">
+        		<result type="redirectAction" name="success">
+        			<param name="actionName">queryBusSystem</param>
+        		</result>
+        		<result name="input">/WEB-INF/register-car2.jsp</result>
+        </action>
+        
+        
+        <!-- 新增排版控制 -->
+        <action name="addSchedual" class="AddSchedual">
+        		<result type="redirectAction" name="success">
+        			<param name="actionName">queryBusSystem</param>
+        		</result>
+        		<result name="input">/WEB-INF/register-dutyRouster2.jsp</result>
+        </action>
+        
+        
         
         
         <!-- 注册乘客控制 -->
@@ -167,7 +185,7 @@
         	<!-- 自定义 拦截器 -->       	
         	<interceptor-ref name="defaultStack"></interceptor-ref>
 			<interceptor-ref name="executivesLoginCheck"></interceptor-ref>
-        
+        	<result name="login" type="redirect">/login.jsp </result>
         		<result>/WEB-INF/register-car2.jsp</result>
         </action>
         
@@ -178,7 +196,18 @@
 		   	<!-- 自定义 拦截器 -->
 	       	<interceptor-ref name="defaultStack"></interceptor-ref>
 			<interceptor-ref name="executivesLoginCheck"></interceptor-ref>
+			<result name="login" type="redirect">/login.jsp </result>
         		<result>/WEB-INF/register-dutyRouster2.jsp</result>
+        </action>
+        
+        
+        <!-- 注册站点控制 -->
+        <action name="registerSite">
+        	<!-- 自定义拦截器 -->
+        	<interceptor-ref name="defaultStack"></interceptor-ref>
+			<interceptor-ref name="executivesLoginCheck"></interceptor-ref>
+			<result name="login" type="redirect">/login.jsp </result>
+        	<result>/WEB-INF/register-site.jsp</result>
         </action>
    
       </package>

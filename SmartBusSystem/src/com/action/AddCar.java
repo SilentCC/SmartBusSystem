@@ -124,7 +124,7 @@ public class AddCar extends ActionSupport{
         response.setCharacterEncoding("UTF-8");
         //防止弹出的信息出现乱码
         PrintWriter out = response.getWriter();
-	
+        System.out.println(carID);
 		//根据数据库返回结果，弹出相应的界面
       //如果已经存在ExecutivesID
         if(busManage.QueryBus(carID)==true){

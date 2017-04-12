@@ -32,7 +32,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 <link rel="stylesheet" type="text/css" href="css/style1.css">
 <link rel="stylesheet" type="text/css" href="css/styleregister.css">
-  </head>
+<script>
+	function fun(){
+	alert("ok");
+	}
+</script>
+
+</head>
   
   <body>
     <nav class="navbar navbar-default">
@@ -60,41 +66,41 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
       </ul>   
 </nav>
   <h1>新增车辆信息</h1>
-	<div class="content2" style="height:83%">
-		<form>
-			<input type="text" name="carid" value="车辆ID" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'CarID';}">
-			<input type="text" name="routerid" value="线路ID" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'CarID';}">
-			<input list="brand" type="text" name="品牌" value="品牌" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Brand';}">
+	<div class="content2" style="height:100%">
+		<form action="addBus" method="post">
+			<input type="text" name="carID" value="车辆ID" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '车辆ID';}">
+			<input type="text" name="routeID" value="线路ID" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '线路ID';}">
+			<input list="brand" type="text" name="brand" value="品牌" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '品牌';}">
 			<datalist id="brand">
             <option value="宇通"></option>
             <option value="金龙"></option>
             </datalist>
-			<input list="seats" type="text" name="seats" value="座位数" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Seats';}">
+			<input list="seats" type="text" name="seats" value="座位数" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '座位数';}">
             <datalist id="seats">
             <option value="24"></option>
             <option value="32"></option>
             <option value="40"></option>
             </datalist>
-            <input type="text" name="dateofregister" value="注册时间" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'DateOfRegister';}">
-            <input type="text" name="dateofinsurance" value="保险到期" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'DateOfInsurance';}">
-            <input list="drivinglicense" type="text" name="driverlicence" value="车辆驾驶证" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Driving License';}">
+            <input type="text" name="dateOfRegistration" value="注册时间" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '注册时间';}">
+            <input type="text" name="dateOfInsurance" value="保险到期" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '保险到期';}">
+            <input list="drivinglicense" type="text" name="driverLicense" value="车辆驾驶证" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '车辆驾驶证';}">
             <datalist id="drivinglicense">
             <option value="持有"></option>
             <option value="暂无"></option>
             </datalist>
-            <input list="vehicleregistration" type="text" name="carlicence" value="车辆行驶证" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Vehicle Registration';}">
+            <input list="vehicleregistration" type="text" name="carLicense" value="车辆行驶证" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = ' 车辆行驶证';}">
             <datalist id="vehicleregistration">
             <option value="持有"></option>
             <option value="暂无"></option>
             </datalist>
-			<input type="submit" class="register" value="新增">
+			<input type="submit" class="register"  value="新增">
 		</form>
 	</div>
 	<div class="clear" style="height:80%"></div>
 <div style="width:100%;">
 <center>
   <tr>
-    <th style="font-size: 14px;text-align:center;">Copyrights Reserved 2016-2017 By 你是风儿我是沙有限公司<br/><br/>浙ICP备12345678号 <br></th>
+    <th style="font-size: 14px;text-align:center; position:fixed;bottom:0">Copyrights Reserved 2016-2017 By 你是风儿我是沙有限公司<br/><br/>浙ICP备12345678号 <br></th>
   </tr>
 	</center>
 </div>

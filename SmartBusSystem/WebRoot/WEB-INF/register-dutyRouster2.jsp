@@ -62,19 +62,19 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <h1>新增司机排班</h1>
 	<div class="content2" style="height:90%">
 		<form>
-			<input type="text" name="carid" value="车辆ID" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'CarID';}">
-			<input type="text" name="driverid" value="司机ID" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'UserID';}">
-			<input type="text" name="drivername" value="司机姓名" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'RounterNum';}">
-			<input type="text" name="Rousterid" value="线路编号" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'RounterNum';}">
-			<input type="text" name="weeks" value="周次" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Weeeks';}">
-			<input list="days" type="text" name="days" value="星期" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Days';}">
+			<input type="text" name="carID" value="车辆ID" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '车辆ID';}">
+			<input type="text" name="driverID" value="司机ID" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '司机ID';}">
+			<input type="text" name="driverName" value="司机姓名" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '司机姓名';}">
+			<input type="text" name="routerID" value="线路编号" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '线路编号';}">
+			<input type="text" name="week" value="周次" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '周次';}">
+			<input list="days" type="text" name="dayOfWeek" value="星期" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '星期';}">
             <datalist id="days">
             <option value="一 三 五"></option>
             <option value="二 四"></option>
             </datalist>
-            <input type="text" name="timeofstart" value="起始时间" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'TimeOfStart';}">
-            <input type="text" name="timeofend" value="结束时间" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'TimeOfEnd';}">
-            <input type="text" name="intervel" value="间隔时间" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Intervel';}">   
+            <input type="text" name="startTime" value="起始时间" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '起始时间';}">
+            <input type="text" name="endTime" value="结束时间" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '结束时间';}">
+            <input type="text" name="intervel" value="间隔时间" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '间隔时间';}">   
 			<input type="submit" class="register" value="新增">
 		</form>
 	</div>

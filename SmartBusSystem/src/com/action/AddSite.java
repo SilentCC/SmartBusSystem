@@ -24,7 +24,6 @@ public class AddSite extends ActionSupport{
 	private String siteID;
 	private String routeID;
 	private String siteName;
-	private String arrivalTime;
 	private String sequence;
 	private String passageNum;
 	
@@ -55,13 +54,6 @@ public class AddSite extends ActionSupport{
 		this.siteName = siteName;
 	}
 
-	public String getArrivalTime() {
-		return arrivalTime;
-	}
-
-	public void setArrivalTime(String arrivalTime) {
-		this.arrivalTime = arrivalTime;
-	}
 
 	public String getSequence() {
 		return sequence;
@@ -90,7 +82,7 @@ public class AddSite extends ActionSupport{
 	public String execute() throws IOException{
 		
 		Site site;
-		site=new Site(routeID,siteName,arrivalTime,sequence,passageNum);
+		site=new Site(siteID,routeID,siteName,sequence,passageNum);
 		
 		//向前台
 				HttpServletResponse response=ServletActionContext.getResponse();

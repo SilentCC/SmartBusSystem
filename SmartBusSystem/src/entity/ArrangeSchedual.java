@@ -15,8 +15,10 @@ public class ArrangeSchedual {
 	public ArrangeSchedual(){
 	}
 
-	public ArrangeSchedual(String CarID,String RouteID,String DriverID,String DriverName,
+	public ArrangeSchedual(String DutyRosterID,String CarID,String RouteID,String DriverID,String DriverName,
 	String Week,String DayOfWeek,String StartTime,String EndTime){
+		
+	this.DutyRosterID=DutyRosterID;
 	this.CarID = CarID;
 	this.RouteID = RouteID;
 	this.DriverID = DriverID;

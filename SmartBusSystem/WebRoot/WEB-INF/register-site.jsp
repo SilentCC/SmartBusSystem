@@ -32,6 +32,21 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 <link rel="stylesheet" type="text/css" href="css/style1.css">
 <link rel="stylesheet" type="text/css" href="css/styleregister.css">
+
+<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=puitw7Sbh1AGDrHhmMebpmPLaZDFLakW"></script>
+<script type="text/javascript" src="http://api.map.baidu.com/library/SearchInfoWindow/1.5/src/SearchInfoWindow_min.js"></script>
+<script src="http://libs.baidu.com/jquery/1.9.0/jquery.js"></script>
+<link rel="stylesheet" href="http://api.map.baidu.com/library/SearchInfoWindow/1.5/src/SearchInfoWindow_min.css" />
+
+<script>
+function fun(){
+
+
+alert("ok");
+
+}
+</script>
+  </head>
   </head>
   
   <body>
@@ -60,14 +75,15 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
       </ul>   
 </nav>
   <h1>新增站点</h1>
-	<div class="content2" style="height:60%">
+	<div class="content2" style="height:70%">
 		<form>
-			<input type="text" name="siteid" value="站点ID" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'CarID';}">
-			<input type="text" name="routeid" value="线路ID" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'UserID';}">
-			<input type="text" name="sitename" value="站点名称" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'RounterNum';}">
-			<input type="text" name="sequence" value="站点顺序" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'RounterNum';}">
-			<input type="text" name="passengernum" value="乘客数量" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Weeeks';}">
-			<input type="submit" class="register" value="新增">
+			<input type="text" name="siteID" value="站点ID" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '站点ID';}">
+			<input type="text" name="siteName" value="站点名称" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '站点名称';}">
+			<input type="text" name="routeID" value="线路ID" onclick="fun()" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '线路ID';}">			
+			<input type="text" name="sequence" value="站点顺序" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '站点顺序';}">
+			<input type="text" name="passageNum" value="乘客数量" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '乘客数量';}">
+			<input type="text" name="location" value="站点坐标" readonly="readonly" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '乘客数量';}">
+			<input type="submit" class="register" onclick="fun()" value="新增">
 		</form>
 	</div>
 	<div class="clear" style="height:60%"></div>

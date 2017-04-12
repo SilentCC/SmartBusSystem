@@ -12,6 +12,34 @@ a:hover,a:focus{color:#050505;text-decoration: none;}
 	color: #3498db;outline: none;text-decoration: none;
 }
 
+.pic{
+	float:left;
+	color:#3498db;
+	border: 1;
+	position: absolute;
+	width: 300;
+	height: 420;
+	line-geight:420; 
+	background:#FFFFFF;
+	overflow:hidden;
+	visibility: hidden;
+	padding:30px 35px;
+}
+
+.picbtn{
+	width:100px;
+	margin:0 auto;
+	display:block;
+	text-align:center;
+	height:30px;
+	font-size:15px;
+	text-align:center;
+    background: #3498db;
+    border: 1px solid #CCC;
+    color:#FFFFFF;
+    border-radius: 4px;
+}
+
 .tab{
     margin-top: 30px;
 }

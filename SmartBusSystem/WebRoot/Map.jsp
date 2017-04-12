@@ -74,15 +74,12 @@ dl,dt,dd,ul,li{
 
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-
-
-
-<script src="js/bootstrap-select.min.js"></script>
-<link rel="stylesheet" href="css/bootstrap-select.min.css">
+<script src="js/bootstrap.min.js" type="text/javascript"></script>
 
   </head>
   
 <body>
+ <body onload="sw()">
   <nav class="navbar navbar-default">
   <div class="container-fluid" >
     <!-- Brand and toggle get grouped for better mobile display -->
@@ -111,21 +108,19 @@ dl,dt,dd,ul,li{
     <div id="allmap" class="map"></div>
 <div style="height:30px"></div>
   <div id="r-result" style="text-align:center">
-
-    <input type="text" autocomplete="on" id="enterArray"  style="width:400px;height:40px;line-height:40px;padding:2px;font-size:16px" />&nbsp;&nbsp;
-  <button id="submit" class="btn btn-info" style="height:40px;">提交</button>&nbsp;&nbsp;
-  <input type="button" style="height:40px;"  class="btn btn-info" value="批量地址解析" onclick="bdGEO()" />
+    <input type="text" autocomplete="on" id="enterArray" style="width:400px;height:40px;line-height:40px;padding:2px;font-size:16px;" />&nbsp;&nbsp;
+  <button id="submit" style="height:30px;">提交</button>&nbsp;&nbsp;
+  <input type="button" style="height:30px;" value="批量地址解析" onclick="bdGEO()" />
   
   </div>
-  	
-  <div style="height:20px" ></div>
+  <div style="height:20px"></div>
   <div id="driving_way" align="center">
-		<select class="selectpicker" data-style="btn-info">
+		<select style="height:30px;">
 			<option value="0">最少时间</option>
 			<option value="1">最短距离</option>
 			<option value="2">避开高速</option>
 		</select>&nbsp;&nbsp;&nbsp;&nbsp;
-		<input type="button" id="result2"  class="btn btn-info"  style="height:38px;" value="查询"/>
+		<input type="button" id="result2" style="height:28px;" value="查询"/>
 </div>
 <div style="height:20px"></div>
 <div align="center">
@@ -143,6 +138,10 @@ dl,dt,dd,ul,li{
 </html>
 
 <script type="text/javascript">
+
+function sw(){
+	alert("ok");
+}
 //创建地图实例
 var map = new BMap.Map("allmap");
 
@@ -222,9 +221,34 @@ var removeMarker = function(e,ee,marker){
 		map.removeOverlay(marker);
 	}
 	
-//创建右键菜单
+//创建右键删除菜单
 var markerMenu=new BMap.ContextMenu();
-markerMenu.addItem(new BMap.MenuItem('删除',removeMarker.bind(marker)));
+markerMenu.addItem(new BMap.MenuItem('删除站点',removeMarker.bind(marker)));
+
+//在地图上创建监听事件
+map.addEventListener("rightclick",function(e){
+if(e.overlay){//判断右键单击的是否是marker
+}else{
+s = e.point.lng;//经度
+w = e.point.lat;//维度
+RightClick();//右键单击map出现右键菜单事件
+}
+});
+//右键单击map出现右键菜单事件
+function RightClick(){
+alert("你点击的是地图");
+var createMarker = function(map){//右键更新站名
+if (confirm("要新建站点吗？")){
+if(true){
+$(".AllSetMassage").show();
+}
+} 
+};
+//创建右键新增菜单
+var mapMenu=new BMap.ContextMenu();
+mapMenu.addItem(new BMap.MenuItem('新建站点',createMarker.bind(map)));
+map.addContextMenu(mapMenu);
+}
 
 // 创建点
 var marker = new BMap.Marker(point);
