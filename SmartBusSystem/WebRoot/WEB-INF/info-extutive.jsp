@@ -203,7 +203,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <ul class="pager">
 <li class="next"><a class="fff" href="#">批量编辑</a></li>
     <li class="next"><a class="fff" onclick="fun()">批量删除 <br></a></li>
-    <li class="next"><a class="fff" href="register-car.jsp">新增线路<br></a></li>
+    <li class="next"><a class="fff" href="smartBusSystem">新增线路<br></a></li>
   </ul>
 </nav>
 <div class="inner">

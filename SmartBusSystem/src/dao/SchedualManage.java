@@ -92,14 +92,54 @@ public class SchedualManage {
 			Session session=null;
 			session = sessionFactory.openSession();
 			String hql = "from ArrangeSchedual as schedual where schedual.DutyRosterID = '" +schedualID+ "'";
-			List<Driver> DriverList = session.createQuery(hql).list();
+			List<ArrangeSchedual> SchedualList = session.createQuery(hql).list();
 			//transaction.commit();
-			if(DriverList.size()>0){
+			if(SchedualList.size()>0){
 				flag = true;			
 			}
 			session.close();					
 			return flag;
 			
 		}
+		
+		//更新排班信息
+		
+		//更新行政人员
+				public int UpdateSchedual(ArrangeSchedual schedual){
+					//连接数据库
+					Session session = sessionFactory.openSession();
+					//定义事物
+					
+					Transaction tx= null;
+					int i = 0;
+					try{
+						tx=session.beginTransaction();
+						session.update(schedual);
+						i = 1;
+						tx.commit();
+					}catch(RuntimeException re){
+						tx.rollback();
+						System.out.println(re);
+						throw re;
+					}
+					
+					session.close();
+					
+					return i;
+				}
+				
+				//查询排班是否存在
+				public ArrangeSchedual QueryOneSchedual(String schedualID){
+					
+					boolean flag = false;
+					Session session=null;
+					session = sessionFactory.openSession();
+					String hql = "from ArrangeSchedual as schedual where schedual.DutyRosterID = '" +schedualID+ "'";
+					List<ArrangeSchedual> SchedualList = session.createQuery(hql).list();
+					//transaction.commit();
+					session.close();					
+					return SchedualList.get(0);
+					
+				}
 
 }

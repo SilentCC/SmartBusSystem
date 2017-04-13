@@ -91,13 +91,52 @@ public class BusManage {
 				Session session=null;
 				session = sessionFactory.openSession();
 				String hql = "from ScheduledBus as bus where bus.CarID = '" +BusID+ "'";
-				List<Driver> DriverList = session.createQuery(hql).list();
+				List<ScheduledBus> BusList = session.createQuery(hql).list();
 				//transaction.commit();
-				if(DriverList.size()>0){
+				if(BusList.size()>0){
 					flag = true;			
 				}
 				session.close();					
 				return flag;
+				
+			}
+	//更新车辆
+			//更新行政人员
+			public int UpdateBus(ScheduledBus Bus){
+				//连接数据库
+				Session session = sessionFactory.openSession();
+				//定义事物
+				
+				Transaction tx= null;
+				int i = 0;
+				try{
+					tx=session.beginTransaction();
+					session.update(Bus);
+					i = 1;
+					tx.commit();
+				}catch(RuntimeException re){
+					tx.rollback();
+					System.out.println(re);
+					throw re;
+				}
+				
+				session.close();
+				
+				return i;
+			}
+			
+			//查询BusID是否存在
+			public ScheduledBus QueryOneBus(String BusID){
+				
+				boolean flag = false;
+				Session session=null;
+				session = sessionFactory.openSession();
+				String hql = "from ScheduledBus as bus where bus.CarID = '" +BusID+ "'";
+				List<ScheduledBus> BusList = session.createQuery(hql).list();
+				//transaction.commit();
+				
+				session.close();					
+				return BusList.get(0);
 				
 			}
 	
