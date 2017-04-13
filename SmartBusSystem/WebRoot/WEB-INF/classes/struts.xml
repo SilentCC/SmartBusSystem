@@ -180,6 +180,13 @@
         		</result> 
         </action>
         
+        <!-- 更能站点控制2 -->
+        <action name="updateSite2" class="UpdateSite">
+        		<result type="redirectAction" name="success">
+        			<param name="actionName">queryBusSystem</param>
+        		</result>
+        </action>
+        
         
         
         
@@ -253,6 +260,55 @@
         			<param name="root">result</param>
         		</result> 
         </action>
+        
+        <!-- 智能班车系统 -->
+        <action name="smartBusSystem">
+        		<!-- 自定义拦截器 -->
+        	<interceptor-ref name="defaultStack"></interceptor-ref>
+			<interceptor-ref name="executivesLoginCheck"></interceptor-ref>
+			<result name="login" type="redirect">/login.jsp </result>
+        		<result>/WEB-INF/Map2.jsp</result>
+        </action>
+        
+        <!-- 更新行政人员 -->
+        <action name="updateExecutive" class="UpdateExecutive">
+        	
+        		<result type="redirectAction" name="success">
+        			<param name="actionName">queryPerson</param>
+        		</result>
+        </action>
+        
+        <!-- 更新司机 -->
+        <action name="updateDriver" class="UpdateDriver">
+        		<result type="redirectAction" name="success">
+        			<param name="actionName">queryPerson</param>
+        		</result>
+        </action>
+        
+         <!-- 更新乘客 -->
+        <action name="updatePassenger" class="UpdatePassenger">
+        		<result type="redirectAction" name="success">
+        			<param name="actionName">queryPerson</param>
+        		</result>
+        </action>
+        
+         <!-- 更新车辆 -->
+        <action name="updateBus" class="UpdateBus">
+        		<result type="redirectAction" name="success">
+        			<param name="actionName">queryPerson</param>
+        		</result>
+        </action>
+        
+         <!-- 更新排班 -->
+        <action name="updateSchedual" class="UpdateSchedual">
+        		<result type="redirectAction" name="success">
+        			<param name="actionName">queryPerson</param>
+        		</result>
+        </action>
+        
+       
+        
+  
    
       </package>
       

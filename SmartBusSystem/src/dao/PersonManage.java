@@ -339,4 +339,117 @@ public class PersonManage {
 			
 		}
 		
+		//更新行政人员
+		public int UpdateExecutive(Executives executives){
+			//连接数据库
+			Session session = sessionFactory.openSession();
+			//定义事物
+			
+			Transaction tx= null;
+			int i = 0;
+			try{
+				tx=session.beginTransaction();
+				session.update(executives);
+				i = 1;
+				tx.commit();
+			}catch(RuntimeException re){
+				tx.rollback();
+				System.out.println(re);
+				throw re;
+			}
+			
+			session.close();
+			
+			return i;
+		}
+		
+		
+		//更新司机人员
+			public int UpdateDriver(Driver driver){
+					//连接数据库
+					Session session = sessionFactory.openSession();
+					//定义事物
+					
+					Transaction tx= null;
+					int i = 0;
+					try{
+						tx=session.beginTransaction();
+						session.update(driver);
+						i = 1;
+						tx.commit();
+					}catch(RuntimeException re){
+						tx.rollback();
+						System.out.println(re);
+						throw re;
+					}
+					
+					session.close();
+					
+					return i;
+				}
+				
+				//更新乘客人员
+				public int UpdatePassenger(Passenger passenger){
+					//连接数据库
+					Session session = sessionFactory.openSession();
+					//定义事物
+					
+					Transaction tx= null;
+					int i = 0;
+					try{
+						tx=session.beginTransaction();
+						session.update(passenger);
+						i = 1;
+						tx.commit();
+					}catch(RuntimeException re){
+						tx.rollback();
+						System.out.println(re);
+						throw re;
+					}
+					
+					session.close();
+					
+					return i;
+				}
+				
+				//查询一条司机
+				public Driver QueryOneDriver(String DriverID){
+					
+					boolean flag = false;
+					Session session=null;
+					session = sessionFactory.openSession();
+					String hql = "from Driver as driver where driver.DriverID = '" +DriverID+ "'";
+					List<Driver> DriverList = session.createQuery(hql).list();
+					//transaction.commit();
+					
+					session.close();					
+					return DriverList.get(0);
+					
+				}
+				
+				//查询行政人员id是否存在
+				public Executives QueryOneExecutives(String ExecutiveID){		
+						boolean flag = false;
+						Session session=null;
+						session = sessionFactory.openSession();
+						String hql = "from Executives as executive where executive.ExecutiveID = '" +ExecutiveID+ "'";
+						List<Executives> ExecutivesList = session.createQuery(hql).list();
+						//transaction.commit();
+						session.close();					
+						return ExecutivesList.get(0);
+					}
+				
+				//查询乘客ID是否存
+				public Passenger QueryOnePassenger(String PassengerID){
+					
+					boolean flag = false;
+					Session session=null;
+					session = sessionFactory.openSession();
+					String hql = "from Passenger as passenger where passenger.PassengerID = '" +PassengerID+ "'";
+					List<Passenger> PassengerList = session.createQuery(hql).list();
+					//transaction.commit();
+					session.close();					
+					return PassengerList.get(0);
+					
+				}
 }

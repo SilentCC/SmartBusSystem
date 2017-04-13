@@ -20,9 +20,12 @@ import dao.SiteManage;
 
 import java.util.*;
 import entity.*;
+import com.algorithm.*;
 
 public class ManageRoute extends ActionSupport{
 	
+	//算法类
+	private TspAlgorithm ta;
 	private String routeID;//要规划的路线ID
 	
 	//Dao类
@@ -59,8 +62,12 @@ public class ManageRoute extends ActionSupport{
 		
 		
 		try{
+			System.out.println("ook");
 			siteList=siteManage.queryRouteSite(routeID);
-			
+			Site ss=siteList.get(0);
+			siteList.remove(0);
+			ta=new TspAlgorithm(siteList,ss,siteList.size());
+			siteList=ta.fun();
 			JSONObject obj=new JSONObject();
 			char a='a';
 			obj.put(String.valueOf(a),String.valueOf(siteList.size()));
