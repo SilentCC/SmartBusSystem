@@ -247,14 +247,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                     <th></th>
                     <th>站点编号</th>
                     <th>线路编号</th>
-                    <th>站点名称</th>
-                    <th>站点次序</th>
+                    <th>站点名称</th>                
                     <th>乘客人数</th>
                     <th>操作<br></th><th class="last">&nbsp;</th>
                   </tr>
                     <c:forEach items="${SiteList}" var="Item" varStatus="rowStatus" >  
                     	 <tr class="odd">
-                    		<td><input type="checkbox" class="checkbox" name="id" value="${Item.siteID}"/></td><td>${Item.siteID}</td><td width="80px">${Item.routeID}</td><td>${Item.siteName}</td><td>${Item.sequence}</td><td>${Item.passageNum}</td>
+                    		<td><input type="checkbox" class="checkbox" name="id" value="${Item.siteID}"/></td><td>${Item.siteID}</td><td width="80px">${Item.routeID}</td><td>${Item.siteName}</td><td>${Item.passageNum}</td>
                     		<td class="last"><a href="#">编辑</a> | <a  onclick="fun6('${Item.siteID}')">删除</a></td>
                   		</tr>
                   	

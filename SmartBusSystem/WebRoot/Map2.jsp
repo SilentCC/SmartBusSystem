@@ -108,15 +108,20 @@ dl,dt,dd,ul,li{
 <div style="height: 900px;">
     <div id="allmap" class="map"></div>
 <div id="pic" style="text-align:center"></div>
+<div id="pic2" style="text-align:center"></div>
+<button type="button" class="btn btn-primary" onclick="ManageRoute1()" style="text-align:center">一号线路自动规划</button>
+<button type="button" class="btn btn-primary" onclick="ManageRoute2()" style="text-align:center">二号线路自动规划</button>
+<button type="button" class="btn btn-primary" onclick="ManageRoute3()" style="text-align:center">三号线路自动规划</button>
+
 <div style="height:30px"></div>
-  <div id="r-result" style="text-align:center">
+  <div id="r-result" >
     <input type="text" autocomplete="on" id="enterArray" style="width:400px;height:40px;line-height:40px;padding:2px;font-size:16px;" />&nbsp;&nbsp;
   <button id="submit" style="height:30px;">提交</button>&nbsp;&nbsp;
   <input type="button" style="height:30px;" value="批量地址解析" onclick="bdGEO()" />
   
   </div>
   <div style="height:20px"></div>
-  <div id="driving_way" align="center">
+  <div id="driving_way">
 		<select style="height:30px;">
 			<option value="0">最少时间</option>
 			<option value="1">最短距离</option>
@@ -126,11 +131,11 @@ dl,dt,dd,ul,li{
 </div>
 
 <div style="height:20px"></div>
-<div align="center">
+<div>
   <div id="result" align="left"></div>
   </div>
   </div>
-        <div class="buttom">
+ <div class="buttom">
 <center>
   <tr>
     <th style="font-size: 14px;text-align:center;">Copyrights Reserved 2016-2017 By 你是风儿我是沙有限公司<br/><br/>浙ICP备12345678号 <br></th>
@@ -158,6 +163,24 @@ dl,dt,dd,ul,li{
             document.getElementById("pic").innerHTML=formDiv;
         }
          
+         
+		function show2(id){
+		
+		
+            var x=event.clientX;
+            var y=event.clientY;
+         
+
+            document.getElementById("pic2").style.top=y;
+            document.getElementById("pic2").style.left=x;
+            document.getElementById("pic2").style.visibility="visible"; 
+            var formDiv="站点名称:   	<input type='text' id='siteName'  name='Siteid'/><br><br>";
+            formDiv+="路线ID:   <input type='text' id='routeId' name='Sitename'/><br><br>";        
+            formDiv+="<input  type='submit'  class='picbtn' value='提交' onclick='hide2()' />";
+            
+            document.getElementById("pic2").innerHTML=formDiv;
+        }
+         
        
 
 
@@ -166,16 +189,7 @@ dl,dt,dd,ul,li{
 </script>
 <script type="text/javascript">
 
-function sw(){
 
-$.post("querySite",function(data){
-
-	alert(data);
-},"json");
-	
-	
-	
-}
 //创建地图实例
 var map = new BMap.Map("allmap");
 
@@ -190,7 +204,7 @@ map.setCurrentCity("杭州");
 map.enableScrollWheelZoom(true);
 
 //实例化添加默认地图类型控件
-var mapType=new BMap.MapTypeControl()
+var mapType=new BMap.MapTypeControl();
 map.addControl(mapType);
 
 // 左上角，实例化添加比例尺
@@ -253,16 +267,327 @@ var content = '<div style="margin:0;line-height:20px;padding:2px;">' +
 
 var removeMarker = function(e,ee,marker){
 		map.removeOverlay(marker);
-	}
+	};
 	
-//创建右键删除菜单,更新菜单
-var markerMenu=new BMap.ContextMenu();
-markerMenu.addItem(new BMap.MenuItem('删除站点',removeMarker.bind(marker)));
+
+
+/*var arr = str.split(',');
+		for(var i = 0; i<arr.length; i++) {
+          	if(arr[i])
+				array.push(arr[i]);
+		}*/		 
+
+var route1= [];//线路1
+var route2= [];//线路2
+var route3= [];//线路3
+
+
+
+function ManageRoute1(){
+	
+	var Start;
+	var End;
+
+   $.post("manageRoute",{"routeID":"001"},function(data){
+   
+   			
+   	    var dd = eval("(" + data + ")"); 
+   	  	
+   	   	var t=new Array();
+   	   	t[0]="a";t[1]="b";t[2]="c";t[3]="d";t[4]="e";t[5]="f";t[6]="g";t[7]="h";t[8]="i";
+   	
+   	  
+   	     var len=dd[t[0]];
+   	   
+   	    for(var i=1;i<=len;i++){
+   	   
+   	    	
+   	    	var s=dd[t[i]].split('?');
+   	    	
+   	    	var x=s[0];
+   	    	var y=s[1];
+   	    	
+   	    	if(i==1)
+   	    		Start=new BMap.Point(x,y);
+   	    	else if(i==len)
+   	    		End=new BMap.Point(x,y);
+   	    	else
+   	    		route1.push(new BMap.Point(x,y));
+   	    	
+   	    	
+   	    			
+   	    }
+   	 
+   	     var Drive = new BMap.DrivingRoute(map, {renderOptions:{map: map, autoViewport: true},policy:BMAP_DRIVING_POLICY_LEAST_TIME}); 
+ 	 
+			Drive.search(Start,End,{waypoints:route1});
+			
+		
+   
+   },"json");
+ 
+   
+ 	
+   
+   
+}
 
 
 
 
 
+
+
+
+function sw(){
+
+$.post("querySite",function(data){
+
+	//alert(data);
+
+	for(var i=0;i<data.length;i++){
+	
+	var obj=eval(data);
+
+	//获取经纬度
+	var s=parseFloat(obj[i].longitude);
+	var w=parseFloat(obj[i].latitude);
+
+	var pt=new BMap.Point(s,w);
+	//导入图标
+	var MyIcon=new BMap.Icon("images/red35.png",new BMap.Size(35,35),{ anchor: new BMap.Size(2, 2) });
+	//创建标注
+	var marker =new BMap.Marker(pt,{icon:MyIcon});
+	//将标注添加到地图中
+	map.addOverlay(marker);	 
+	
+	var id=obj[i].siteID.trim();
+	//左键单击marker事件
+	
+
+	LeftClick(id,marker);
+	//右键单击marker事件
+	
+	RightClick(id,marker);
+	a(id,marker);
+	b(id,marker);
+	
+	}
+},"json");
+
+		
+}
+function b(id,marker){
+ 
+ 
+
+ 
+ 	
+ 	marker.addEventListener("click",function(e){ 
+ 	
+	
+	var p = marker.getPosition(); //获取marker的位置
+
+	$.post("queryOneSite",{"siteID":id},function(data){
+	
+	
+		
+		
+				var d = eval("(" + data + ")"); 
+			
+			var siteName=d.siteName.trim();
+			var routeid=d.routeID.trim();
+			
+			var content="站点编号："+id+"<br/>"+"站点名称："+siteName+"<br/>"+"路线id："+routeid;
+			
+			openInfo(content,e);
+		
+			
+
+},"json");
+
+
+});
+}
+
+function c(){
+
+
+alert("ll");
+
+}
+var StandID;
+//左键单击marker弹出窗口事件
+function openInfo(content,e){
+
+
+var p = e.target;
+
+var point = new BMap.Point(p.getPosition().lng, p.getPosition().lat);
+
+var infoWindow = new BMap.InfoWindow(content); // 创建信息窗口对象 
+
+map.openInfoWindow(infoWindow,point); //开启信息窗口
+}
+
+function a(id,marker){
+	
+	
+	var removeMarker = function(e,ee,marker){
+	
+		var json={"siteID":id};
+	
+		if(confirm("要删除站点"+id+"吗？")){
+	
+			if(true){
+			
+				$.post("deleteSite",function(data){
+			
+					var d = eval("(" + data + ")"); 
+					
+					if(d.delet=="success"){
+						alert("删除站点"+"id"+"成功!");
+				
+					//将标记删除
+						map.removeOverlay(marker);
+					}
+				
+				},"json");
+			}
+	
+		}
+	};
+	
+	var updateMarker = function(marker)
+	{
+	
+	if (confirm("要修改站点"+id+"的站名吗？"))
+	{
+			if(true)
+			{
+				StandID=id;
+				//alert(StandID);
+				show2(id);
+		
+			}
+	}
+	};
+	
+	var markerMenu=new BMap.ContextMenu();
+	
+	
+	markerMenu.addItem(new BMap.MenuItem('删除站点',removeMarker.bind(marker)));
+	markerMenu.addItem(new BMap.MenuItem('修改站名',updateMarker.bind(marker)));
+	marker.addContextMenu(markerMenu);//给标记添加右键菜单
+	
+}
+//右键单击marker出现菜单事件
+function RightClick(id,marker){
+
+
+	alert("sss");
+	var removeMarker = function(e,ee,marker){
+	
+		var json={"siteID":id};
+	
+		if(confirm("要删除站点"+id+"吗？")){
+	
+			if(true){
+			
+				$.post("deleteSite",function(data){
+			
+					var d = eval("(" + data + ")"); 
+					
+					if(d.delet=="success"){
+						alert("删除站点"+"id"+"成功!");
+				
+					//将标记删除
+						map.removeOverlay(marker);
+					}
+				
+				},"json");
+			}
+	
+		}
+	};
+	
+	//右键单击更新站点称和站点线路编号
+	
+	var updateMarker = function(marker)
+	{
+	
+	if (confirm("要修改站点"+id+"的站名吗？"))
+	{
+			if(true)
+			{
+			
+				show2(id);
+			//向数据库中改变站点的函数
+				
+			}
+	}
+	};
+	
+	//创建右键删除菜单,更新菜单
+	var markerMenu=new BMap.ContextMenu();
+	
+	
+	markerMenu.addItem(new BMap.MenuItem('删除站点',removeMarker.bind(marker)));
+	markerMenu.addItem(new BMap.MenuItem('修改站名',updateMarker.bind(marker)));
+	marker.addContextMenu(markerMenu);//给标记添加右键菜单
+	
+}
+
+function hide2(id)
+				{
+				
+					$.post("updateSite",{"siteID":StandID,"siteName":$("#siteName").val(),"routeID":$("#routeId").val()},
+				
+					function(data)
+					{	
+				
+		  			var d = eval("(" + data + ")"); 
+		  			
+						  if(d.login=="success"){
+				  	
+					  	alert("更改成功");	
+				  			
+					  }
+					  else{
+					  
+				  		alert("更改失败");
+					  }
+				
+					},"json");
+				       	
+           			 document.getElementById("pic2").style.visibility="hidden";
+       			 };	
+
+//左键信息
+function LeftClick(id,marker){
+
+marker.addEventListener("click",function(e){ 
+var p = marker.getPosition(); //获取marker的位置
+
+$.post("queryOneSite",{"siteID":id},function(date){
+
+	for(var i=0;i<data.length;i++){
+	
+			var obj=eval(json);
+			
+			var siteName=obj[i].siteName;
+			var routeid=obj[i].routeID;
+			
+			var content="站点编号："+id+"<br/>"+"站点名称："+siteName+"<br/>"+"路线id："+routeID;
+			openInfo(content,e);
+			
+	}
+},"json");
+
+
+});
+
+}
 
 
 
@@ -335,6 +660,8 @@ function hide(){
 				       	
             document.getElementById("pic").style.visibility="hidden";
         }
+        
+
 
 
 
@@ -405,7 +732,7 @@ function hide(){
 // 创建点
 var marker = new BMap.Marker(point);
 map.addOverlay(marker); 
-marker.addContextMenu(markerMenu);
+
 marker.addEventListener("click",getAttr);
 	function getAttr(){
 		var p = marker.getPosition();       //获取marker的位置

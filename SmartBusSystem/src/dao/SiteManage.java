@@ -92,14 +92,71 @@ public class SiteManage {
 				Session session=null;
 				session = sessionFactory.openSession();
 				String hql = "from Site as site where site.SiteID = '" +SiteID+ "'";
-				List<Driver> DriverList = session.createQuery(hql).list();
+				List<Site> SiteList = session.createQuery(hql).list();
 				//transaction.commit();
-				if(DriverList.size()>0){
+				if(SiteList.size()>0){
 					flag = true;			
 				}
 				session.close();					
 				return flag;
 				
 			}
+			
+		
+			
+			//返回站点是否存在
+			public Site QueryOneSite(String SiteID){
+				
+				boolean flag = false;
+				Session session=null;
+				session = sessionFactory.openSession();
+				String hql = "from Site as site where site.SiteID = '" +SiteID+ "'";
+				List<Site> SiteList = session.createQuery(hql).list();
+				//transaction.commit();
+				
+				session.close();					
+				return SiteList.get(0);
+				
+			}
+			
+			//更新站点
+			public int UpdateSite(Site site){
+				//连接数据库
+				Session session = sessionFactory.openSession();
+				//定义事物
+				
+				Transaction tx= null;
+				int i = 0;
+				try{
+					tx=session.beginTransaction();
+					session.update(site);
+					i = 1;
+					tx.commit();
+				}catch(RuntimeException re){
+					tx.rollback();
+					System.out.println(re);
+					throw re;
+				}
+				
+				session.close();
+				
+				return i;
+			}
+			
+			//查询属于某一个路线的站点
+			public List<Site> queryRouteSite(String RouteID){
+				
+				boolean flag = false;
+				Session session=null;
+				session = sessionFactory.openSession();
+				String hql = "from Site as site where site.RouteID = '" +RouteID+ "'";
+				List<Site> SiteList = session.createQuery(hql).list();
+				//transaction.commit();
+				
+				session.close();					
+				return SiteList;
+				
+			}
+			
 
 }

@@ -1,6 +1,5 @@
 package com.action;
 
-import net.sf.json.JSONArray;  
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -19,10 +18,10 @@ import java.util.*;
 
 import entity.*;
 
-public class QuerySite extends ActionSupport {
+public class DeleteSite extends ActionSupport{
 	
-	//存放站点的表
-	private List<Site> siteList;
+	//要删除站点的id
+	private String siteID;
 	
 	//Dao类
 	private SiteManage siteManage;
@@ -37,6 +36,14 @@ public class QuerySite extends ActionSupport {
 		this.result = result;
 	}
 
+	public String getSiteID() {
+		return siteID;
+	}
+
+	public void setSiteID(String siteID) {
+		this.siteID = siteID;
+	}
+
 	public SiteManage getSiteManage() {
 		return siteManage;
 	}
@@ -44,37 +51,16 @@ public class QuerySite extends ActionSupport {
 	public void setSiteManage(SiteManage siteManage) {
 		this.siteManage = siteManage;
 	}
-
-	public List<Site> getSiteList() {
-		return siteList;
-	}
-
-	public void setSiteList(List<Site> siteList) {
-		this.siteList = siteList;
-	}
+	
 	
 	public String execute(){
 		
-		try{
-			siteList=siteManage.QueryAllSite();
-		}
-		catch(Exception e){
-			
-			e.printStackTrace();
-		}
+		//一定可以删除成功
+		siteManage.DeleteSite(siteID);
 		
-		//List格式转换Json
-		JSONArray json=JSONArray.fromObject(siteList);
-		
-		
-		result=json.toString();
-		
-		return SUCCESS; 
-				
-	
-		
+		result = "{\"delet\":\"success\"}";  
+		return SUCCESS;
 	}
 	
-
 
 }

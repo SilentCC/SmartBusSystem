@@ -159,6 +159,27 @@
         		</result>
         </action>
         
+        <!-- 删除站点控制 -->
+        <action name="deleteSite" class="DeleteSite">
+        		<result name="success" type="json">
+        			<param name="root">result</param>
+        		</result> 
+        </action>
+        
+        <!-- 更新站点控制 -->
+        <action name="updateSite" class="UpdateSite">
+        		<result name="success" type="json">
+        			<param name="root">result</param>
+        		</result> 
+        </action>
+        
+        <!-- 查询单个站点 -->
+        <action name="queryOneSite" class="QueryOneSite">
+        		<result name="success" type="json">
+        			<param name="root">result</param>
+        		</result> 
+        </action>
+        
         
         
         
@@ -224,6 +245,13 @@
 			<interceptor-ref name="executivesLoginCheck"></interceptor-ref>
 			<result name="login" type="redirect">/login.jsp </result>
         	<result>/WEB-INF/register-site.jsp</result>
+        </action>
+        
+        <!-- 规划线路控制 -->
+        <action name="manageRoute" class="ManageRoute">
+        	<result name="success" type="json">
+        			<param name="root">result</param>
+        		</result> 
         </action>
    
       </package>

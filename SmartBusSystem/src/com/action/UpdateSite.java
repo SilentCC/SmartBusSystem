@@ -17,16 +17,14 @@ import java.io.PrintWriter;
 import java.util.*;
 
 import entity.*;
-
-public class AddSite extends ActionSupport{
+public class UpdateSite extends ActionSupport{
 	
-	//站点信息
 	private String siteID;
 	private String siteName;
-	private double longitude;
-	private double latitude;
-	private String result;
+	private String routeID;
+	private Site site;
 	
+	private String result;
 	
 	public String getResult() {
 		return result;
@@ -36,20 +34,12 @@ public class AddSite extends ActionSupport{
 		this.result = result;
 	}
 
-	public double getLongitude() {
-		return longitude;
+	public Site getSite() {
+		return site;
 	}
 
-	public void setLongitude(double longitude) {
-		this.longitude = longitude;
-	}
-
-	public double getLatitude() {
-		return latitude;
-	}
-
-	public void setLatitude(double latitude) {
-		this.latitude = latitude;
+	public void setSite(Site site) {
+		this.site = site;
 	}
 
 	//Dao类
@@ -63,8 +53,6 @@ public class AddSite extends ActionSupport{
 		this.siteID = siteID;
 	}
 
-	
-
 	public String getSiteName() {
 		return siteName;
 	}
@@ -73,6 +61,13 @@ public class AddSite extends ActionSupport{
 		this.siteName = siteName;
 	}
 
+	public String getRouteID() {
+		return routeID;
+	}
+
+	public void setRouteID(String routeID) {
+		this.routeID = routeID;
+	}
 
 	public SiteManage getSiteManage() {
 		return siteManage;
@@ -82,32 +77,28 @@ public class AddSite extends ActionSupport{
 		this.siteManage = siteManage;
 	}
 	
-	public String execute() throws IOException{
+	public String execute(){
 		
-		Site site;
-		site=new Site(siteID,"123",siteName,"123",longitude,latitude);
-		//Ajax向后台传送Json格式的数据；
-		//查看是否添加站点成功
-	
-		if(siteManage.QuerySite(siteID)==true){
-			result = "{\"add\":\"fail\"}";  
-			
+		try{
+		site=siteManage.QueryOneSite(siteID);
+		if(routeID!=null)
+			site.setRouteID(routeID);
+		if(siteName!=null)
+			site.setSiteName(siteName);
+		
+		siteManage.UpdateSite(site);
 		}
-		
-		else if(siteManage.AddSite(site)==0){
-			
-		
-			result = "{\"add\":\"fail\"}";  
-			
-		
-		}
-		else 
+		catch(Exception e)
 		{
-			
-			result = "{\"add\":\"success\"}";  
+			System.out.println(e);
+			return ERROR;
 		}
 		
+		result = "{\"login\":\"success\"}"; 
 		return SUCCESS;
+		
+		
+	}
 	
-}
+
 }

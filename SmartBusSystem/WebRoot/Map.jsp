@@ -79,7 +79,6 @@ dl,dt,dd,ul,li{
   </head>
   
 <body>
- <body onload="sw()">
   <nav class="navbar navbar-default">
   <div class="container-fluid" >
     <!-- Brand and toggle get grouped for better mobile display -->
@@ -138,10 +137,6 @@ dl,dt,dd,ul,li{
 </html>
 
 <script type="text/javascript">
-
-function sw(){
-	alert("ok");
-}
 //创建地图实例
 var map = new BMap.Map("allmap");
 
@@ -221,34 +216,9 @@ var removeMarker = function(e,ee,marker){
 		map.removeOverlay(marker);
 	}
 	
-//创建右键删除菜单
+//创建右键菜单
 var markerMenu=new BMap.ContextMenu();
-markerMenu.addItem(new BMap.MenuItem('删除站点',removeMarker.bind(marker)));
-
-//在地图上创建监听事件
-map.addEventListener("rightclick",function(e){
-if(e.overlay){//判断右键单击的是否是marker
-}else{
-s = e.point.lng;//经度
-w = e.point.lat;//维度
-RightClick();//右键单击map出现右键菜单事件
-}
-});
-//右键单击map出现右键菜单事件
-function RightClick(){
-alert("你点击的是地图");
-var createMarker = function(map){//右键更新站名
-if (confirm("要新建站点吗？")){
-if(true){
-$(".AllSetMassage").show();
-}
-} 
-};
-//创建右键新增菜单
-var mapMenu=new BMap.ContextMenu();
-mapMenu.addItem(new BMap.MenuItem('新建站点',createMarker.bind(map)));
-map.addContextMenu(mapMenu);
-}
+markerMenu.addItem(new BMap.MenuItem('删除',removeMarker.bind(marker)));
 
 // 创建点
 var marker = new BMap.Marker(point);
