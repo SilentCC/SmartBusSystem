@@ -31,6 +31,16 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	cellspacing:0;	
 }
 
+.content2 {
+	
+    background-color: rgba(0, 0, 0, 0.21);
+ 
+
+    border-radius: 10px;
+  
+    
+}
+
 </style>
 <script type="text/javascript">
 
@@ -74,31 +84,74 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	
 	}
 	
-	function show(){
+	function show1(index){
             var x=event.clientX;
             var y=event.clientY;
-            document.getElementById("pic").style.top=y-140;
-            document.getElementById("pic").style.left=x-580;
-            document.getElementById("pic").style.visibility="visible"; 
-            var formDiv="<form action='#'>";
+            alert("xxxxxs");
+            document.getElementById("pic1").style.top=y-160;
+            document.getElementById("pic1").style.left=x-660;
+            document.getElementById("pic1").style.visibility="visible"; 
+            var formDiv="<form id='form1' name='form1'  action='updateExecutive' method='post'>";
+            formDiv+="ID:&nbsp&nbsp&nbsp&nbsp<input type='text' id='idshow' style='border-radius:10px;background-color:transparent;' name='executiveID'/><br><br>";
+            formDiv+="姓名:   <input type='text'  id='nameshow' style='border-radius:10px;background-color:transparent;' name='executiveName'/><br><br>";
+            formDiv+="性别:   <input type='text'  style='border-radius:10px;background-color:transparent;' name='sex'/><br><br>";
+            formDiv+="电话: <input type='text'   style='border-radius:10px;background-color:transparent;' name='phone'/><br><br>";
+            formDiv+="住址: <input type='text'  style='border-radius:10px;background-color:transparent;' name='address'/><br><br>";              
+            formDiv+="<button type='submit'  class='picbtn' value='提交' onclick='hide()'>提交</button>"; 
+            formDiv+="</form>";     
+            document.getElementById("pic1").innerHTML=formDiv;
+            
+            $("#form1").attr("method","POST"); 
+            $("#form1").submit(); 
+            alert("ok");
+            if( $("#form1").method=="POST")
+           			 alert("ok");
+            else
+           			 aler("no");
+      }
+      function show2(){
+            var x=event.clientX;
+            var y=event.clientY;
+            document.getElementById("pic2").style.top=y-140;
+            document.getElementById("pic2").style.left=x-560;
+            document.getElementById("pic2").style.visibility="visible"; 
+            var formDiv="<form action='updateExecutive' method='post'>";
             formDiv+="ID:&nbsp&nbsp&nbsp&nbsp<input type='text'  style='border-radius:10px;background-color:transparent;' name='id'/><br><br>";
             formDiv+="姓名:   <input type='text'  style='border-radius:10px;background-color:transparent;' name='name'/><br><br>";
             formDiv+="性别:   <input type='text'  style='border-radius:10px;background-color:transparent;' name='sex'/><br><br>";
             formDiv+="所属部门: <input type='text' style='width:151px;border-radius:10px;background-color:transparent;' name='department'/><br><br>";
             formDiv+="电话: <input type='text'   style='border-radius:10px;background-color:transparent;' name='tel'/><br><br>";
-            formDiv+="住址: <input type='text'  style='border-radius:10px;background-color:transparent;' name='address'/><br><br>";              
+            formDiv+="住址: <input type='text'  style='border-radius:10px;background-color:transparent;' name='address'/><br><br></form>";     
+            document.getElementById("pic2").innerHTML=formDiv;
+            }
+            
+      function show3( index){
+            var x=event.clientX;
+            var y=event.clientY;
+            document.getElementById("pic3").style.top=y-140;
+            document.getElementById("pic3").style.left=x-580;
+            document.getElementById("pic3").style.visibility="visible"; 
+            var formDiv="<form action='updateExecutive' method='post'>";
+            formDiv+="ID:&nbsp&nbsp&nbsp&nbsp<input type='text'  style='border-radius:10px;background-color:transparent;' name='id'/><br><br>";
+            formDiv+="姓名:   <input type='text'  style='border-radius:10px;background-color:transparent;' name='name'/><br><br>";
+            formDiv+="性别:   <input type='text'  style='border-radius:10px;background-color:transparent;' name='sex'/><br><br>";
+            formDiv+="电话: <input type='text'   style='border-radius:10px;background-color:transparent;' name='tel'/><br><br>";
             formDiv+="<input  type='submit'  class='picbtn' value='提交' onclick='hide()' /></form>";     
-            document.getElementById("pic").innerHTML=formDiv;
+            document.getElementById("pic3").innerHTML=formDiv;
+            
         }
          
         function hide(){
-            document.getElementById("pic").style.visibility="hidden";
+            document.getElementById("pic1").style.visibility="hidden";
+            document.getElementById("pic2").style.visibility="hidden";
+            document.getElementById("pic3").style.visibility="hidden";
         }
 </script>
 
   </head>
-  
+ 
   <body>
+  
   <form action="deletePerson" method="post" >
   	<input type="hidden" name="idList" id="idList"/>
   	<input type="hidden" name="identity" id="identity" value="Executives"/>
@@ -147,7 +200,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							<h2 class="title" style="text-align:center">行政人员个人信息表</h2>
 							<nav aria-label="...">
   <ul class="pager">
-  <li class="next"><a class="fff" href="#">批量编辑</a></li>
     <li class="next"><a class="fff"  onclick="fun()">批量删除 <br></a></li>
     <li class="next"><a class="fff" href="registerExecutive">新增人员<br></a></li>
   </ul>
@@ -166,7 +218,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                   </tr>
                     <c:forEach items="${ExecutivesList}" var="Item" varStatus="rowStatus" >  
                     	 <tr class="odd">
-                    		<td><input type="checkbox" class="checkbox" name="id" value="${Item.executiveID}"/></td><td>${Item.executiveID}</td><td width="80px">${Item.executiveName}</td><td>${Item.sex}</td><td>${Item.phone}</td><td>${Item.address}</td><td class="last"> <a onclick="show()">编辑</a><div class="pic" id="pic"></div> | <a  onclick="fun4('${Item.executiveID}')">删除</a></td>
+                    		<td><input type="checkbox" class="checkbox" name="id" value="${Item.executiveID}"/></td><td id="executiveID">${Item.executiveID}</td><td id="executiveName" width="80px">${Item.executiveName}</td><td>${Item.sex}</td><td>${Item.phone}</td><td>${Item.address}</td><td class="last"> <a onclick="show1()">编辑</a><div class="pic1" id="pic1"></div> | <a  onclick="fun4('${Item.executiveID}')">删除</a></td>
                   		</tr>	
   					</c:forEach>
                 </table>
@@ -197,7 +249,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                   </tr>
                  <c:forEach items="${PassengerList}" var="Item" varStatus="rowStatus" >  
                     	 <tr class="odd">
-                    		<td><input type="checkbox" class="checkbox" name="id" value="${Item.passengerID}"/></td><td>${Item.passengerID}</td><td width="80px">${Item.name}</td><td>${Item.sex}</td><td>${Item.department}</td><td>${Item.location}</td><td class="last"><a href="#">编辑</a> | <a  onclick="fun4('${Item.passengerID}')">删除</a></td>
+                    		<td><input type="checkbox" class="checkbox" name="id" value="${Item.passengerID}"/></td><td>${Item.passengerID}</td><td width="80px">${Item.name}</td><td>${Item.sex}</td><td>${Item.department}</td><td>${Item.location}</td><td class="last"><a onclick="show2()">编辑</a><div class="pic2" id="pic2"></div> | <a  onclick="fun4('${Item.passengerID}')">删除</a></td>
                   		</tr>	
   					</c:forEach>
                 </table>
@@ -228,7 +280,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                   
                   <c:forEach items="${DriverList}" var="Item" varStatus="rowStatus" >  
                     	 <tr class="odd">
-                    		<td><input type="checkbox" class="checkbox" name="id" value="${Item.driverID}"/></td><td>${Item.driverID}</td><td width="80px">${Item.driverName}</td><td>${Item.sex}</td><td>${Item.phone}</td><td class="last"><a href="#">编辑</a> | <a  onclick="fun4('${Item.driverID}')">删除</a></td>
+                    		<td><input type="checkbox" class="checkbox" name="id" value="${Item.driverID}"/></td><td>${Item.driverID}</td><td width="80px">${Item.driverName}</td><td>${Item.sex}</td><td>${Item.phone}</td><td class="last"><a onclick="show3()">编辑</a><div class="pic3" id="pic3"></div> | <a  onclick="fun4('${Item.driverID}')">删除</a></td>
                   		</tr>	
   					</c:forEach>
                 </table>
@@ -240,7 +292,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			</div>
 		</div>
 	</div>
-<div class="tcdPageCode">
+<div class="tcdPageCode" style="position:absolute;left:520;top:740;">
 	<nav aria-label="Page navigation" style="text-align:center">
   <ul class="pagination">
     <li>

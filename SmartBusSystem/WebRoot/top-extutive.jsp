@@ -40,13 +40,25 @@ body{
 </style>
 
   </head>
+  
+  <script>
+  function fun(){
+  
+ 	window.location.href = "modify-extutive.jsp";
+  }
+  		
+  		  function fun2(){
+  
+ 	window.location.href = "Charts2.jsp";
+  }
+  </script>
   <body>
   
-    <% 
-  
-     String id=(String)session.getAttribute("identity");
-  	 	if(id==null||id!="Executives")
-  	 response.sendRedirect("login.jsp");
+    <%  
+   
+     String id=(String)session.getAttribute("identity"); 
+  	 	if(id==null||id!="Executives") 
+  	 response.sendRedirect("login.jsp"); 
   %>
   <nav class="navbar navbar-default">
   <div class="container-fluid">
@@ -162,9 +174,9 @@ body{
 						<img src="images/2.png" />
 						<svg viewBox="0 0 180 320" preserveAspectRatio="none"><path d="M 180,160 0,218 0,0 180,0 z"/></svg>
 						<figcaption>
-							<h2>统计报表</h2>
-							<p>你可以查看相关线路以及站点的月度报表。</p>
-							<button>进入</button>
+							<h2>个人信息管理</h2>
+							<p>你可以对自己的相关信息进行修改。</p>
+							<button onclick="fun()">进入</button>
 						</figcaption>
 					</figure>
 				</a>
@@ -173,9 +185,9 @@ body{
 						<img src="images/4.png" />
 						<svg viewBox="0 0 180 320" preserveAspectRatio="none"><path d="M 180,160 0,218 0,0 180,0 z"/></svg>
 						<figcaption>
-							<h2>**管理</h2>
-							<p>尽请期待。。。</p>
-							<button>进入</button>
+							<h2>统计报表</h2>
+							<p>你可以查看相关线路以及站点的月度报表。</p>
+							<button onclick="fun2()">进入</button>
 						</figcaption>
 					</figure>
 				</a>
@@ -184,9 +196,11 @@ body{
 						<img src="images/6.png" />
 						<svg viewBox="0 0 180 320" preserveAspectRatio="none"><path d="M 180,160 0,218 0,0 180,0 z"/></svg>
 						<figcaption>
-							<h2>**管理</h2>
-							<p>尽请期待。。。</p>
-							<button>进入</button>
+							<h2>超级智能规划路线</h2>
+							<p>你可以非常智能的规划路线，增删站点</p>
+							<form action="queryMap" method="post">
+							<button type="submit">进入</button>
+							</form>
 						</figcaption>
 					</figure>
 				</a>

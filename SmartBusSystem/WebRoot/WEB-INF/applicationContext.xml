@@ -234,5 +234,18 @@
 		
 	</bean>
 	
+	<bean id="QueryMapDriver" class="com.action.QueryMapDriver" scope="prototype">
+		<property name="schedualManage">
+			<ref bean="schedualManage"></ref>
+		</property>
+	</bean>
+	
+	<bean id="QueryMapPassenger" class="com.action.QueryMapPassenger" scope="prototype">
+		
+		<property name="routeManage">
+			<ref bean="routeManage"></ref>
+		</property>	
+	</bean>
+	
 	
 </beans>

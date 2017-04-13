@@ -306,6 +306,28 @@
         		</result>
         </action>
         
+        <!-- 司机查看地图 -->
+        <action name="queryMapDriver" class="QueryMapDriver">
+        			<!-- 自定义拦截器 -->
+        	<interceptor-ref name="defaultStack"></interceptor-ref>
+			<interceptor-ref name="driverLoginCheck"></interceptor-ref>
+        		<result name="success">/WEB-INF/Map-Driver.jsp</result>
+        </action>
+        
+         <!-- 乘客查看地图 -->
+        <action name="queryMapPassenger" class="QueryMapPassenger">
+        		<!-- 自定义拦截器 -->
+        	<interceptor-ref name="defaultStack"></interceptor-ref>
+			<interceptor-ref name="passengerLoginCheck"></interceptor-ref>
+        		<result name="success">/WEB-INF/Map-Passager.jsp</result>
+        </action>
+        
+        <action name="queryMap">
+        	<result>/WEB-INF/Map2.jsp</result>
+        </action>
+        
+        
+        
        
         
   

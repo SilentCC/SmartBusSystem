@@ -40,6 +40,14 @@ body{
 </style>
 
   </head>
+  
+    <script>
+  function fun(){
+  
+ 	window.location.href = "modify-driver.jsp";
+  }
+  		
+  </script>
   <body>
   
     <% 
@@ -111,7 +119,7 @@ body{
 						<figcaption>
 							<h2>个人信息管理</h2>
 							<p>你可以对个人的相关信息进行修改。</p>
-							<button>进入</button>
+							<button onclick="fun()">进入</button>
 						</figcaption>
 					</figure>
 				</a>
@@ -122,7 +130,9 @@ body{
 						<figcaption>
 							<h2>站点信息查询</h2>
 							<p>你可以对相关站点的信息进行查询。</p>
-							<button>进入</button>
+							<form action="queryMapDriver" method="post">
+							<button type="submit">进入</button>
+							</form>
 						</figcaption>
 					</figure>
 				</a>
@@ -133,7 +143,9 @@ body{
 						<figcaption>
 							<h2>线路信息查询</h2>
 							<p>你可以对相关线路的信息进行查询。</p>
-							<button>进入</button>
+							<form action="queryMapDriver" method="post">
+							<button type="submit">进入</button>
+							</form>
 						</figcaption>
 					</figure>
 				</a>
@@ -144,7 +156,9 @@ body{
 						<figcaption>
 							<h2>排班信息查询</h2>
 							<p>你可以对个人的排版信息进行查询。</p>
-							<button>进入</button>
+							<form action="queryMapDriver" method="post">
+							<button type="submit">进入</button>
+							</form>
 						</figcaption>
 					</figure>
 				</a>

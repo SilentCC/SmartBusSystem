@@ -143,8 +143,8 @@ body{
 						<img src="images/5.png" />
 						<svg viewBox="0 0 180 320" preserveAspectRatio="none"><path d="M 180,160 0,218 0,0 180,0 z"/></svg>
 						<figcaption>
-							<h2>**管理</h2>
-							<p>尽请期待...</p>
+							<h2>司机信息管理管理</h2>
+							<p>你可以对司机的相关信息进行增删改查。</p>
 							<button>进入</button>
 						</figcaption>
 					</figure>

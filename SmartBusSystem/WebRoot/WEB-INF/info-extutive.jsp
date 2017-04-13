@@ -19,6 +19,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 <link rel="stylesheet" type="text/css" href="css/style1.css">
+<script src="http://cdn.bootcss.com/jquery/3.0.0/jquery.min.js"></script>
 
 <style type="text/css">
 .buttom{
@@ -71,8 +72,88 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	
 	document.getElementById("idList").value=obj;
 	document.getElementById("jump").click();
+	}
 	
-	
+	function show21(){
+            var x=event.clientX;
+            var y=event.clientY;
+            
+            document.getElementById("pic21").style.top=y-210;
+            document.getElementById("pic21").style.left=x-700;
+            document.getElementById("pic21").style.visibility="visible"; 
+            var formDiv="<form action='#'>";
+            formDiv+="车辆ID: <input type='text'  style='border-radius:10px;background-color:transparent;' name='id'/><br><br>";
+            formDiv+="品牌:   <input type='text'  style='border-radius:10px;background-color:transparent;' name='brand'/><br><br>";
+            formDiv+="座位数:   <input type='text'  style='border-radius:10px;background-color:transparent;' name='seats'/><br><br>";
+            formDiv+="注册时间: <input type='text'   style='border-radius:10px;background-color:transparent;' name='dateOfRegistration'/><br><br>";
+            formDiv+="保险到期: <input type='text'  style='border-radius:10px;background-color:transparent;' name='dateOfInsurance'/><br><br>";              
+            formDiv+="驾驶证: <input type='text'  style='border-radius:10px;background-color:transparent;' name='driverLicense'/><br><br>";                 
+            formDiv+="行驶证: <input type='text'  style='border-radius:10px;background-color:transparent;' name='carLicense'/><br><br>";              
+            formDiv+="行驶路线: <input type='text'  style='border-radius:10px;background-color:transparent;' name='routeID'/><br><br>";                       
+            formDiv+="<input  type='submit'  class='picbtn' value='提交' onclick='hide()' /></form>";     
+            document.getElementById("pic21").innerHTML=formDiv;
+     }
+            
+   function show22(){
+ 
+            var x=event.clientX;
+            var y=event.clientY;
+            
+            document.getElementById("pic22").style.top=y-210;
+            document.getElementById("pic22").style.left=x-700;
+            document.getElementById("pic22").style.visibility="visible"; 
+            var formDiv="<form action='#'>";
+            formDiv+="排班编号:  <input type='text' id='aaa' style='border-radius:10px;background-color:transparent;' name='id'/><br><br>";
+            formDiv+="车辆ID:   <input type='text'  style='border-radius:10px;background-color:transparent;' name='name'/><br><br>";
+            formDiv+="员工ID:   <input type='text'  style='border-radius:10px;background-color:transparent;' name='sex'/><br><br>";
+            formDiv+="线路编号: <input type='text' style='width:151px;border-radius:10px;background-color:transparent;' name='department'/><br><br>";
+            formDiv+="周次: <input type='text'   style='border-radius:10px;background-color:transparent;' name='tel'/><br><br>";
+            formDiv+="星期: <input type='text'  style='border-radius:10px;background-color:transparent;' name='address'/><br><br>"; 
+            formDiv+="起始时间:   <input type='text'  style='border-radius:10px;background-color:transparent;' name='sex'/><br><br>";
+            formDiv+="结束时间: <input type='text' style='width:151px;border-radius:10px;background-color:transparent;' name='department'/><br><br>";
+            formDiv+="间隔: <input type='text'   style='border-radius:10px;background-color:transparent;' name='tel'/><br><br>";             
+            formDiv+="<input  type='submit'  class='picbtn' value='提交' onclick='hide()' /></form>";     
+            $("#aaa").val("123");
+            document.getElementById("pic22").innerHTML=formDiv;
+   }
+          
+  function show23(){
+
+            var x=event.clientX;
+            var y=event.clientY;  
+            document.getElementById("pic23").style.top=y-140;
+            document.getElementById("pic23").style.left=x-640;
+            document.getElementById("pic23").style.visibility="visible"; 
+            var formDiv="<form action='#'>";
+            formDiv+="线路编号:   <input type='text'  style='border-radius:10px;background-color:transparent;' name='id'/><br><br>";
+            formDiv+="线路名称:   <input type='text'  style='border-radius:10px;background-color:transparent;' name='name'/><br><br>";
+            formDiv+="起始站点:   <input type='text'  style='border-radius:10px;background-color:transparent;' name='sex'/><br><br>";
+            formDiv+="最终战点: <input type='text'   style='border-radius:10px;background-color:transparent;' name='tel'/><br><br>";
+            formDiv+="乘客人数: <input type='text'   style='border-radius:10px;background-color:transparent;' name='tel'/><br><br>";
+            formDiv+="<input  type='submit'  class='picbtn' value='提交' onclick='hide()' /></form>";     
+            document.getElementById("pic23").innerHTML=formDiv;
+   }
+   
+   function show24(){
+            var x=event.clientX;
+            var y=event.clientY;         
+            document.getElementById("pic24").style.top=y+100;
+            document.getElementById("pic24").style.left=x-620;
+            document.getElementById("pic24").style.visibility="visible"; 
+            var formDiv="<form action='#'>";
+            formDiv+="线路编号:   <input type='text'  style='border-radius:10px;background-color:transparent;' name='name'/><br><br>";
+            formDiv+="站点名称:   <input type='text'  style='border-radius:10px;background-color:transparent;' name='sex'/><br><br>";
+            formDiv+="<input  type='submit'  class='picbtn' value='提交' onclick='hide()' /></form>";     
+            document.getElementById("pic24").innerHTML=formDiv;
+            
+        }
+         
+        function hide(){
+            document.getElementById("pic21").style.visibility="hidden";
+            document.getElementById("pic22").style.visibility="hidden";
+            document.getElementById("pic23").style.visibility="hidden";
+            document.getElementById("pic24").style.visibility="hidden";
+            
 	}
 </script>
 
@@ -150,7 +231,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                     <c:forEach items="${ScheduledBusList}" var="Item" varStatus="rowStatus" >  
                     	 <tr class="odd">
                     		<td><input type="checkbox" class="checkbox" name="id" value="${Item.carID}"/></td><td>${Item.carID}</td><td>${Item.brand}</td><td>${Item.seats}</td><td>${Item.dateOfRegistration}</td><td>${Item.dateOfInsurance}</td>
-                    		<td>${Item.driverLicense}</td><td>${Item.carLicense}</td><td>${Item.routeID}</td><td class="last"><a href="#">编辑</a> | <a  onclick="fun6('${Item.carID}')">删除</a></td>
+                    		<td>${Item.driverLicense}</td><td>${Item.carLicense}</td><td>${Item.routeID}</td><td class="last"><a  onclick="show21()">编辑</a><div class="pic21" id="pic21"></div> | <a  onclick="fun6('${Item.carID}')">删除</a></td>
                   		</tr>
                   	
   					</c:forEach>
@@ -187,7 +268,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                     <c:forEach items="${ArangeSchedualList}" var="Item" varStatus="rowStatus" >  
                     	 <tr class="odd">
                     		<td><input type="checkbox" class="checkbox" name="id" value="${Item.dutyRosterID}"/></td><td>${Item.dutyRosterID}</td><td width="80px">${Item.carID}</td><td>${Item.routeID}</td><td>${Item.driverID}</td><td>${Item.driverName}</td>
-                    		<td>${Item.week}</td><td>${Item.dayOfWeek}</td><td>${Item.startTime}</td><td>${Item.endTime}</td><td class="last"><a href="#">编辑</a> | <a  onclick="fun6('${Item.dutyRosterID}')">删除</a></td>
+                    		<td>${Item.week}</td><td>${Item.dayOfWeek}</td><td>${Item.startTime}</td><td>${Item.endTime}</td><td class="last"><a onclick="show22()" >编辑</a><div class="pic22" id="pic22"></div> | <a  onclick="fun6('${Item.dutyRosterID}')">删除</a></td>
                   		</tr>
                   	
   					</c:forEach>
@@ -203,7 +284,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <ul class="pager">
 <li class="next"><a class="fff" href="#">批量编辑</a></li>
     <li class="next"><a class="fff" onclick="fun()">批量删除 <br></a></li>
-    <li class="next"><a class="fff" href="smartBusSystem">新增线路<br></a></li>
+    <li class="next"><a class="fff" href="register-car.jsp">新增线路<br></a></li>
   </ul>
 </nav>
 <div class="inner">
@@ -221,7 +302,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                     <c:forEach items="${RouteList}" var="Item" varStatus="rowStatus" >  
                     	 <tr class="odd">
                     		<td><input type="checkbox" class="checkbox" name="id" value="${Item.routeID}"/></td><td>${Item.routeID}</td><td width="80px">${Item.routeName}</td><td>${Item.startPlace}</td><td>${Item.endPlace}</td><td>${Item.passageNum}</td>
-                    		<td class="last"><a href="#">编辑</a> | <a  onclick="fun6('${Item.routeID}')">删除</a></td>
+                    		<td class="last"><a onclick="show23()">编辑</a><div class="pic23" id="pic23"></div> | <a  onclick="fun6('${Item.routeID}')">删除</a></td>
                   		</tr>
                   	
   					</c:forEach>
@@ -254,7 +335,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                     <c:forEach items="${SiteList}" var="Item" varStatus="rowStatus" >  
                     	 <tr class="odd">
                     		<td><input type="checkbox" class="checkbox" name="id" value="${Item.siteID}"/></td><td>${Item.siteID}</td><td width="80px">${Item.routeID}</td><td>${Item.siteName}</td><td>${Item.passageNum}</td>
-                    		<td class="last"><a href="#">编辑</a> | <a  onclick="fun6('${Item.siteID}')">删除</a></td>
+                    		<td class="last"><a onclick="show24()">编辑</a><div class="pic24" id="pic24"></div> | <a  onclick="fun6('${Item.siteID}')">删除</a></td>
                   		</tr>
                   	
   					</c:forEach>
@@ -268,25 +349,27 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			</div>
 		</div>
 	</div>
+	<div class="tcdPageCode" style="position:absolute;left:520;top:740;">
 	<nav aria-label="Page navigation" style="text-align:center">
   <ul class="pagination">
     <li>
-      <a href="#" aria-label="Previous">
+      <a href="javascript:;" aria-label="Previous">
         <span aria-hidden="true">&laquo;</span>
       </a>
     </li>
-    <li><a href="#">1</a></li>
-    <li><a href="#">2</a></li>
-    <li><a href="#">3</a></li>
-    <li><a href="#">4</a></li>
-    <li><a href="#">5</a></li>
+    <li><a href="javascript:;">1</a></li>
+    <li><a href="javascript:;">2</a></li>
+    <li><a href="javascript:;">3</a></li>
+    <li><a href="javascript:;">4</a></li>
+    <li><a href="javascript:;">5</a></li>
     <li>
-      <a href="#" aria-label="Next">
+      <a href="javascript:;" aria-label="Next">
         <span aria-hidden="true">&raquo;</span>
       </a>
     </li>
   </ul>
 </nav>
+</div>
 </div>
 
 <script src="js/jquery-2.1.1.min.js" type="text/javascript"></script>

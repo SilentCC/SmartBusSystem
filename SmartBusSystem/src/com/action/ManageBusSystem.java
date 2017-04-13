@@ -82,7 +82,7 @@ public class ManageBusSystem extends ActionSupport {
 	
 	public String execute(){
 		
-		System.out.println("ok");
+	
 		
 		try{
 			ScheduledBusList=busManage.QueryAllBus();
@@ -96,6 +96,7 @@ public class ManageBusSystem extends ActionSupport {
 		catch(Exception e){
 			
 			e.printStackTrace();
+			return ERROR;
 		}
 		
 		return SUCCESS;

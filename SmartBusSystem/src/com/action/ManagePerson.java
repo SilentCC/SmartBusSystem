@@ -85,6 +85,7 @@ public class ManagePerson extends ActionSupport{
 		catch(Exception e){
 			
 			e.printStackTrace();
+			return ERROR;
 		}
 								
 		return SUCCESS;

@@ -3,7 +3,7 @@
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
-
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>  
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN">
 <html>
 <head>
@@ -78,8 +78,7 @@ dl,dt,dd,ul,li{
 
   </head>
   
-
- <body onload="sw()">
+<body onload="sw()">
   <nav class="navbar navbar-default">
   <div class="container-fluid" >
     <!-- Brand and toggle get grouped for better mobile display -->
@@ -104,38 +103,35 @@ dl,dt,dd,ul,li{
         <li><a href="#">联系我们</a></li>
       </ul>   
 </nav>
-
-<div style="height: 900px;">
+<div style="height: 770px;width:54%;text-align:right;float:left;">
+<h2 style="text-align:center"><bold>地图信息查看</bold></h2>
+<div style="height:30px;"></div>
     <div id="allmap" class="map"></div>
-<div id="pic" style="text-align:center"></div>
-<div id="pic2" style="text-align:center"></div>
-<button type="button" class="btn btn-primary" onclick="ManageRoute1()" style="text-align:center">一号线路自动规划</button>
-<button type="button" class="btn btn-primary" onclick="ManageRoute2()" style="text-align:center">二号线路自动规划</button>
-<button type="button" class="btn btn-primary" onclick="ManageRoute3()" style="text-align:center">三号线路自动规划</button>
-
-<div style="height:30px"></div>
-  <div id="r-result" >
-    <input type="text" autocomplete="on" id="enterArray" style="width:400px;height:40px;line-height:40px;padding:2px;font-size:16px;" />&nbsp;&nbsp;
-  <button id="submit" style="height:30px;">提交</button>&nbsp;&nbsp;
-  <input type="button" style="height:30px;" value="批量地址解析" onclick="bdGEO()" />
-  
-  </div>
-  <div style="height:20px"></div>
-  <div id="driving_way">
-		<select style="height:30px;">
-			<option value="0">最少时间</option>
-			<option value="1">最短距离</option>
-			<option value="2">避开高速</option>
-		</select>&nbsp;&nbsp;&nbsp;&nbsp;
-		<input type="button" id="result2" style="height:28px;" value="查询"/>
-</div>
-
-<div style="height:20px"></div>
-<div>
-  <div id="result" align="left"></div>
-  </div>
-  </div>
- <div class="buttom">
+    </div>
+    <div class="mapform" style="width:42%;float:right;">
+              <form action="#" class="form">
+                <table class="table">
+                  <tr>               
+                    <th>线路编号</th>
+                    <th>线路名称</th>
+                    <th>始发地</th>
+                    <th>终点站</th>
+                    <th>乘客数量<br>
+                   </th><th class="last">&nbsp;</th>                
+                  </tr>
+                    <c:forEach items="${RouteList}" var="Item" varStatus="rowStatus" >  
+                    	 <tr class="odd">
+                    		<td>${Item.routeID}</td><td width="80px">${Item.routeName}</td><td>${Item.startPlace}</td><td>${Item.endPlace}</td><td>${Item.passageNum}</td>
+                    	
+                  		</tr>
+                  	
+  					</c:forEach>
+  					
+                </table>
+          </form>
+       </div>
+    <div class="clear" style="height:90%"></div>
+<div class="buttom" style="position:absolute;bottom:-20">
 <center>
   <tr>
     <th style="font-size: 14px;text-align:center;">Copyrights Reserved 2016-2017 By 你是风儿我是沙有限公司<br/><br/>浙ICP备12345678号 <br></th>

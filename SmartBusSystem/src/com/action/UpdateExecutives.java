@@ -94,8 +94,10 @@ public class UpdateExecutives extends ActionSupport{
 	}
 	
 	public String execute(){
+		System.out.println("ooo");
 		
 		try{
+			
 			executives=personManage.QueryOneExecutives(executiveID);
 			
 			executives.setExecutiveName(executiveName);
