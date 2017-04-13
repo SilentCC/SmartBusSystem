@@ -99,9 +99,9 @@ body{
         </div>
         &nbsp&nbsp&nbsp&nbsp<button type="submit" class="btn btn-default">提交</button>
       </form>
-        <li><a href="userExit">退出登录</a></li>
+        <li><a  href="userExit">退出登录</a></li>
       
-        <li><a href="#">联系我们</a></li>
+        <li><a href="Lianxi.jsp">联系我们</a></li>
   
       </ul>
     </div><!-- /.navbar-collapse -->
@@ -169,14 +169,16 @@ body{
 						</figcaption>
 					</figure>
 				</a>
-				<a href="#" data-path-hover="m 180,34.57627 -180,0 L 0,0 180,0 z">
+				<a  data-path-hover="m 180,34.57627 -180,0 L 0,0 180,0 z">
 					<figure>
 						<img src="images/2.png" />
 						<svg viewBox="0 0 180 320" preserveAspectRatio="none"><path d="M 180,160 0,218 0,0 180,0 z"/></svg>
 						<figcaption>
 							<h2>个人信息管理</h2>
 							<p>你可以对自己的相关信息进行修改。</p>
-							<button onclick="fun()">进入</button>
+							<form action="modifyEx" method="post">
+							<button type="submit"> 进入</button>
+							</form>
 						</figcaption>
 					</figure>
 				</a>
@@ -187,7 +189,9 @@ body{
 						<figcaption>
 							<h2>统计报表</h2>
 							<p>你可以查看相关线路以及站点的月度报表。</p>
-							<button onclick="fun2()">进入</button>
+							<form action="charts" method="post">
+							<button type="submit"> 进入</button>
+							</form>
 						</figcaption>
 					</figure>
 				</a>

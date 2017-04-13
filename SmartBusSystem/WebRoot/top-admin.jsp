@@ -145,7 +145,9 @@ body{
 						<figcaption>
 							<h2>司机信息管理管理</h2>
 							<p>你可以对司机的相关信息进行增删改查。</p>
-							<button>进入</button>
+							<form action="queryPerson" method="post">
+								<button onclick="jump()">进入</button>
+							</form>
 						</figcaption>
 					</figure>
 				</a>

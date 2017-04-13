@@ -86,8 +86,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	
 	function show1(index){
             var x=event.clientX;
-            var y=event.clientY;
-            alert("xxxxxs");
+            var y=event.clientY; 
             document.getElementById("pic1").style.top=y-160;
             document.getElementById("pic1").style.left=x-660;
             document.getElementById("pic1").style.visibility="visible"; 
@@ -100,14 +99,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             formDiv+="<button type='submit'  class='picbtn' value='提交' onclick='hide()'>提交</button>"; 
             formDiv+="</form>";     
             document.getElementById("pic1").innerHTML=formDiv;
-            
-            $("#form1").attr("method","POST"); 
-            $("#form1").submit(); 
-            alert("ok");
-            if( $("#form1").method=="POST")
-           			 alert("ok");
-            else
-           			 aler("no");
+           
       }
       function show2(){
             var x=event.clientX;
@@ -122,6 +114,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             formDiv+="所属部门: <input type='text' style='width:151px;border-radius:10px;background-color:transparent;' name='department'/><br><br>";
             formDiv+="电话: <input type='text'   style='border-radius:10px;background-color:transparent;' name='tel'/><br><br>";
             formDiv+="住址: <input type='text'  style='border-radius:10px;background-color:transparent;' name='address'/><br><br></form>";     
+            formDiv+="<button type='submit'  class='picbtn' value='提交' onclick='hide()'>提交</button>"; 
+            formDiv+="</form>"; 
             document.getElementById("pic2").innerHTML=formDiv;
             }
             
@@ -229,7 +223,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							<h2 class="title" style="text-align:center">普通员工个人信息表</h2>
 							<nav aria-label="...">
   <ul class="pager">
-  <li class="next"><a class="fff" href="#">批量编辑</a></li>
     <li class="next"><a class="fff" onclick="fun()">批量删除 <br></a></li>
     <li class="next"><a class="fff" href="registerPassenger">新增人员<br></a></li>
   </ul>
@@ -261,7 +254,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							<h2 class="title" style="text-align:center">司机个人信息表</h2>
 							<nav aria-label="...">
   <ul class="pager">
-  <li class="next"><a class="fff" href="#">批量编辑</a></li>
+
     <li class="next"><a class="fff" onclick="fun()">批量删除 <br></a></li>
     <li class="next"><a class="fff" href="registerDriver">新增人员<br></a></li>
   </ul>

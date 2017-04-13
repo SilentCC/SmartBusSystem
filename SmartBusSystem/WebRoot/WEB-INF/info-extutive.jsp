@@ -208,7 +208,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							<h2 class="title" style="text-align:center">车辆信息管理表</h2>
 							<nav aria-label="...">
   <ul class="pager">
-  <li class="next"><a class="fff" href="#">批量编辑</a></li>
     <li class="next"><a class="fff" onclick="fun()">批量删除 <br></a></li>
     <li class="next"><a class="fff" href="registerBus">新增车辆<br></a></li>
   </ul>
@@ -244,7 +243,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							<h2 class="title" style="text-align:center">司机排班信息表</h2>
 							<nav aria-label="...">
   <ul class="pager">
-<li class="next"><a class="fff" href="#">批量编辑</a></li>
     <li class="next"><a class="fff" onclick="fun()">批量删除 <br></a></li>
     <li class="next"><a class="fff" href="registerSchedual">新增排班<br></a></li>
   </ul>
@@ -282,7 +280,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							<h2 class="title" style="text-align:center">线路信息表</h2>
 							<nav aria-label="...">
   <ul class="pager">
-<li class="next"><a class="fff" href="#">批量编辑</a></li>
     <li class="next"><a class="fff" onclick="fun()">批量删除 <br></a></li>
     <li class="next"><a class="fff" href="register-car.jsp">新增线路<br></a></li>
   </ul>
@@ -316,7 +313,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							<h2 class="title" style="text-align:center">站点信息表</h2>
 							<nav aria-label="...">
   <ul class="pager">
-<li class="next"><a class="fff" href="#">批量编辑</a></li>
     <li class="next"><a class="fff" onclick="fun()">批量删除 <br></a></li>
     <li class="next"><a class="fff" href="registerSite">新增站点<br></a></li>
   </ul>

@@ -97,7 +97,7 @@ body{
         &nbsp&nbsp&nbsp&nbsp<button type="submit" class="btn btn-default">提交</button>
       </form>
       	<li><a href="userExit">退出登录</a></li>
-        <li><a href="#">联系我们</a></li>
+        <li><a href="Lianxi.jsp">联系我们</a></li>
   
       </ul>
     </div><!-- /.navbar-collapse -->
@@ -123,7 +123,8 @@ body{
 							<h2>个人信息管理</h2>
 							<p>你可以对个人的相关信息进行修改。</p>
 							
-							<button onclick="fun()">进入</button>
+								<form action="modifyWr" method="post">
+							<button type="submit"> 进入</button>
 							</form>
 						</figcaption>
 					</figure>

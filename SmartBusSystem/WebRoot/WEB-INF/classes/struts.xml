@@ -326,10 +326,21 @@
         	<result>/WEB-INF/Map2.jsp</result>
         </action>
         
+        <action name="modifyEx">
+        	<result>modify-extutive.jsp</result>
+        </action>
         
+         <action name="modifyWr">
+        	<result>modify-worker.jsp</result>
+        </action>
         
+         <action name="modifyDr">
+        	<result>modify-driver.jsp</result>
+        </action>
        
-        
+        <action name="charts">
+        	<result>Charts2.jsp</result>
+        </action>
   
    
       </package>

@@ -22,7 +22,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
   </head>
   
-  <body>
-   联系你麻痹 <br>
+  <body> 
+   公司联系方式：400-820-8820<br>
   </body>
 </html>

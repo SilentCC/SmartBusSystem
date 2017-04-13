@@ -98,9 +98,10 @@ dl,dt,dd,ul,li{
         <button type="submit" class="btn btn-default">提交</button>
     </form>
       <ul class="nav navbar-nav navbar-right">
-      <li><a>Hello,***</a></li>
-      <li><a href="#">退出登录</a></li>
-        <li><a href="#">联系我们</a></li>
+      <li><a>Hello, <%=session.getAttribute("name")%>!</a></li>
+   		<li><a href="top-worker.jsp">返回主页</a></li>
+      	<li><a href="userExit">退出登录</a></li>
+        <li><a href="Lianxi.jsp">联系我们</a></li>
       </ul>   
 </nav>
 <div style="height: 770px;width:54%;text-align:right;float:left;">
