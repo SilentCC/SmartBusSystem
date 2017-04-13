@@ -3,13 +3,13 @@
 <hibernate-mapping>
 <class name="entity.Site" table="Site" >
 	 		<id name="SiteID">
-	 			<generator class="native"/>
+	 		
 	 		</id>
 	 			<property name="RouteID" length="30"/>
-	 			<property name="SiteName" length="30"/>
-	 			<property name="ArrivalTime" length="30"/>
-	 			<property name="Sequence" length="30"/>
+	 			<property name="SiteName" length="30"/>	 			
 	 			<property name="PassageNum" length="30"/>
+	 			<property name="Longitude" length="30"/>
+	 			<property name="Latitude" length="30"/>
 	 		 			 		
 	 </class>
 </hibernate-mapping>

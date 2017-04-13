@@ -197,6 +197,10 @@ $(document).ready(function(){
 	
 });
 
+$.ajaxSetup({
+  async: false
+  });
+
 	function jump2(){
 	 var name=$("#name").val();
    	 var pwd=$("#password").val();

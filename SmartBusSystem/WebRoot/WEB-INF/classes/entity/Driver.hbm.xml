@@ -5,7 +5,8 @@
 
 	 <class name="entity.Driver" table="Driver" >
 	 		<id name="DriverID">
-	 			<generator class="native"/>
+	 			<column name="DriverID" />
+	 	
 	 		</id>
 	 			<property name="Pwd" length="30"/>
 	 			<property name="DriverName" length="30"/>

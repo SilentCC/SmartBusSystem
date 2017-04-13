@@ -1,73 +1,78 @@
 package entity;
 
 public class Site {
-	private String SiteID;//վ����(����)	
-	private String RouteID;//��·���(����)
-	private String SiteName;//վ�����
-	private String ArrivalTime;//��վʱ��
-	private String Sequence;//���к�
-	private String PassageNum;//�˿�����ע
+	
+	private String SiteID;
+	private String RouteID;
+	private String SiteName;
+	private String PassageNum;
+	private double Longitude;
+	private double Latitude;
+	
+	
 
-	public Site(){
+
+	public double getLongitude() {
+		return Longitude;
 	}
 
-	public Site(String RouteID,String SiteName,String ArrivalTime,String Sequence,
-	String PassageNum){
-	this.RouteID = RouteID; 
-	this.SiteName = SiteName; 
-	this.ArrivalTime = ArrivalTime;
-	this.Sequence = Sequence; 
-	this.PassageNum = PassageNum; 
-	
+	public void setLongitude(double longitude) {
+		Longitude = longitude;
+	}
+
+	public double getLatitude() {
+		return Latitude;
+	}
+
+	public void setLatitude(double latitude) {
+		Latitude = latitude;
 	}
 
 	public String getSiteID() {
-	return SiteID;
+		return SiteID;
 	}
 
 	public void setSiteID(String siteID) {
-	SiteID = siteID;
+		SiteID = siteID;
 	}
 
 	public String getRouteID() {
-	return RouteID;
+		return RouteID;
 	}
 
 	public void setRouteID(String routeID) {
-	RouteID = routeID;
+		RouteID = routeID;
 	}
 
 	public String getSiteName() {
-	return SiteName;
+		return SiteName;
 	}
 
 	public void setSiteName(String siteName) {
-	SiteName = siteName;
+		SiteName = siteName;
 	}
 
-	public String getArrivalTime() {
-	return ArrivalTime;
-	}
-
-	public void setArrivalTime(String arrivalTime) {
-	ArrivalTime = arrivalTime;
-	}
-
-	public String getSequence() {
-	return Sequence;
-	}
-
-	public void setSequence(String sequence) {
-	Sequence = sequence;
-	}
 
 	public String getPassageNum() {
-	return PassageNum;
+		return PassageNum;
 	}
 
 	public void setPassageNum(String passageNum) {
-	PassageNum = passageNum;
+		PassageNum = passageNum;
 	}
 
+	public  Site(){}
+	
+	public  Site(String SiteID,String RouteID,String SiteName,String PassageNum,double Longitude,double Latitude){
+		this.SiteID=SiteID;
+		this.RouteID=RouteID;
+		this.SiteName=SiteName;
+		
+		this.PassageNum=PassageNum;
+		this.Longitude=Longitude;
+		this.Latitude=Latitude;
+	}
+	
+	
 
 }

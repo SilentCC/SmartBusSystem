@@ -119,43 +119,6 @@ h1 {
 	width:75%;
 	margin:0 auto;
 }
-.content1 {
-	width: 48%;
-    text-align: center;
-    background-color: rgba(0, 0, 0, 0.21);
-    padding: 30px 0;
-    float: left;
-    border-radius: 0px;
-}
-.content1 input[type="text"] {
-	padding:10px 40px 10px 10px;
-	width:70%;
-	border:1px solid #fff;
-	color:#fff;
-	text-align:left;
-	outline:none;
-	font-size:18px;
-	background:url(../images/person.png) no-repeat 440px 10px;
-	margin-top:4%;
-	font-weight: 300;
-	font-family: 'Muli', sans-serif;
-	/*-- W3Layouts --*/
-	border-radius: 4px;
-}
-.content1 input[type="password"] {
-	padding:10px 40px 10px 10px;
-	width:70%;
-	border:1px solid #fff;
-	color:#fff;
-	text-align:left;
-	outline:none;
-	font-size:18px;
-	background:url(../images/lock.png) no-repeat 440px 10px;
-	margin-top:6%;
-	font-weight: 300;
-	font-family: 'Muli', sans-serif;
-	border-radius: 4px;
-}
 .button-row {
 	width:100%;
 	margin-top:5%;
@@ -210,18 +173,17 @@ h1 {
 }
 .content2 {
 	width:48%;
-	
+	height:100%;
     text-align: center;
     background-color: rgba(0, 0, 0, 0.21);
     float:right;
 	padding: 30px 0 70px;
     border-radius: 0px;
-    position: fixed;
-    top: 200px;
-    left: 0px;
-    right: 0px;
-    bottom: 200px;
-    margin: auto;
+    position: absolute;
+    left: 50%;
+    right: 50%;
+    margin-left:-300px;
+    margin-top:-50px;
 }
 .content2 input[type="text"] {
 	padding:10px 40px 10px 10px;
@@ -231,7 +193,6 @@ h1 {
 	text-align:cnter;
 	outline:none;
 	font-size:18px;
-	background:url(../images/person.png) no-repeat 440px 10px;
 	margin-top:5%;
 	font-weight: 300;
 	font-family: 'Muli', sans-serif;
@@ -245,7 +206,6 @@ h1 {
 	text-align:left;
 	outline:none;
 	font-size:18px;
-	background:url(../images/phone.png) no-repeat 440px 10px;
 	margin-top:4%;
 	font-weight: 300;
 	font-family: 'Muli', sans-serif;
@@ -259,7 +219,6 @@ h1 {
 	text-align:left;
 	outline:none;
 	font-size:18px;
-	background:url(../images/mail.png) no-repeat 440px 10px;
 	margin-top:4%;
 	font-family: 'Muli', sans-serif;
 	border-radius: 4px;
@@ -272,7 +231,6 @@ h1 {
 	text-align:left;
 	outline:none;
 	font-size:18px;
-	background:url(../images/lock.png) no-repeat 440px 10px;
 	margin-top:4%;
 	font-weight: 300;
 	font-family: 'Muli', sans-serif;
@@ -320,7 +278,6 @@ h1 {
 	color:#c0392b;
 	transition: all 0.5s ease-in-out;
 }
-
 /*-- responsive-mediaquries --*/
 @media(max-width:1920px){
 	.content1 input[type="text"] {
@@ -461,23 +418,17 @@ h1 {
 }
 
 @media (max-width: 1280px){
-	.content1 input[type="text"] {
-    background: url(../images/person.png) no-repeat 338px 10px;
-	}
-	.content1 input[type="password"] {
-    background: url(../images/lock.png) no-repeat 338px 10px;
-	}
 	.content2 input[type="text"] {
-    background: url(../images/person.png) no-repeat 338px 10px;
+    background: url(../images/) no-repeat 338px 10px;
 	}
 	.content2 input[type="tel"] {
-    background: url(../images/phone.png) no-repeat 338px 10px;
+    background: url(../images/) no-repeat 338px 10px;
 	}
 	.content2 input[type="email"] {
-    background: url(../images/mail.png) no-repeat 338px 10px;
+    background: url(../images/) no-repeat 338px 10px;
 	}
 	.content2 input[type="password"] {
-    background: url(../images/lock.png) no-repeat 338px 10px;
+    background: url(../images/) no-repeat 338px 10px;
 	}
 	.sign-in {
     margin-left: 43px;
@@ -1062,5 +1013,24 @@ h1 {
     font-size: 14px;
 }
 }
+
+	
+
+
+
+
+	
+
+	
+
+
+
+
+
+
+
+
+
+
 
 	

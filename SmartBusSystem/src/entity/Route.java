@@ -6,12 +6,14 @@ public class Route {
 	   private String RouteName;//��·���
 	   private String StartPlace;//���
 	   private String EndPlace;//�յ�
-	   private String PassageNum;//�˿�����ע
+	      private String PassageNum;//�˿�����ע
 
 	   public Route(){
 	   }
 
-	   public Route(String RouteName,String StartPlace,String EndPlace,String PassageNum){
+	   public Route(String RouteID,String RouteName,String StartPlace,String EndPlace,String PassageNum){
+		
+		   this.RouteID=RouteID;
 	   this.RouteName = RouteName;
 	   this.StartPlace = StartPlace; 
 	   this.EndPlace = EndPlace;

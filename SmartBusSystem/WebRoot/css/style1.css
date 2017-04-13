@@ -12,6 +12,126 @@ a:hover,a:focus{color:#050505;text-decoration: none;}
 	color: #3498db;outline: none;text-decoration: none;
 }
 
+.pic1{
+	text-align:center;
+	float:left;
+	color:#3498db;
+	border: 1;
+	position: absolute;
+	width: 300;
+	height: 380;
+	line-geight:420; 
+	background-color: rgba(0, 0, 0, 0.66);
+	overflow:hidden;
+	visibility: hidden;
+	padding:30px 35px;
+}
+
+.pic2{
+	text-align:center;
+	float:left;
+	color:#3498db;
+	border: 1;
+	position: absolute;
+	width: 300;
+	height: 420;
+	line-geight:420; 
+	background-color: rgba(0, 0, 0, 0.66);
+	overflow:hidden;
+	visibility: hidden;
+	padding:30px 35px;
+}
+
+.pic3{
+	text-align:center;
+	float:left;
+	color:#3498db;
+	border: 1;
+	position: absolute;
+	width: 300;
+	height: 300;
+	line-geight:420; 
+	background-color: rgba(0, 0, 0, 0.66);
+	overflow:hidden;
+	visibility: hidden;
+	padding:30px 35px;
+}
+
+.pic21{
+	text-align:center;
+	float:left;
+	color:#3498db;
+	border: 1;
+	position: absolute;
+	width: 350;
+	height: 480;
+	line-geight:420; 
+	background-color: rgba(0, 0, 0, 0.66);
+	overflow:hidden;
+	visibility: hidden;
+	padding:30px 35px;
+}
+
+.pic22{
+	text-align:center;
+	float:left;
+	color:#3498db;
+	border: 1;
+	position: absolute;
+	width: 350;
+	height: 530;
+	line-geight:420; 
+	background-color: rgba(0, 0, 0, 0.66);
+	overflow:hidden;
+	visibility: hidden;
+	padding:30px 35px;
+}
+
+.pic23{
+	text-align:center;
+	float:left;
+	color:#3498db;
+	border: 1;
+	position: absolute;
+	width: 350;
+	height: 330;
+	line-geight:420; 
+	background-color: rgba(0, 0, 0, 0.66);
+	overflow:hidden;
+	visibility: hidden;
+	padding:30px 35px;
+}
+
+.pic24{
+	text-align:center;
+	float:left;
+	color:#3498db;
+	border: 1;
+	position: absolute;
+	width: 350;
+	height: 220;
+	line-geight:410; 
+	background-color: rgba(0, 0, 0, 0.66);
+	overflow:hidden;
+	visibility: hidden;
+	padding:30px 35px;
+}
+
+.picbtn{
+	width:100px;
+	margin:0 auto;
+	display:block;
+	text-align:center;
+	height:30px;
+	font-size:15px;
+	text-align:center;
+    background: #3498db;
+    border-radius:10px;
+    border: 1px solid #CCC;
+    color:#FFFFFF;
+    border-radius: 4px;
+}
+
 .tab{
     margin-top: 30px;
 }
