@@ -1,1 +1,1 @@
-# SmartBusSystem
+智能班车管理系统。ssh后台框架。包含百度地图接口。
